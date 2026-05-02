@@ -20,6 +20,16 @@ natural language in → validated, deployment-ready architecture out.
 
 ---
 
+## Screenshots
+
+**Substation network — compliance violation detected:**
+![Substation output](examples/substation-output.png)
+
+**Water treatment network — fully compliant:**
+![Water treatment output](examples/water-treatment-output.png)
+
+---
+
 ## Example output
 
 Input (`examples/substation.txt`):
