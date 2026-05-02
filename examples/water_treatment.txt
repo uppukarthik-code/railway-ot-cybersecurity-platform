@@ -1,0 +1,15 @@
+A municipal water treatment facility network. The facility has a corporate IT
+network for business operations and an isolated OT network controlling the
+treatment process.
+
+The OT network includes PLCs managing chlorination and filtration pumps, RTUs
+monitoring tank levels across three remote pump stations, and an HMI at the
+central control room. A SCADA server in the supervisory zone aggregates all
+sensor data. An OT historian stores process data for compliance reporting.
+
+The corporate IT side has a domain server and engineer workstations. A DMZ
+with a secure data gateway allows read-only historian data to flow to the
+IT reporting systems without exposing the control network.
+
+Field device communication uses Modbus TCP. SCADA-to-control zone links use
+DNP3 over TLS. All cross-zone connections are encrypted.

@@ -1,0 +1,14 @@
+A power utility substation network connecting corporate IT systems to operational
+technology (OT) equipment in the field.
+
+The corporate office runs standard IT infrastructure including workstations and
+servers on the enterprise network. There is a DMZ separating IT from OT systems.
+
+The OT side includes a SCADA server in the supervisory zone, two Programmable
+Logic Controllers (PLCs) managing breaker operations, and four Remote Terminal
+Units (RTUs) in the field collecting sensor data. A Human-Machine Interface (HMI)
+sits in the control zone for operator access. An OT data historian bridges the
+supervisory and DMZ zones for reporting.
+
+All OT-to-OT communication uses IEC 61850 GOOSE messaging. Cross-zone links
+are encrypted. The PLCs have redundant peers for high availability.
