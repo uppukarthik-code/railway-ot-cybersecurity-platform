@@ -1,0 +1,9 @@
+Kavach is a distributed SIL-4 Automatic Train Protection (ATP) system comprising stationary, onboard, telecom, and supervisory subsystems interconnected through safety-critical communication interfaces over partially untrusted transmission networks.
+
+The system includes geographically distributed Stationary Kavach nodes interfacing with Electronic Interlocking systems, onboard train protection units, radio communication infrastructure, centralized monitoring systems, and adjacent station handover interfaces.
+
+Kavach employs deterministic fail-safe communication principles, redundant communication paths, cryptographic session establishment, heartbeat supervision, and continuous train movement authority enforcement to ensure operational safety and collision avoidance.
+
+The architecture contains multiple trust zones including enterprise IT, IDMZ, supervisory control, stationary safety control, interlocking field interfaces, telecom transport infrastructure, and mobile onboard safety domains.
+
+Safety-critical interfaces utilize protected communication protocols including RaSTA, TLS, CRC validation, heartbeat supervision, and session integrity verification in compliance with SIL-4 railway safety requirements and EN 50159 safe communication principles.

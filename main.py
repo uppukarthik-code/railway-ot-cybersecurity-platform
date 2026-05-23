@@ -15,38 +15,85 @@ import sys
 
 import anthropic
 
+from json_repair import repair_json
 from prompts import SYSTEM_PROMPT, build_user_prompt
 from validator import validate, print_report
 
 
 def call_llm(description: str) -> dict:
-    """Send description to Claude, return parsed topology dict."""
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    """Send description to Claude and return repaired topology JSON."""
+
+    client = anthropic.Anthropic(
+        api_key=os.environ["ANTHROPIC_API_KEY"]
+    )
 
     print("  Generating topology...", flush=True)
 
     message = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=4096,
+        max_tokens=8000,
+        temperature=0,
         system=SYSTEM_PROMPT,
         messages=[
-            {"role": "user", "content": build_user_prompt(description)}
+            {
+                "role": "user",
+                "content": build_user_prompt(description)
+            }
         ],
     )
 
     raw = message.content[0].text.strip()
 
-    # Strip accidental markdown fences if the model adds them
-    if raw.startswith("```"):
-        raw = raw.split("\n", 1)[1]
-        raw = raw.rsplit("```", 1)[0].strip()
 
+    # Remove markdown fences safely
+    if raw.startswith(""):
+        raw = raw.replace("json", "")
+        raw = raw.replace("```", "")
+        raw = raw.strip()
+
+    # Save raw output
+    with open(
+        "debug_raw_output.txt",
+        "w",
+        encoding="utf-8"
+    ) as f:
+        f.write(raw)
+
+    # Attempt direct parse first
     try:
         return json.loads(raw)
-    except json.JSONDecodeError as e:
-        print(f"\n[ERROR] LLM returned invalid JSON: {e}")
-        print("Raw output:\n", raw)
-        sys.exit(1)
+
+    except json.JSONDecodeError:
+
+        print("\n[WARN] Invalid JSON detected.")
+        print("Attempting automatic repair...")
+
+        try:
+
+            repaired = repair_json(raw)
+
+            with open(
+                "debug_repaired_output.json",
+                "w",
+                encoding="utf-8"
+            ) as f:
+                f.write(repaired)
+
+            topology = json.loads(repaired)
+
+            print("[OK] JSON successfully repaired.")
+
+            return topology
+
+        except Exception as e:
+
+            print("\n[ERROR] JSON repair failed:")
+            print(e)
+
+            print("\nRaw output saved:")
+            print("debug_raw_output.txt")
+
+            sys.exit(1)
 
 
 def get_description(input_file: str | None) -> str:
