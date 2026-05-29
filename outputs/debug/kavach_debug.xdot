@@ -1,0 +1,1285 @@
+digraph RailwayPurdue {
+	graph [_draw_="c 9 -#fffffe00 C 7 -#ffffff P 4 -28.8 -28.8 -28.8 327.8 9344.8 327.8 9344.8 -28.8 ",
+		bb="0,0,9316,299",
+		bgcolor=white,
+		clusterrank=local,
+		compound=true,
+		concentrate=false,
+		newrank=true,
+		nodesep=1.0,
+		ordering=out,
+		overlap=false,
+		pad=0.4,
+		rankdir=TB,
+		ranksep="2.0 equally",
+		splines=polyline,
+		xdotversion=1.7
+	];
+	node [fontname=Arial,
+		label="\N"
+	];
+	edge [fontname=Arial];
+	subgraph cluster_onboard {
+		graph [_draw_="S 15 -setlinewidth(3) S 6 -dashed c 7 -#7a3db8 C 7 -#f3e8ff b 25 20 42 20 42 1429 42 1429 42 1435 42 1441 48 1441 54 1441 54 1441 \
+150.5 1441 150.5 1441 156.5 1435 162.5 1429 162.5 1429 162.5 20 162.5 20 162.5 14 162.5 8 156.5 8 150.5 8 150.5 8 54 8 54 8 48 14 \
+42 20 42 ",
+			_ldraw_="F 14 11 -Times-Roman c 7 -#000000 T 724.5 145.2 0 138.75 21 -Mobile Onboard Domain ",
+			bb="8,42,1441,162.5",
+			color="#7A3DB8",
+			fillcolor="#F3E8FF",
+			label="Mobile Onboard Domain",
+			lheight=0.23,
+			lp="724.5,150.25",
+			lwidth=1.93,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			onboard_lkavach	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#d9c2e9 b 25 176.4 130 176.4 130 27.6 130 27.6 130 21.6 130 15.6 124 15.6 118 \
+15.6 118 15.6 62 15.6 62 15.6 56 21.6 50 27.6 50 27.6 50 176.4 50 176.4 50 182.4 50 188.4 56 188.4 62 188.4 62 188.4 118 188.4 118 \
+188.4 124 182.4 130 176.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 102 111.75 0 130.5 17 -Locomotive Kavach F 15 5 -Arial c 7 -#000000 T 102 93.75 0 67.5 10 -[l_kavach] \
+F 15 5 -Arial c 7 -#000000 T 102 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 102 57.75 0 26.25 3 -SL3 ",
+				color="#7A3DB8",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Locomotive Kavach
+[l_kavach]
+SIL4
+SL3",
+				penwidth=2,
+				pos="102,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_dmi	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#d9c2e9 b 25 441.5 130 441.5 130 272.5 130 272.5 130 266.5 130 260.5 124 260.5 \
+118 260.5 118 260.5 62 260.5 62 260.5 56 266.5 50 272.5 50 272.5 50 441.5 50 441.5 50 447.5 50 453.5 56 453.5 62 453.5 62 453.5 \
+118 453.5 118 453.5 124 447.5 130 441.5 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 357 111.75 0 164.25 24 -Driver Machine Interface F 15 5 -Arial c 7 -#000000 T 357 93.75 0 177 26 -[\
+driver_machine_interface] F 15 5 -Arial c 7 -#000000 T 357 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 357 57.75 0 26.25 \
+3 -SL3 ",
+				color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Driver Machine Interface
+[driver_machine_interface]
+SIL4
+SL3",
+				penwidth=2,
+				pos="357,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6806];
+			onboard_biu	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#d9c2e9 b 25 686.4 130 686.4 130 537.6 130 537.6 130 531.6 130 525.6 124 525.6 \
+118 525.6 118 525.6 62 525.6 62 525.6 56 531.6 50 537.6 50 537.6 50 686.4 50 686.4 50 692.4 50 698.4 56 698.4 62 698.4 62 698.4 \
+118 698.4 118 698.4 124 692.4 130 686.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 612 111.75 0 133.5 20 -Brake Interface Unit F 15 5 -Arial c 7 -#000000 T 612 93.75 0 144.75 22 -[brake_\
+interface_unit] F 15 5 -Arial c 7 -#000000 T 612 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 612 57.75 0 26.25 3 -SL3 ",
+				color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Brake Interface Unit
+[brake_interface_unit]
+SIL4
+SL3",
+				penwidth=2,
+				pos="612,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_speed	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#d9c2e9 b 25 931.4 130 931.4 130 782.6 130 782.6 130 776.6 130 770.6 124 770.6 \
+118 770.6 118 770.6 62 770.6 62 770.6 56 776.6 50 782.6 50 782.6 50 931.4 50 931.4 50 937.4 50 943.4 56 943.4 62 943.4 62 943.4 \
+118 943.4 118 943.4 124 937.4 130 931.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 857 111.75 0 94.5 12 -Speed Sensor F 15 5 -Arial c 7 -#000000 T 857 93.75 0 102.75 14 -[speed_sensor] \
+F 15 5 -Arial c 7 -#000000 T 857 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 857 57.75 0 26.25 3 -SL3 ",
+				color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Speed Sensor
+[speed_sensor]
+SIL4
+SL3",
+				penwidth=2,
+				pos="857,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_rfid_tag	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 1176.4 130 1176.4 130 1027.6 130 1027.6 130 1021.6 130 1015.6 124 \
+1015.6 118 1015.6 118 1015.6 62 1015.6 62 1015.6 56 1021.6 50 1027.6 50 1027.6 50 1176.4 50 1176.4 50 1182.4 50 1188.4 56 1188.4 \
+62 1188.4 62 1188.4 118 1188.4 118 1188.4 124 1182.4 130 1176.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1102 111.75 0 62.25 8 -RFID Tag F 15 5 -Arial c 7 -#000000 T 1102 93.75 0 81.75 13 -[rfid_reader] F \
+15 5 -Arial c 7 -#000000 T 1102 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 1102 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="RFID Tag
+[rfid_reader]
+NONE
+SL2",
+				penwidth=2,
+				pos="1102,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_rfid	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 1421.4 130 1421.4 130 1272.6 130 1272.6 130 1266.6 130 1260.6 124 \
+1260.6 118 1260.6 118 1260.6 62 1260.6 62 1260.6 56 1266.6 50 1272.6 50 1272.6 50 1421.4 50 1421.4 50 1427.4 50 1433.4 56 1433.4 \
+62 1433.4 62 1433.4 118 1433.4 118 1433.4 124 1427.4 130 1421.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1347 111.75 0 87.75 11 -RFID Reader F 15 5 -Arial c 7 -#000000 T 1347 93.75 0 81.75 13 -[rfid_reader] \
+F 15 5 -Arial c 7 -#000000 T 1347 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 1347 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="RFID Reader
+[rfid_reader]
+NONE
+SL3",
+				penwidth=2,
+				pos="1347,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+		}
+		onboard_lkavach -> onboard_dmi	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 4 189.1 90 197.32 90 227.93 90 249.56 90 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 249.32 92.8 257.32 90 249.32 87.2 ",
+			arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,259.59,90 189.1,90 197.32,90 227.93,90 249.56,90",
+			weight=2];
+		onboard_lkavach -> onboard_biu	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 133.03 130.79 179.31 191.62 261 299 261 299 261 299 454 299 454 299 454 299 528.35 200.65 \
+575.05 138.88 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 577.2 140.67 579.79 132.6 572.73 137.3 ",
+			arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,581.16,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 454,299 454,299 454,299 528.35,200.65 575.05,138.88",
+			weight=2];
+		onboard_speed -> onboard_lkavach	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 825.97 130.79 779.69 191.62 698 299 698 299 698 299 261 299 261 299 261 299 186.18 200.65 \
+139.19 138.88 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 141.48 137.27 134.41 132.6 137.02 140.66 ",
+			arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,133.03,130.79 825.97,130.79 779.69,191.62 698,299 698,299 698,299 261,299 261,299 261,299 186.18,200.65 139.19,138.88",
+			weight=2];
+		field_rfid_tag -> onboard_rfid	[_draw_="S 17 -setlinewidth(1.5) c 7 -#e69138 B 4 1189.28 90 1201.58 90 1231.27 90 1249.7 90 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#e69138 C 7 -#e69138 P 3 1249.63 92.8 1257.63 90 1249.63 87.2 ",
+			arrowsize=0.8,
+			color="#E69138",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,1259.9,90 1189.3,90 1201.6,90 1231.3,90 1249.7,90",
+			weight=2];
+		onboard_rfid -> onboard_lkavach	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 10 1315.97 130.79 1269.69 191.62 1188 299 1188 299 1188 299 261 299 261 299 261 \
+299 186.79 201.45 139.76 139.64 ",
+			_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 142.12 138.12 135.05 133.44 137.67 141.51 ",
+			arrowsize=0.8,
+			color="#7A3DB8",
+			constraint=false,
+			fontsize=8,
+			penwidth=2.2,
+			pos="e,133.03,130.79 1316,130.79 1269.7,191.62 1188,299 1188,299 1188,299 261,299 261,299 261,299 186.79,201.45 139.76,139.64",
+			style=dashed,
+			weight=2];
+	}
+	subgraph cluster_external_security {
+		graph [_draw_="S 15 -setlinewidth(3) S 6 -dashed c 7 -#aa4444 C 7 -#fde9e7 b 25 1498 30 1498 30 1931 30 1931 30 1937 30 1943 36 1943 42 1943 42 \
+1943 167 1943 167 1943 173 1937 179 1931 179 1931 179 1498 179 1498 179 1492 179 1486 173 1486 167 1486 167 1486 42 1486 42 1486 \
+36 1492 30 1498 30 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 1714.5 157.9 0 224.25 26 -External Security Services ",
+			bb="1486,30,1943,179",
+			color="#AA4444",
+			fillcolor="#FDE9E7",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="External Security Services",
+			lheight=0.29,
+			lp="1714.5,164.5",
+			lwidth=3.11,
+			margin=20,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			ext_ca	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fff2cc b 25 1666.4 130 1666.4 130 1517.6 130 1517.6 130 1511.6 130 1505.6 124 \
+1505.6 118 1505.6 118 1505.6 62 1505.6 62 1505.6 56 1511.6 50 1517.6 50 1517.6 50 1666.4 50 1666.4 50 1672.4 50 1678.4 56 1678.4 \
+62 1678.4 62 1678.4 118 1678.4 118 1678.4 124 1672.4 130 1666.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1592 111.75 0 129.75 21 -Certificate Authority F 15 5 -Arial c 7 -#000000 T 1592 93.75 0 139.5 23 -[\
+certificate_authority] F 15 5 -Arial c 7 -#000000 T 1592 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 1592 57.75 0 26.25 3 \
+-SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="Certificate Authority
+[certificate_authority]
+NONE
+SL3",
+				penwidth=2,
+				pos="1592,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			ext_kms	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#f4e1e1 b 25 1911.4 130 1911.4 130 1762.6 130 1762.6 130 1756.6 130 1750.6 124 \
+1750.6 118 1750.6 118 1750.6 62 1750.6 62 1750.6 56 1756.6 50 1762.6 50 1762.6 50 1911.4 50 1911.4 50 1917.4 50 1923.4 56 1923.4 \
+62 1923.4 62 1923.4 118 1923.4 118 1923.4 124 1917.4 130 1911.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1837 111.75 0 91.5 12 -External KMS F 15 5 -Arial c 7 -#000000 T 1837 93.75 0 98.25 14 -[external_kms] \
+F 15 5 -Arial c 7 -#000000 T 1837 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 1837 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#F4E1E1",
+				fontsize=15,
+				height=1.1111,
+				label="External KMS
+[external_kms]
+NONE
+SL3",
+				penwidth=2,
+				pos="1837,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+		}
+		ext_kms -> ext_ca	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 4 1749.9 90 1737.71 90 1707.82 90 1689.3 90 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 1689.55 87.2 1681.55 90 1689.55 92.8 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,1679.3,90 1749.9,90 1737.7,90 1707.8,90 1689.3,90",
+			weight=2];
+	}
+	subgraph cluster_l5_enterprise {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#dce6f1 C 9 -#dce6f122 b 25 1984 26 1984 26 2715 26 2715 26 2721 26 2727 32 2727 38 2727 38 2727 171 \
+2727 171 2727 177 2721 183 2715 183 2715 183 1984 183 1984 183 1978 183 1972 177 1972 171 1972 171 1972 38 1972 38 1972 32 1978 \
+26 1984 26 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2349.5 161.9 0 114.75 13 -L5 Enterprise ",
+			bb="1972,26,2727,183",
+			color="#DCE6F1",
+			fillcolor="#DCE6F122",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L5 Enterprise",
+			lheight=0.29,
+			lp="2349.5,168.5",
+			lwidth=1.59,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			enterprise_email	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 2156.4 130 2156.4 130 2007.6 130 2007.6 130 2001.6 130 1995.6 124 \
+1995.6 118 1995.6 118 1995.6 62 1995.6 62 1995.6 56 2001.6 50 2007.6 50 2007.6 50 2156.4 50 2156.4 50 2162.4 50 2168.4 56 2168.4 \
+62 2168.4 62 2168.4 118 2168.4 118 2168.4 124 2162.4 130 2156.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2082 111.75 0 156.75 22 -Corporate Email Server F 15 5 -Arial c 7 -#000000 T 2082 93.75 0 126 19 -[\
+enterprise_server] F 15 5 -Arial c 7 -#000000 T 2082 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 2082 57.75 0 26.25 3 -SL1 ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="Corporate Email Server
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2082,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			enterprise_erp	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 2401.4 130 2401.4 130 2252.6 130 2252.6 130 2246.6 130 2240.6 124 \
+2240.6 118 2240.6 118 2240.6 62 2240.6 62 2240.6 56 2246.6 50 2252.6 50 2252.6 50 2401.4 50 2401.4 50 2407.4 50 2413.4 56 2413.4 \
+62 2413.4 62 2413.4 118 2413.4 118 2413.4 124 2407.4 130 2401.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2327 111.75 0 84.75 10 -ERP System F 15 5 -Arial c 7 -#000000 T 2327 93.75 0 126 19 -[enterprise_server] \
+F 15 5 -Arial c 7 -#000000 T 2327 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 2327 57.75 0 26.25 3 -SL1 ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="ERP System
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2327,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			enterprise_eam	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 2690.5 130 2690.5 130 2497.5 130 2497.5 130 2491.5 130 2485.5 124 \
+2485.5 118 2485.5 118 2485.5 62 2485.5 62 2485.5 56 2491.5 50 2497.5 50 2497.5 50 2690.5 50 2690.5 50 2696.5 50 2702.5 56 2702.5 \
+62 2702.5 62 2702.5 118 2702.5 118 2702.5 124 2696.5 130 2690.5 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2594 111.75 0 201 27 -Enterprise Asset Management F 15 5 -Arial c 7 -#000000 T 2594 93.75 0 126 19 \
+-[enterprise_server] F 15 5 -Arial c 7 -#000000 T 2594 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 2594 57.75 0 26.25 3 -SL1 ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="Enterprise Asset Management
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2594,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=3.0139];
+		}
+	}
+	subgraph cluster_l35_idmz {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#fce5cd C 9 -#fce5cd22 b 25 2763 26 2763 26 3449 26 3449 26 3455 26 3461 32 3461 38 3461 38 3461 171 \
+3461 171 3461 177 3455 183 3449 183 3449 183 2763 183 2763 183 2757 183 2751 177 2751 171 2751 171 2751 38 2751 38 2751 32 2757 \
+26 2763 26 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 3106 161.9 0 85.5 9 -L3.5 IDMZ ",
+			bb="2751,26,3461,183",
+			color="#FCE5CD",
+			fillcolor="#FCE5CD22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 IDMZ",
+			lheight=0.29,
+			lp="3106,168.5",
+			lwidth=1.19,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			idmz_firewall	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 2935.4 130 2935.4 130 2786.6 130 2786.6 130 2780.6 130 2774.6 124 \
+2774.6 118 2774.6 118 2774.6 62 2774.6 62 2774.6 56 2780.6 50 2786.6 50 2786.6 50 2935.4 50 2935.4 50 2941.4 50 2947.4 56 2947.4 \
+62 2947.4 62 2947.4 118 2947.4 118 2947.4 124 2941.4 130 2935.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2861 111.75 0 91.5 13 -IDMZ Firewall F 15 5 -Arial c 7 -#000000 T 2861 93.75 0 54.75 10 -[firewall] \
+F 15 5 -Arial c 7 -#000000 T 2861 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 2861 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="IDMZ Firewall
+[firewall]
+NONE
+SL2",
+				penwidth=2,
+				pos="2861,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_jumphost	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 3180.4 130 3180.4 130 3031.6 130 3031.6 130 3025.6 130 3019.6 124 \
+3019.6 118 3019.6 118 3019.6 62 3019.6 62 3019.6 56 3025.6 50 3031.6 50 3031.6 50 3180.4 50 3180.4 50 3186.4 50 3192.4 56 3192.4 \
+62 3192.4 62 3192.4 118 3192.4 118 3192.4 124 3186.4 130 3180.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 3106 111.75 0 72 9 -Jump Host F 15 5 -Arial c 7 -#000000 T 3106 93.75 0 78 11 -[jump_host] F 15 5 -Arial \
+c 7 -#000000 T 3106 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 3106 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="Jump Host
+[jump_host]
+NONE
+SL2",
+				penwidth=2,
+				pos="3106,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_diode	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 3425.4 130 3425.4 130 3276.6 130 3276.6 130 3270.6 130 3264.6 124 \
+3264.6 118 3264.6 118 3264.6 62 3264.6 62 3264.6 56 3270.6 50 3276.6 50 3276.6 50 3425.4 50 3425.4 50 3431.4 50 3437.4 56 3437.4 \
+62 3437.4 62 3437.4 118 3437.4 118 3437.4 124 3431.4 130 3425.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 3351 111.75 0 74.25 10 -Data Diode F 15 5 -Arial c 7 -#000000 T 3351 93.75 0 82.5 12 -[data_diode] \
+F 15 5 -Arial c 7 -#000000 T 3351 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 3351 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="Data Diode
+[data_diode]
+NONE
+SL2",
+				penwidth=2,
+				pos="3351,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+		}
+	}
+	subgraph cluster_l35_security {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#fff2cc C 9 -#fff2cc22 b 25 3498 26 3498 26 4674 26 4674 26 4680 26 4686 32 4686 38 4686 38 4686 171 \
+4686 171 4686 177 4680 183 4674 183 4674 183 3498 183 3498 183 3492 183 3486 177 3486 171 3486 171 3486 38 3486 38 3486 32 3492 \
+26 3498 26 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 4086 161.9 0 111.75 13 -L3.5 Security ",
+			bb="3486,26,4686,183",
+			color="#FFF2CC",
+			fillcolor="#FFF2CC22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 Security",
+			lheight=0.29,
+			lp="4086,168.5",
+			lwidth=1.55,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			sec_siem	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 3670.4 130 3670.4 130 3521.6 130 3521.6 130 3515.6 130 3509.6 124 3509.6 118 \
+3509.6 118 3509.6 62 3509.6 62 3509.6 56 3515.6 50 3521.6 50 3521.6 50 3670.4 50 3670.4 50 3676.4 50 3682.4 56 3682.4 62 3682.4 \
+62 3682.4 118 3682.4 118 3682.4 124 3676.4 130 3670.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 3596 111.75 0 36.75 4 -SIEM F 15 5 -Arial c 7 -#000000 T 3596 93.75 0 40.5 6 -[siem] F 15 5 -Arial \
+c 7 -#000000 T 3596 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 3596 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="SIEM
+[siem]
+NONE
+SL3",
+				penwidth=2,
+				pos="3596,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_soc	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 3915.4 130 3915.4 130 3766.6 130 3766.6 130 3760.6 130 3754.6 124 3754.6 118 \
+3754.6 118 3754.6 62 3754.6 62 3754.6 56 3760.6 50 3766.6 50 3766.6 50 3915.4 50 3915.4 50 3921.4 50 3927.4 56 3927.4 62 3927.4 \
+62 3927.4 118 3927.4 118 3927.4 124 3921.4 130 3915.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 3841 111.75 0 81 10 -SOC Server F 15 5 -Arial c 7 -#000000 T 3841 93.75 0 82.5 12 -[soc_server] F 15 \
+5 -Arial c 7 -#000000 T 3841 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 3841 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="SOC Server
+[soc_server]
+NONE
+SL3",
+				penwidth=2,
+				pos="3841,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ids	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 4160.4 130 4160.4 130 4011.6 130 4011.6 130 4005.6 130 3999.6 124 3999.6 118 \
+3999.6 118 3999.6 62 3999.6 62 3999.6 56 4005.6 50 4011.6 50 4011.6 50 4160.4 50 4160.4 50 4166.4 50 4172.4 56 4172.4 62 4172.4 \
+62 4172.4 118 4172.4 118 4172.4 124 4166.4 130 4160.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 4086 111.75 0 76.5 10 -IDS Sensor F 15 5 -Arial c 7 -#000000 T 4086 93.75 0 81 12 -[ids_sensor] F 15 \
+5 -Arial c 7 -#000000 T 4086 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 4086 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="IDS Sensor
+[ids_sensor]
+NONE
+SL3",
+				penwidth=2,
+				pos="4086,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ips	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 4405.4 130 4405.4 130 4256.6 130 4256.6 130 4250.6 130 4244.6 124 4244.6 118 \
+4244.6 118 4244.6 62 4244.6 62 4244.6 56 4250.6 50 4256.6 50 4256.6 50 4405.4 50 4405.4 50 4411.4 50 4417.4 56 4417.4 62 4417.4 \
+62 4417.4 118 4417.4 118 4417.4 124 4411.4 130 4405.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 4331 111.75 0 75.75 10 -IPS Sensor F 15 5 -Arial c 7 -#000000 T 4331 93.75 0 81 12 -[ips_sensor] F \
+15 5 -Arial c 7 -#000000 T 4331 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 4331 57.75 0 26.25 3 -SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="IPS Sensor
+[ips_sensor]
+NONE
+SL3",
+				penwidth=2,
+				pos="4331,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_vuln	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 4650.4 130 4650.4 130 4501.6 130 4501.6 130 4495.6 130 4489.6 124 4489.6 118 \
+4489.6 118 4489.6 62 4489.6 62 4489.6 56 4495.6 50 4501.6 50 4501.6 50 4650.4 50 4650.4 50 4656.4 50 4662.4 56 4662.4 62 4662.4 \
+62 4662.4 118 4662.4 118 4662.4 124 4656.4 130 4650.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 4576 111.75 0 140.25 21 -Vulnerability Scanner F 15 5 -Arial c 7 -#000000 T 4576 93.75 0 148.5 23 -[\
+vulnerability_scanner] F 15 5 -Arial c 7 -#000000 T 4576 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 4576 57.75 0 26.25 3 \
+-SL3 ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="Vulnerability Scanner
+[vulnerability_scanner]
+NONE
+SL3",
+				penwidth=2,
+				pos="4576,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+		}
+		sec_siem -> sec_soc	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 4 3683.28 90 3695.58 90 3725.27 90 3743.7 90 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 3743.63 92.8 3751.63 90 3743.63 87.2 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,3753.9,90 3683.3,90 3695.6,90 3725.3,90 3743.7,90",
+			weight=2];
+		sec_vuln -> sec_soc	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 4544.97 130.79 4498.69 191.62 4417 299 4417 299 4417 299 4000 299 4000 299 4000 299 3925.18 \
+200.65 3878.19 138.88 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 3880.48 137.27 3873.41 132.6 3876.02 140.66 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,3872,130.79 4545,130.79 4498.7,191.62 4417,299 4417,299 4417,299 4000,299 4000,299 4000,299 3925.2,200.65 3878.2,138.88",
+			weight=2];
+	}
+	subgraph cluster_l3_operations {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#d9eaf7 C 9 -#d9eaf722 b 25 4722 26 4722 26 5998 26 5998 26 6004 26 6010 32 6010 38 6010 38 6010 171 \
+6010 171 6010 177 6004 183 5998 183 5998 183 4722 183 4722 183 4716 183 4710 177 4710 171 4710 171 4710 38 4710 38 4710 32 4716 \
+26 4722 26 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 5360 161.9 0 121.5 13 -L3 Operations ",
+			bb="4710,26,6010,183",
+			color="#D9EAF7",
+			fillcolor="#D9EAF722",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3 Operations",
+			lheight=0.29,
+			lp="5360,168.5",
+			lwidth=1.69,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			ops_tms	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 4918 130 4918 130 4746 130 4746 130 4740 130 4734 124 4734 118 4734 118 4734 \
+62 4734 62 4734 56 4740 50 4746 50 4746 50 4918 50 4918 50 4924 50 4930 56 4930 62 4930 62 4930 118 4930 118 4930 124 4924 130 4918 \
+130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 4832 111.75 0 180 23 -Train Management System F 15 5 -Arial c 7 -#000000 T 4832 93.75 0 33.75 5 -[tms] \
+F 15 5 -Arial c 7 -#000000 T 4832 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 4832 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Train Management System
+[tms]
+NONE
+SL2",
+				penwidth=2,
+				pos="4832,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.7222];
+			ops_nms	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 5207.88 130 5207.88 130 5014.12 130 5014.12 130 5008.12 130 5002.12 124 5002.12 \
+118 5002.12 118 5002.12 62 5002.12 62 5002.12 56 5008.12 50 5014.12 50 5014.12 50 5207.88 50 5207.88 50 5213.88 50 5219.88 56 5219.88 \
+62 5219.88 62 5219.88 118 5219.88 118 5219.88 124 5213.88 130 5207.88 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 5111 111.75 0 201.75 25 -Network Management System F 15 5 -Arial c 7 -#000000 T 5111 93.75 0 37.5 5 \
+-[nms] F 15 5 -Arial c 7 -#000000 T 5111 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 5111 57.75 0 26.25 3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Network Management System
+[nms]
+NONE
+SL2",
+				penwidth=2,
+				pos="5111,90",
+				shape=box,
+				style="rounded,filled",
+				width=3.0243];
+			ops_workstation	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 5458.38 130 5458.38 130 5303.62 130 5303.62 130 5297.62 130 5291.62 124 5291.62 \
+118 5291.62 118 5291.62 62 5291.62 62 5291.62 56 5297.62 50 5303.62 50 5303.62 50 5458.38 50 5458.38 50 5464.38 50 5470.38 56 5470.38 \
+62 5470.38 62 5470.38 118 5470.38 118 5470.38 124 5464.38 130 5458.38 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 5381 111.75 0 157.5 22 -Operations Workstation F 15 5 -Arial c 7 -#000000 T 5381 93.75 0 162.75 24 \
+-[operations_workstation] F 15 5 -Arial c 7 -#000000 T 5381 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 5381 57.75 0 26.25 \
+3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Operations Workstation
+[operations_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5381,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4826];
+			ops_maintenance	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 5715.75 130 5715.75 130 5554.25 130 5554.25 130 5548.25 130 5542.25 124 5542.25 \
+118 5542.25 118 5542.25 62 5542.25 62 5542.25 56 5548.25 50 5554.25 50 5554.25 50 5715.75 50 5715.75 50 5721.75 50 5727.75 56 5727.75 \
+62 5727.75 62 5727.75 118 5727.75 118 5727.75 124 5721.75 130 5715.75 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 5635 111.75 0 169.5 23 -Maintenance Workstation F 15 5 -Arial c 7 -#000000 T 5635 93.75 0 162.75 24 \
+-[operations_workstation] F 15 5 -Arial c 7 -#000000 T 5635 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 5635 57.75 0 26.25 \
+3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Maintenance Workstation
+[operations_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5635,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.5764];
+			ops_engineering	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 5974.12 130 5974.12 130 5811.88 130 5811.88 130 5805.88 130 5799.88 124 5799.88 \
+118 5799.88 118 5799.88 62 5799.88 62 5799.88 56 5805.88 50 5811.88 50 5811.88 50 5974.12 50 5974.12 50 5980.12 50 5986.12 56 5986.12 \
+62 5986.12 62 5986.12 118 5986.12 118 5986.12 124 5980.12 130 5974.12 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 5893 111.75 0 162.75 23 -Engineering Workstation F 15 5 -Arial c 7 -#000000 T 5893 93.75 0 170.25 25 \
+-[engineering_workstation] F 15 5 -Arial c 7 -#000000 T 5893 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 5893 57.75 0 26.25 \
+3 -SL2 ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Engineering Workstation
+[engineering_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5893,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.5868];
+		}
+		ops_tms -> ops_nms	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 4 4930.82 90 4942.6 90 4969.95 90 4990.9 90 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 4990.88 92.8 4998.88 90 4990.88 87.2 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,5001.2,90 4930.8,90 4942.6,90 4970,90 4990.9,90",
+			weight=2];
+		ops_workstation -> ops_tms	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 5349.58 130.79 5302.72 191.62 5220 299 5220 299 5220 299 5002 299 5002 299 5002 299 4921.67 \
+200.24 4871.45 138.5 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 4873.83 136.99 4866.61 132.55 4869.49 140.53 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,4865.2,130.79 5349.6,130.79 5302.7,191.62 5220,299 5220,299 5220,299 5002,299 5002,299 5002,299 4921.7,200.24 4871.5,138.5",
+			weight=2];
+	}
+	subgraph cluster_l2 {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#999999 C 7 -#f8f8f8 b 25 6030 8 6030 8 6997 8 6997 8 7003 8 7009 14 7009 20 7009 20 7009 215 7009 215 \
+7009 221 7003 227 6997 227 6997 227 6030 227 6030 227 6024 227 6018 221 6018 215 6018 215 6018 20 6018 20 6018 14 6024 8 6030 8 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 6513.5 205.9 0 21 2 -L2 ",
+			bb="6018,8,7009,227",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L2,
+			lheight=0.29,
+			lp="6513.5,212.5",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l2_telecom {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#d9ead3 C 9 -#d9ead322 b 25 6054 32 6054 32 6483 32 6483 32 6489 32 6495 38 6495 44 6495 44 6495 162 \
+6495 162 6495 168 6489 174 6483 174 6483 174 6054 174 6054 174 6048 174 6042 168 6042 162 6042 162 6042 44 6042 44 6042 38 6048 \
+32 6054 32 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 6268.5 155.75 0 81.75 10 -L2 Telecom ",
+					bb="6042,32,6495,174",
+					color="#D9EAD3",
+					fillcolor="#D9EAD322",
+					fontsize=15,
+					label="L2 Telecom",
+					lheight=0.25,
+					lp="6268.5,161",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					telecom_mpls	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9ead3 b 25 6220.4 130 6220.4 130 6071.6 130 6071.6 130 6065.6 130 6059.6 124 6059.6 118 \
+6059.6 118 6059.6 62 6059.6 62 6059.6 56 6065.6 50 6071.6 50 6071.6 50 6220.4 50 6220.4 50 6226.4 50 6232.4 56 6232.4 62 6232.4 \
+62 6232.4 118 6232.4 118 6232.4 124 6226.4 130 6220.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 6146 111.75 0 90 11 -MPLS Router F 15 5 -Arial c 7 -#000000 T 6146 93.75 0 88.5 13 -[mpls_router] F \
+15 5 -Arial c 7 -#000000 T 6146 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 6146 57.75 0 26.25 3 -SL2 ",
+						color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=1.1111,
+						label="MPLS Router
+[mpls_router]
+NONE
+SL2",
+						penwidth=2,
+						pos="6146,90",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+					telecom_gateway	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9ead3 b 25 6465.4 130 6465.4 130 6316.6 130 6316.6 130 6310.6 130 6304.6 124 6304.6 118 \
+6304.6 118 6304.6 62 6304.6 62 6304.6 56 6310.6 50 6316.6 50 6316.6 50 6465.4 50 6465.4 50 6471.4 50 6477.4 56 6477.4 62 6477.4 \
+62 6477.4 118 6477.4 118 6477.4 124 6471.4 130 6465.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 6391 111.75 0 119.25 15 -Telecom Gateway F 15 5 -Arial c 7 -#000000 T 6391 93.75 0 125.25 17 -[telecom_\
+gateway] F 15 5 -Arial c 7 -#000000 T 6391 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 6391 57.75 0 26.25 3 -SL2 ",
+						color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=1.1111,
+						label="Telecom Gateway
+[telecom_gateway]
+NONE
+SL2",
+						penwidth=2,
+						pos="6391,90",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+				}
+				telecom_mpls -> telecom_gateway	[_draw_="S 17 -setlinewidth(1.5) c 7 -#e69138 B 4 6233.28 90 6245.58 90 6275.27 90 6293.7 90 ",
+					_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#e69138 C 7 -#e69138 P 3 6293.63 92.8 6301.63 90 6293.63 87.2 ",
+					arrowsize=0.8,
+					color="#E69138",
+					constraint=false,
+					fontsize=8,
+					penwidth=1.5,
+					pos="e,6303.9,90 6233.3,90 6245.6,90 6275.3,90 6293.7,90",
+					weight=2];
+			}
+			subgraph cluster_l2_interlocking {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#f4cccc C 9 -#f4cccc22 b 25 6544 32 6544 32 6973 32 6973 32 6979 32 6985 38 6985 44 6985 44 6985 162 \
+6985 162 6985 168 6979 174 6973 174 6973 174 6544 174 6544 174 6538 174 6532 168 6532 162 6532 162 6532 44 6532 44 6532 38 6538 \
+32 6544 32 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 6758.5 155.75 0 107.25 15 -L2 Interlocking ",
+					bb="6532,32,6985,174",
+					color="#F4CCCC",
+					fillcolor="#F4CCCC22",
+					fontsize=15,
+					label="L2 Interlocking",
+					lheight=0.25,
+					lp="6758.5,161",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					il_skavach	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#f4cccc b 25 6710.4 130 6710.4 130 6561.6 130 6561.6 130 6555.6 130 6549.6 124 \
+6549.6 118 6549.6 118 6549.6 62 6549.6 62 6549.6 56 6555.6 50 6561.6 50 6561.6 50 6710.4 50 6710.4 50 6716.4 50 6722.4 56 6722.4 \
+62 6722.4 62 6722.4 118 6722.4 118 6722.4 124 6716.4 130 6710.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 6636 111.75 0 121.5 17 -Stationary Kavach F 15 5 -Arial c 7 -#000000 T 6636 93.75 0 72 10 -[s_kavach] \
+F 15 5 -Arial c 7 -#000000 T 6636 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 6636 57.75 0 26.25 3 -SL3 ",
+						color="#7A3DB8",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=1.1111,
+						label="Stationary Kavach
+[s_kavach]
+SIL4
+SL3",
+						penwidth=2,
+						pos="6636,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+					il_ei	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#f4cccc b 25 6955.4 130 6955.4 130 6806.6 130 6806.6 130 6800.6 130 6794.6 124 \
+6794.6 118 6794.6 118 6794.6 62 6794.6 62 6794.6 56 6800.6 50 6806.6 50 6806.6 50 6955.4 50 6955.4 50 6961.4 50 6967.4 56 6967.4 \
+62 6967.4 62 6967.4 118 6967.4 118 6967.4 124 6961.4 130 6955.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 6881 111.75 0 146.25 23 -Electronic Interlocking F 15 5 -Arial c 7 -#000000 T 6881 93.75 0 156 25 -[\
+electronic_interlocking] F 15 5 -Arial c 7 -#000000 T 6881 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 6881 57.75 0 26.25 \
+3 -SL3 ",
+						color="#8B0000",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=1.1111,
+						label="Electronic Interlocking
+[electronic_interlocking]
+SIL4
+SL3",
+						penwidth=2,
+						pos="6881,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+				}
+				il_ei -> il_skavach	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 4 6793.9 90 6781.94 90 6752.95 90 6734.37 90 ",
+					_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 6734.61 87.2 6726.61 90 6734.61 92.8 ",
+					arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,6723.3,90 6793.9,90 6781.9,90 6752.9,90 6734.4,90",
+					style=dashed,
+					weight=2];
+			}
+		}
+		telecom_mpls -> il_skavach	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 6177.03 130.79 6223.31 191.62 6305 299 6305 299 6305 299 6477 299 6477 299 6477 299 6551.82 \
+200.65 6598.81 138.88 ",
+			_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 6600.98 140.66 6603.59 132.6 6596.52 137.27 ",
+			arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,6605,130.79 6177,130.79 6223.3,191.62 6305,299 6305,299 6305,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+			weight=2];
+	}
+	subgraph cluster_l1 {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#999999 C 7 -#f8f8f8 b 25 7029 8 7029 8 8314 8 8314 8 8320 8 8326 14 8326 20 8326 20 8326 215 8326 215 \
+8326 221 8320 227 8314 227 8314 227 7029 227 7029 227 7023 227 7017 221 7017 215 7017 215 7017 20 7017 20 7017 14 7023 8 7029 8 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 7671.5 205.9 0 21 2 -L1 ",
+			bb="7017,8,8326,227",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L1,
+			lheight=0.29,
+			lp="7671.5,212.5",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l1_telecom {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#b6d7a8 C 9 -#b6d7a822 b 25 7053 32 7053 32 7792 32 7792 32 7798 32 7804 38 7804 44 7804 44 7804 162 \
+7804 162 7804 168 7798 174 7792 174 7792 174 7053 174 7053 174 7047 174 7041 168 7041 162 7041 162 7041 44 7041 44 7041 38 7047 \
+32 7053 32 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 7422.5 155.75 0 81.75 10 -L1 Telecom ",
+					bb="7041,32,7804,174",
+					color="#B6D7A8",
+					fillcolor="#B6D7A822",
+					fontsize=15,
+					label="L1 Telecom",
+					lheight=0.25,
+					lp="7422.5,161",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					radio_bts	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#7a3db8 C 7 -#b6d7a8 b 25 7252.5 130 7252.5 130 7071.5 130 7071.5 130 7065.5 130 7059.5 124 \
+7059.5 118 7059.5 118 7059.5 62 7059.5 62 7059.5 56 7065.5 50 7071.5 50 7071.5 50 7252.5 50 7252.5 50 7258.5 50 7264.5 56 7264.5 \
+62 7264.5 62 7264.5 118 7264.5 118 7264.5 124 7258.5 130 7252.5 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 7162 111.75 0 183 26 -Railway Radio Base Station F 15 5 -Arial c 7 -#000000 T 7162 93.75 0 189 28 -[\
+railway_radio_base_station] F 15 5 -Arial c 7 -#000000 T 7162 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 7162 57.75 0 26.25 \
+3 -SL2 ",
+						color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Railway Radio Base Station
+[railway_radio_base_station]
+NONE
+SL2",
+						penwidth=2,
+						pos="7162,90",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.8472];
+					onboard_radio	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#b6d7a8 b 25 7529.5 130 7529.5 130 7348.5 130 7348.5 130 7342.5 130 7336.5 124 \
+7336.5 118 7336.5 118 7336.5 62 7336.5 62 7336.5 56 7342.5 50 7348.5 50 7348.5 50 7529.5 50 7529.5 50 7535.5 50 7541.5 56 7541.5 \
+62 7541.5 62 7541.5 118 7541.5 118 7541.5 124 7535.5 130 7529.5 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 7439 111.75 0 75.75 11 -Train Radio F 15 5 -Arial c 7 -#000000 T 7439 93.75 0 189 28 -[railway_radio_\
+base_station] F 15 5 -Arial c 7 -#000000 T 7439 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 7439 57.75 0 26.25 3 -SL3 ",
+						color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Train Radio
+[railway_radio_base_station]
+NONE
+SL3",
+						penwidth=2,
+						pos="7439,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.8472];
+					radio_gateway	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#7a3db8 C 7 -#b6d7a8 b 25 7774.4 130 7774.4 130 7625.6 130 7625.6 130 7619.6 130 7613.6 124 \
+7613.6 118 7613.6 118 7613.6 62 7613.6 62 7613.6 56 7619.6 50 7625.6 50 7625.6 50 7774.4 50 7774.4 50 7780.4 50 7786.4 56 7786.4 \
+62 7786.4 62 7786.4 118 7786.4 118 7786.4 124 7780.4 130 7774.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 7700 111.75 0 102 13 -Radio Gateway F 15 5 -Arial c 7 -#000000 T 7700 93.75 0 105.75 15 -[radio_gateway] \
+F 15 5 -Arial c 7 -#000000 T 7700 75.75 0 42.75 4 -NONE F 15 5 -Arial c 7 -#000000 T 7700 57.75 0 26.25 3 -SL2 ",
+						color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Radio Gateway
+[radio_gateway]
+NONE
+SL2",
+						penwidth=2,
+						pos="7700,90",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.4];
+				}
+				radio_bts -> radio_gateway	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 10 7196.16 130.79 7247.09 191.62 7337 299 7337 299 7337 299 7542 299 7542 299 \
+7542 299 7615.75 201.45 7662.47 139.64 ",
+					_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 7664.56 141.52 7667.15 133.45 7660.09 138.14 ",
+					arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,7669.2,130.79 7196.2,130.79 7247.1,191.62 7337,299 7337,299 7337,299 7542,299 7542,299 7542,299 7615.7,201.45 7662.5,139.64",
+					style=dashed,
+					weight=2];
+				onboard_radio -> radio_bts	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 4 7335.73 90 7321.23 90 7295.3 90 7276.6 90 ",
+					_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 7276.62 87.2 7268.62 90 7276.62 92.8 ",
+					arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,7265.3,90 7335.7,90 7321.2,90 7295.3,90 7276.6,90",
+					style=dashed,
+					weight=2];
+			}
+			subgraph cluster_l1_interlocking {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#ea9999 C 9 -#ea999922 b 25 7853 32 7853 32 8290 32 8290 32 8296 32 8302 38 8302 44 8302 44 8302 162 \
+8302 162 8302 168 8296 174 8290 174 8290 174 7853 174 7853 174 7847 174 7841 168 7841 162 7841 162 7841 44 7841 44 7841 38 7847 \
+32 7853 32 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 8071.5 155.75 0 107.25 15 -L1 Interlocking ",
+					bb="7841,32,8302,174",
+					color="#EA9999",
+					fillcolor="#EA999922",
+					fontsize=15,
+					label="L1 Interlocking",
+					lheight=0.25,
+					lp="8071.5,161",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					il_ace	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#ea9999 b 25 8027.12 130 8027.12 130 7870.88 130 7870.88 130 7864.88 130 7858.88 \
+124 7858.88 118 7858.88 118 7858.88 62 7858.88 62 7858.88 56 7864.88 50 7870.88 50 7870.88 50 8027.12 50 8027.12 50 8033.12 50 8039.12 \
+56 8039.12 62 8039.12 62 8039.12 118 8039.12 118 8039.12 124 8033.12 130 8027.12 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 7949 111.75 0 153.75 22 -Axle Counter Evaluator F 15 5 -Arial c 7 -#000000 T 7949 93.75 0 164.25 24 \
+-[axle_counter_evaluator] F 15 5 -Arial c 7 -#000000 T 7949 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 7949 57.75 0 26.25 \
+3 -SL3 ",
+						color="#8B0000",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=1.1111,
+						label="Axle Counter Evaluator
+[axle_counter_evaluator]
+SIL4
+SL3",
+						penwidth=2,
+						pos="7949,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.5035];
+					il_oc	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#ea9999 b 25 8272.4 130 8272.4 130 8123.6 130 8123.6 130 8117.6 130 8111.6 124 \
+8111.6 118 8111.6 118 8111.6 62 8111.6 62 8111.6 56 8117.6 50 8123.6 50 8123.6 50 8272.4 50 8272.4 50 8278.4 50 8284.4 56 8284.4 \
+62 8284.4 62 8284.4 118 8284.4 118 8284.4 124 8278.4 130 8272.4 130 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 8198 111.75 0 112.5 17 -Object Controller F 15 5 -Arial c 7 -#000000 T 8198 93.75 0 118.5 19 -[object_\
+controller] F 15 5 -Arial c 7 -#000000 T 8198 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 8198 57.75 0 26.25 3 -SL3 ",
+						color="#8B0000",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=1.1111,
+						label="Object Controller
+[object_controller]
+SIL4
+SL3",
+						penwidth=2,
+						pos="8198,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+				}
+			}
+		}
+	}
+	subgraph cluster_l0_field {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#e2f0d9 C 9 -#e2f0d922 b 25 8346 26 8346 26 9296 26 9296 26 9302 26 9308 32 9308 38 9308 38 9308 171 \
+9308 171 9308 177 9302 183 9296 183 9296 183 8346 183 8346 183 8340 183 8334 177 8334 171 8334 171 8334 38 8334 38 8334 32 8340 \
+26 8346 26 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 8821 161.9 0 69 8 -L0 Field ",
+			bb="8334,26,9308,183",
+			color="#E2F0D9",
+			fillcolor="#E2F0D922",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L0 Field",
+			lheight=0.29,
+			lp="8821,168.5",
+			lwidth=0.96,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			field_point	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#e2f0d9 b 25 8537.75 130 8537.75 130 8370.25 130 8370.25 130 8364.25 130 8358.25 \
+124 8358.25 118 8358.25 118 8358.25 62 8358.25 62 8358.25 56 8364.25 50 8370.25 50 8370.25 50 8537.75 50 8537.75 50 8543.75 50 8549.75 \
+56 8549.75 62 8549.75 62 8549.75 118 8549.75 118 8549.75 124 8543.75 130 8537.75 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 8454 111.75 0 163.5 24 -Point Machine Controller F 15 5 -Arial c 7 -#000000 T 8454 93.75 0 175.5 26 \
+-[point_machine_controller] F 15 5 -Arial c 7 -#000000 T 8454 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 8454 57.75 0 26.25 \
+3 -SL2 ",
+				color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Point Machine Controller
+[point_machine_controller]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8454,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6597];
+			field_signal	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#e2f0d9 b 25 8782.4 130 8782.4 130 8633.6 130 8633.6 130 8627.6 130 8621.6 124 \
+8621.6 118 8621.6 118 8621.6 62 8621.6 62 8621.6 56 8627.6 50 8633.6 50 8633.6 50 8782.4 50 8782.4 50 8788.4 50 8794.4 56 8794.4 \
+62 8794.4 62 8794.4 118 8794.4 118 8794.4 124 8788.4 130 8782.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 8708 111.75 0 109.5 17 -Signal Controller F 15 5 -Arial c 7 -#000000 T 8708 93.75 0 117 19 -[signal_\
+controller] F 15 5 -Arial c 7 -#000000 T 8708 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 8708 57.75 0 26.25 3 -SL2 ",
+				color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Signal Controller
+[signal_controller]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8708,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_tc	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#e2f0d9 b 25 9027.4 130 9027.4 130 8878.6 130 8878.6 130 8872.6 130 8866.6 124 \
+8866.6 118 8866.6 118 8866.6 62 8866.6 62 8866.6 56 8872.6 50 8878.6 50 8878.6 50 9027.4 50 9027.4 50 9033.4 50 9039.4 56 9039.4 \
+62 9039.4 62 9039.4 118 9039.4 118 9039.4 124 9033.4 130 9027.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 8953 111.75 0 83.25 13 -Track Circuit F 15 5 -Arial c 7 -#000000 T 8953 93.75 0 89.25 15 -[track_circuit] \
+F 15 5 -Arial c 7 -#000000 T 8953 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 8953 57.75 0 26.25 3 -SL2 ",
+				color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Track Circuit
+[track_circuit]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8953,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_axle	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#8b0000 C 7 -#e2f0d9 b 25 9272.4 130 9272.4 130 9123.6 130 9123.6 130 9117.6 130 9111.6 124 \
+9111.6 118 9111.6 118 9111.6 62 9111.6 62 9111.6 56 9117.6 50 9123.6 50 9123.6 50 9272.4 50 9272.4 50 9278.4 50 9284.4 56 9284.4 \
+62 9284.4 62 9284.4 118 9284.4 118 9284.4 124 9278.4 130 9272.4 130 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 9198 111.75 0 86.25 12 -Axle Counter F 15 5 -Arial c 7 -#000000 T 9198 93.75 0 94.5 14 -[axle_counter] \
+F 15 5 -Arial c 7 -#000000 T 9198 75.75 0 30.75 4 -SIL4 F 15 5 -Arial c 7 -#000000 T 9198 57.75 0 26.25 3 -SL2 ",
+				color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Axle Counter
+[axle_counter]
+SIL4
+SL2",
+				penwidth=2,
+				pos="9198,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+		}
+	}
+	onboard_lkavach -> il_skavach	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 10 133.03 130.79 179.31 191.62 261 299 261 299 261 299 6477 299 6477 299 6477 \
+299 6551.21 201.45 6598.24 139.64 ",
+		_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 6600.33 141.51 6602.95 133.44 6595.88 138.12 ",
+		arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,6605,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 6477,299 6477,299 6477,299 6551.2,201.45 6598.2,139.64",
+		style=dashed,
+		weight=2];
+	onboard_lkavach -> onboard_radio	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 10 133.03 130.79 179.31 191.62 261 299 261 299 261 299 7265 299 7265 299 7265 \
+299 7346.55 201.05 7397.99 139.26 ",
+		_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 7399.94 141.29 7402.91 133.35 7395.64 137.71 ",
+		arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,7405,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 7265,299 7265,299 7265,299 7346.5,201.05 7398,139.26",
+		style=dashed,
+		weight=2];
+	ext_ca -> onboard_lkavach	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 1559.01 130.79 1509.83 191.62 1423 299 1423 299 1423 299 261 299 261 299 261 299 186.18 \
+200.65 139.19 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 141.48 137.27 134.41 132.6 137.02 140.66 ",
+		arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,133.03,130.79 1559,130.79 1509.8,191.62 1423,299 1423,299 1423,299 261,299 261,299 261,299 186.18,200.65 139.19,138.88",
+		weight=2];
+	ext_ca -> il_skavach	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 1623.03 130.79 1669.31 191.62 1751 299 1751 299 1751 299 6477 299 6477 299 6477 299 6551.82 \
+200.65 6598.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 6600.98 140.66 6603.59 132.6 6596.52 137.27 ",
+		arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6605,130.79 1623,130.79 1669.3,191.62 1751,299 1751,299 1751,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+		weight=2];
+	enterprise_erp -> idmz_firewall	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 2358.03 130.79 2404.31 191.62 2486 299 2486 299 2486 299 2709 299 2709 299 2709 299 2780.53 \
+200.65 2825.45 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 2827.56 140.75 2830 132.63 2823.03 137.45 ",
+		arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,2831.3,130.79 2358,130.79 2404.3,191.62 2486,299 2486,299 2486,299 2709,299 2709,299 2709,299 2780.5,200.65 2825.5,138.88",
+		weight=2];
+	idmz_jumphost -> ops_workstation	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 3137.03 130.79 3183.31 191.62 3265 299 3265 299 3265 299 5220 299 5220 299 5220 299 5295.77 \
+200.65 5343.35 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 5345.53 140.64 5348.19 132.59 5341.09 137.22 ",
+		arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,5349.6,130.79 3137,130.79 3183.3,191.62 3265,299 3265,299 3265,299 5220,299 5220,299 5220,299 5295.8,200.65 5343.3,138.88",
+		weight=2];
+	ops_tms -> il_ei	[_draw_="S 17 -setlinewidth(1.5) c 7 -#38761d B 10 4865.18 130.79 4914.65 191.62 5002 299 5002 299 5002 299 6722 299 6722 299 6722 299 6796.82 \
+200.65 6843.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#38761d C 7 -#38761d P 3 6845.98 140.66 6848.59 132.6 6841.52 137.27 ",
+		arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6850,130.79 4865.2,130.79 4914.7,191.62 5002,299 5002,299 5002,299 6722,299 6722,299 6722,299 6796.8,200.65 6843.8,138.88",
+		weight=2];
+	ops_engineering -> il_skavach	[_draw_="S 17 -setlinewidth(1.5) S 6 -dotted c 7 -#3c78d8 B 10 5925.6 130.79 5974.2 191.62 6060 299 6060 299 6060 299 6477 299 6477 299 6477 \
+299 6551.82 200.65 6598.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#3c78d8 C 7 -#3c78d8 P 3 6600.98 140.66 6603.59 132.6 6596.52 137.27 ",
+		arrowsize=0.8,
+		color="#3C78D8",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6605,130.79 5925.6,130.79 5974.2,191.62 6060,299 6060,299 6060,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+		style=dotted,
+		weight=2];
+	ops_engineering -> il_ei	[_draw_="S 17 -setlinewidth(1.5) S 6 -dotted c 7 -#3c78d8 B 10 5925.6 130.79 5974.2 191.62 6060 299 6060 299 6060 299 6722 299 6722 299 6722 \
+299 6796.82 200.65 6843.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#3c78d8 C 7 -#3c78d8 P 3 6845.98 140.66 6848.59 132.6 6841.52 137.27 ",
+		arrowsize=0.8,
+		color="#3C78D8",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6850,130.79 5925.6,130.79 5974.2,191.62 6060,299 6060,299 6060,299 6722,299 6722,299 6722,299 6796.8,200.65 6843.8,138.88",
+		style=dotted,
+		weight=2];
+	telecom_gateway -> radio_bts	[_draw_="S 17 -setlinewidth(2.2) S 6 -dashed c 7 -#7a3db8 B 10 6422.03 130.79 6468.31 191.62 6550 299 6550 299 6550 299 6967 299 6967 299 \
+6967 299 7058.77 200.65 7116.39 138.88 ",
+		_hdraw_="S 17 -setlinewidth(2.2) S 5 -solid c 7 -#7a3db8 C 7 -#7a3db8 P 3 7118.26 140.99 7121.67 133.23 7114.16 137.17 ",
+		arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,7123.9,130.79 6422,130.79 6468.3,191.62 6550,299 6550,299 6550,299 6967,299 6967,299 6967,299 7058.8,200.65 7116.4,138.88",
+		style=dashed,
+		weight=2];
+	il_ei -> il_ace	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 6915.74 130.79 6967.54 191.62 7059 299 7059 299 7059 299 7786 299 7786 299 7786 299 7862.71 \
+200.65 7910.88 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 7913.08 140.61 7915.79 132.58 7908.66 137.17 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,7917.2,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 7786,299 7786,299 7786,299 7862.7,200.65 7910.9,138.88",
+		weight=2];
+	il_ei -> il_oc	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 6915.74 130.79 6967.54 191.62 7059 299 7059 299 7059 299 8039 299 8039 299 8039 299 8113.82 \
+200.65 8160.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 8162.98 140.66 8165.59 132.6 8158.52 137.27 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8167,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 8039,299 8039,299 8039,299 8113.8,200.65 8160.8,138.88",
+		weight=2];
+	il_ei -> field_tc	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 6915.74 130.79 6967.54 191.62 7059 299 7059 299 7059 299 8794 299 8794 299 8794 299 8868.82 \
+200.65 8915.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 8917.98 140.66 8920.59 132.6 8913.52 137.27 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8922,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 8794,299 8794,299 8794,299 8868.8,200.65 8915.8,138.88",
+		weight=2];
+	il_ace -> field_axle	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 7980.81 130.79 8028.25 191.62 8112 299 8112 299 8112 299 9039 299 9039 299 9039 299 9113.82 \
+200.65 9160.81 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 9162.98 140.66 9165.59 132.6 9158.52 137.27 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,9167,130.79 7980.8,130.79 8028.3,191.62 8112,299 8112,299 8112,299 9039,299 9039,299 9039,299 9113.8,200.65 9160.8,138.88",
+		weight=2];
+	il_oc -> field_point	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 4 8285.12 90 8292.98 90 8325.15 90 8347.19 90 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 8347.06 92.8 8355.06 90 8347.06 87.2 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8357.3,90 8285.1,90 8293,90 8325.1,90 8347.2,90",
+		weight=2];
+	il_oc -> field_signal	[_draw_="S 17 -setlinewidth(1.5) c 7 -#cc0000 B 10 8228.06 130.79 8272.88 191.62 8352 299 8352 299 8352 299 8550 299 8550 299 8550 299 8624.35 \
+200.65 8671.05 138.88 ",
+		_hdraw_="S 17 -setlinewidth(1.5) S 5 -solid c 7 -#cc0000 C 7 -#cc0000 P 3 8673.2 140.67 8675.79 132.6 8668.73 137.3 ",
+		arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8677.2,130.79 8228.1,130.79 8272.9,191.62 8352,299 8352,299 8352,299 8550,299 8550,299 8550,299 8624.4,200.65 8671,138.88",
+		weight=2];
+}

@@ -1,0 +1,122 @@
+graph 1 43.097 24.433
+node l5_enterprise_anchor 22.236 24.428 0.01 0.01 "" invis point black lightgrey
+node l4_business_anchor 22.236 21.486 0.01 0.01 "" invis point black lightgrey
+node l35_idmz_anchor 22.236 18.544 0.01 0.01 "" invis point black lightgrey
+node l35_security_anchor 22.236 15.603 0.01 0.01 "" invis point black lightgrey
+node l3_operations_anchor 22.236 12.661 0.01 0.01 "" invis point black lightgrey
+node l2_anchor 22.236 9.7194 0.01 0.01 "" invis point black lightgrey
+node l1_anchor 22.236 6.7778 0.01 0.01 "" invis point black lightgrey
+node l0_field_anchor 22.236 3.8361 0.01 0.01 "" invis point black lightgrey
+node l_kavach 1.4167 0.89444 2.4 0.9 "Locomotive Kavach
+[l_kavach]" rounded,solid,filled box #7A3DB8 #D9C2E9
+node train_radio 4.8194 0.89444 2.4 0.9 "Train Radio
+[train_radio]" rounded,solid,filled box #7A3DB8 #D9C2E9
+node driver_machine_interface 8.3611 0.89444 2.6806 0.9 "Driver Machine Interface
+[driver_machine_interface]" rounded,solid,filled box #444444 #D9C2E9
+node brake_interface_unit 11.903 0.89444 2.4 0.9 "Brake Interface Unit
+[brake_interface_unit]" rounded,solid,filled box #444444 #D9C2E9
+node speed_sensor 15.306 0.89444 2.4 0.9 "Speed Sensor
+[speed_sensor]" rounded,solid,filled box #444444 #D9C2E9
+node onboard_rfid_reader 18.708 0.89444 2.4 0.9 "Onboard RFID Reader
+[onboard_rfid_reader]" rounded,solid,filled box #444444 #D9C2E9
+node ext_kms_server 24.444 12.661 2.4 0.9 "External KMS Server
+[external_kms_server]" rounded,dashed,filled box #444444 #FFF2CC
+node ent_email_server 24.444 21.486 2.4 0.9 "Corporate Email Server
+[enterprise_server]" rounded,dashed,filled box #444444 #DCE6F1
+node ent_erp_server 27.847 21.486 2.4 0.9 "ERP System
+[enterprise_server]" rounded,dashed,filled box #444444 #DCE6F1
+node ent_eam_server 31.556 21.486 3.0139 0.9 "Enterprise Asset Management
+[enterprise_server]" rounded,dashed,filled box #444444 #DCE6F1
+node idmz_firewall 24.444 15.603 2.4 0.9 "IDMZ Firewall
+[firewall]" rounded,dashed,filled box #444444 #FCE5CD
+node idmz_vpn_gateway 27.847 15.603 2.4 0.9 "VPN Gateway
+[vpn_gateway]" rounded,dashed,filled box #444444 #FCE5CD
+node idmz_jump_host 31.25 15.603 2.4 0.9 "Jump Host
+[jump_host]" rounded,dashed,filled box #444444 #FCE5CD
+node idmz_data_diode 34.653 15.603 2.4 0.9 "Data Diode
+[data_diode]" rounded,dashed,filled box #444444 #FCE5CD
+node sec_siem 27.847 12.661 2.4 0.9 "SIEM
+[siem]" rounded,filled box #444444 #FFF2CC
+node sec_soc_server 31.25 12.661 2.4 0.9 "SOC Server
+[soc_server]" rounded,filled box #444444 #FFF2CC
+node sec_ids_sensor 34.653 12.661 2.4 0.9 "IDS Sensor
+[ids_sensor]" rounded,filled box #444444 #FFF2CC
+node sec_ips_sensor 38.056 12.661 2.4 0.9 "IPS Sensor
+[ips_sensor]" rounded,filled box #444444 #FFF2CC
+node sec_vuln_scanner 41.458 12.661 2.4 0.9 "Vulnerability Scanner
+[vulnerability_scanner]" rounded,filled box #444444 #FFF2CC
+node ops_tms 24.653 9.7194 2.8264 0.9 "Traffic Management System
+[tms]" rounded,filled box #444444 #D9EAF7
+node ops_nms 28.583 9.7194 3.0243 0.9 "Network Management System
+[nms]" rounded,filled box #444444 #D9EAF7
+node ops_workstation 32.333 9.7194 2.4826 0.9 "Operations Workstation
+[operations_workstation]" rounded,filled box #444444 #D9EAF7
+node maint_workstation 35.861 9.7194 2.5764 0.9 "Maintenance Workstation
+[operations_workstation]" rounded,filled box #444444 #D9EAF7
+node eng_workstation 39.444 9.7194 2.5868 0.9 "Engineering Workstation
+[engineering_workstation]" rounded,filled box #444444 #D9EAF7
+node telecom_mpls_router 24.444 6.7778 2.4 0.9 "MPLS Router
+[mpls_router]" rounded,filled box #444444 #D9EAD3
+node telecom_gateway 27.847 6.7778 2.4 0.9 "Telecom Gateway
+[telecom_gateway]" rounded,filled box #444444 #D9EAD3
+node s_kavach 31.25 6.7778 2.4 0.9 "Stationary Kavach
+[s_kavach]" rounded,solid,filled box #7A3DB8 #F4CCCC
+node electronic_interlocking 34.653 6.7778 2.4 0.9 "Electronic Interlocking
+[electronic_interlocking]" rounded,solid,filled box #444444 #F4CCCC
+node radio_base_station 24.667 3.8361 2.8472 0.9 "Railway Radio Base Station
+[railway_radio_base_station]" rounded,dashed,filled box #7A3DB8 #B6D7A8
+node radio_gateway 28.292 3.8361 2.4 0.9 "Radio Gateway
+[radio_gateway]" rounded,dashed,filled box #7A3DB8 #B6D7A8
+node axle_counter_evaluator 31.75 3.8361 2.5035 0.9 "Axle Counter Evaluator
+[axle_counter_evaluator]" rounded,solid,filled box #444444 #EA9999
+node object_controller 35.208 3.8361 2.4 0.9 "Object Controller
+[object_controller]" rounded,solid,filled box #444444 #EA9999
+node point_machine_controller 22.236 0.89444 2.6597 0.9 "Point Machine Controller
+[point_machine_controller]" rounded,solid,filled box #444444 #E2F0D9
+node signal_controller 25.764 0.89444 2.4 0.9 "Signal Controller
+[signal_controller]" rounded,solid,filled box #444444 #E2F0D9
+node track_circuit 29.167 0.89444 2.4 0.9 "Track Circuit
+[track_circuit]" rounded,solid,filled box #444444 #E2F0D9
+node axle_counter_head 32.569 0.89444 2.4 0.9 "Axle Counter Head
+[axle_counter_head]" rounded,solid,filled box #444444 #E2F0D9
+node trackside_rfid_tag 35.972 0.89444 2.4 0.9 "Trackside RFID Tag
+[trackside_rfid_tag]" rounded,solid,filled box #444444 #E2F0D9
+edge l5_enterprise_anchor l4_business_anchor 4 22.236 24.419 22.236 24.419 22.236 21.654 22.236 21.654 invis black
+edge l5_enterprise_anchor ent_email_server 7 22.246 24.431 22.405 24.431 24.444 24.431 24.444 24.431 24.444 24.431 24.444 22.106 24.444 22.106 invis black
+edge l4_business_anchor l35_idmz_anchor 4 22.236 21.478 22.236 21.478 22.236 18.712 22.236 18.712 invis black
+edge l35_idmz_anchor l35_security_anchor 4 22.236 18.536 22.236 18.536 22.236 15.771 22.236 15.771 invis black
+edge l35_idmz_anchor idmz_firewall 7 22.246 18.542 22.405 18.542 24.444 18.542 24.444 18.542 24.444 18.542 24.444 16.222 24.444 16.222 invis black
+edge l35_security_anchor l3_operations_anchor 4 22.236 15.594 22.236 15.594 22.236 12.829 22.236 12.829 invis black
+edge l35_security_anchor ext_kms_server 10 22.247 15.597 22.327 15.597 22.844 15.597 22.844 15.597 22.844 15.597 22.844 12.889 22.844 12.889 22.844 12.889 23.071 12.889 23.071 12.889 invis black
+edge l35_security_anchor sec_siem 13 22.229 15.597 22.155 15.597 21.564 15.597 21.564 15.597 21.564 15.597 21.564 14.125 21.564 14.125 21.564 14.125 27.847 14.125 27.847 14.125 27.847 14.125 27.847 13.284 27.847 13.284 invis black
+edge l3_operations_anchor l2_anchor 4 22.236 12.653 22.236 12.653 22.236 9.8873 22.236 9.8873 invis black
+edge l3_operations_anchor ops_tms 10 22.246 12.667 22.309 12.667 22.646 12.667 22.646 12.667 22.646 12.667 22.646 9.9583 22.646 9.9583 22.646 9.9583 23.066 9.9583 23.066 9.9583 invis black
+edge l2_anchor l1_anchor 4 22.236 9.711 22.236 9.711 22.236 6.9456 22.236 6.9456 invis black
+edge l2_anchor telecom_mpls_router 10 22.245 9.7222 22.334 9.7222 23.042 9.7222 23.042 9.7222 23.042 9.7222 23.042 7.0139 23.042 7.0139 23.042 7.0139 23.071 7.0139 23.071 7.0139 invis black
+edge l1_anchor l0_field_anchor 4 22.236 6.7693 22.236 6.7693 22.236 4.0039 22.236 4.0039 invis black
+edge l1_anchor radio_base_station 10 22.245 6.7778 22.286 6.7778 22.448 6.7778 22.448 6.7778 22.448 6.7778 22.448 4.0694 22.448 4.0694 22.448 4.0694 23.07 4.0694 23.07 4.0694 invis black
+edge l0_field_anchor l_kavach 7 22.228 3.8333 21.751 3.8333 1.4167 3.8333 1.4167 3.8333 1.4167 3.8333 1.4167 1.5136 1.4167 1.5136 invis black
+edge l0_field_anchor point_machine_controller 4 22.236 3.8277 22.236 3.8277 22.236 1.5132 22.236 1.5132 invis black
+edge ent_email_server ent_erp_server 4 25.654 21.486 25.654 21.486 26.476 21.486 26.476 21.486 invis black
+edge ent_erp_server ent_eam_server 4 29.056 21.486 29.056 21.486 29.876 21.486 29.876 21.486 invis black
+edge idmz_firewall idmz_vpn_gateway 4 25.654 15.597 25.654 15.597 26.476 15.597 26.476 15.597 invis black
+edge idmz_vpn_gateway idmz_jump_host 4 29.056 15.597 29.056 15.597 29.879 15.597 29.879 15.597 invis black
+edge idmz_jump_host idmz_data_diode 4 32.459 15.597 32.459 15.597 33.282 15.597 33.282 15.597 invis black
+edge sec_siem sec_soc_server 4 29.056 12.667 29.056 12.667 29.879 12.667 29.879 12.667 invis black
+edge sec_soc_server sec_ids_sensor 4 32.459 12.667 32.459 12.667 33.282 12.667 33.282 12.667 invis black
+edge sec_ids_sensor sec_ips_sensor 4 35.862 12.667 35.862 12.667 36.685 12.667 36.685 12.667 invis black
+edge sec_ips_sensor sec_vuln_scanner 4 39.265 12.667 39.265 12.667 40.087 12.667 40.087 12.667 invis black
+edge sec_vuln_scanner ext_kms_server 10 40.498 12.201 40.498 11.771 40.498 11.194 40.498 11.194 40.498 11.194 24.444 11.194 24.444 11.194 24.444 11.194 24.444 12.041 24.444 12.041 invis black
+edge ops_tms ops_nms 4 26.077 9.7222 26.077 9.7222 26.898 9.7222 26.898 9.7222 invis black
+edge ops_nms ops_workstation 4 30.109 9.7222 30.109 9.7222 30.919 9.7222 30.919 9.7222 invis black
+edge ops_workstation maint_workstation 4 33.587 9.7222 33.587 9.7222 34.404 9.7222 34.404 9.7222 invis black
+edge maint_workstation eng_workstation 4 37.16 9.7222 37.16 9.7222 37.978 9.7222 37.978 9.7222 invis black
+edge telecom_mpls_router telecom_gateway 4 25.654 6.7778 25.654 6.7778 26.476 6.7778 26.476 6.7778 invis black
+edge s_kavach electronic_interlocking 4 32.459 6.7778 32.459 6.7778 33.282 6.7778 33.282 6.7778 invis black
+edge radio_base_station radio_gateway 4 26.099 3.8333 26.099 3.8333 26.92 3.8333 26.92 3.8333 invis black
+edge axle_counter_evaluator object_controller 4 33.013 3.8333 33.013 3.8333 33.835 3.8333 33.835 3.8333 invis black
+edge point_machine_controller signal_controller 4 23.575 0.88889 23.575 0.88889 24.394 0.88889 24.394 0.88889 invis black
+edge signal_controller track_circuit 4 26.973 0.88889 26.973 0.88889 27.796 0.88889 27.796 0.88889 invis black
+edge track_circuit axle_counter_head 4 30.376 0.88889 30.376 0.88889 31.198 0.88889 31.198 0.88889 invis black
+edge axle_counter_head trackside_rfid_tag 4 33.779 0.88889 33.779 0.88889 34.601 0.88889 34.601 0.88889 invis black
+stop

@@ -1,0 +1,1076 @@
+digraph RailwayPurdue {
+	graph [_draw_="c 9 -#fffffe00 C 7 -#ffffff P 4 -28.8 -28.8 -28.8 1787.96 3131.8 1787.96 3131.8 -28.8 ",
+		bb="0,0,3103,1759.2",
+		bgcolor=white,
+		compound=true,
+		concentrate=false,
+		newrank=true,
+		nodesep=1.0,
+		overlap=false,
+		pad=0.4,
+		rankdir=TB,
+		ranksep="2.0 equally",
+		splines=ortho,
+		xdotversion=1.7
+	];
+	node [fontname=Arial,
+		label="\N"
+	];
+	edge [fontname=Arial];
+	subgraph cluster_onboard {
+		graph [_draw_="S 15 -setlinewidth(3) S 6 -dashed c 7 -#7a3db8 C 7 -#f3e8ff b 25 20 24 20 24 1429 24 1429 24 1435 24 1441 30 1441 36 1441 36 1441 \
+117.3 1441 117.3 1441 123.3 1435 129.3 1429 129.3 1429 129.3 20 129.3 20 129.3 14 129.3 8 123.3 8 117.3 8 117.3 8 36 8 36 8 30 14 \
+24 20 24 ",
+			_ldraw_="F 14 11 -Times-Roman c 7 -#000000 T 724.5 112 0 138.75 21 -Mobile Onboard Domain ",
+			bb="8,24,1441,129.3",
+			color="#7A3DB8",
+			fillcolor="#F3E8FF",
+			label="Mobile Onboard Domain",
+			lheight=0.23,
+			lp="724.5,117.05",
+			lwidth=1.93,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			l_kavach	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#d9c2e9 b 25 176.4 96.8 176.4 96.8 27.6 96.8 27.6 96.8 21.6 96.8 15.6 90.8 15.6 \
+84.8 15.6 84.8 15.6 44 15.6 44 15.6 38 21.6 32 27.6 32 27.6 32 176.4 32 176.4 32 182.4 32 188.4 38 188.4 44 188.4 44 188.4 84.8 \
+188.4 84.8 188.4 90.8 182.4 96.8 176.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 102 68.15 0 130.5 17 -Locomotive Kavach F 15 5 -Arial c 7 -#000000 T 102 50.15 0 67.5 10 -[l_kavach] ",
+				color="#7A3DB8",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Locomotive Kavach
+[l_kavach]",
+				penwidth=2,
+				pos="102,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			train_radio	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#d9c2e9 b 25 421.4 96.8 421.4 96.8 272.6 96.8 272.6 96.8 266.6 96.8 260.6 90.8 \
+260.6 84.8 260.6 84.8 260.6 44 260.6 44 260.6 38 266.6 32 272.6 32 272.6 32 421.4 32 421.4 32 427.4 32 433.4 38 433.4 44 433.4 44 \
+433.4 84.8 433.4 84.8 433.4 90.8 427.4 96.8 421.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 347 68.15 0 75.75 11 -Train Radio F 15 5 -Arial c 7 -#000000 T 347 50.15 0 79.5 13 -[train_radio] ",
+				color="#7A3DB8",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Train Radio
+[train_radio]",
+				penwidth=2,
+				pos="347,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			driver_machine_interface	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 686.5 96.8 686.5 96.8 517.5 96.8 517.5 96.8 511.5 96.8 505.5 90.8 \
+505.5 84.8 505.5 84.8 505.5 44 505.5 44 505.5 38 511.5 32 517.5 32 517.5 32 686.5 32 686.5 32 692.5 32 698.5 38 698.5 44 698.5 44 \
+698.5 84.8 698.5 84.8 698.5 90.8 692.5 96.8 686.5 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 602 68.15 0 164.25 24 -Driver Machine Interface F 15 5 -Arial c 7 -#000000 T 602 50.15 0 177 26 -[driver_\
+machine_interface] ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Driver Machine Interface
+[driver_machine_interface]",
+				penwidth=2,
+				pos="602,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6806];
+			brake_interface_unit	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 931.4 96.8 931.4 96.8 782.6 96.8 782.6 96.8 776.6 96.8 770.6 90.8 \
+770.6 84.8 770.6 84.8 770.6 44 770.6 44 770.6 38 776.6 32 782.6 32 782.6 32 931.4 32 931.4 32 937.4 32 943.4 38 943.4 44 943.4 44 \
+943.4 84.8 943.4 84.8 943.4 90.8 937.4 96.8 931.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 857 68.15 0 133.5 20 -Brake Interface Unit F 15 5 -Arial c 7 -#000000 T 857 50.15 0 144.75 22 -[brake_\
+interface_unit] ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Brake Interface Unit
+[brake_interface_unit]",
+				penwidth=2,
+				pos="857,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			speed_sensor	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 1176.4 96.8 1176.4 96.8 1027.6 96.8 1027.6 96.8 1021.6 96.8 1015.6 \
+90.8 1015.6 84.8 1015.6 84.8 1015.6 44 1015.6 44 1015.6 38 1021.6 32 1027.6 32 1027.6 32 1176.4 32 1176.4 32 1182.4 32 1188.4 38 \
+1188.4 44 1188.4 44 1188.4 84.8 1188.4 84.8 1188.4 90.8 1182.4 96.8 1176.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1102 68.15 0 94.5 12 -Speed Sensor F 15 5 -Arial c 7 -#000000 T 1102 50.15 0 102.75 14 -[speed_sensor] ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Speed Sensor
+[speed_sensor]",
+				penwidth=2,
+				pos="1102,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_rfid_reader	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#d9c2e9 b 25 1421.4 96.8 1421.4 96.8 1272.6 96.8 1272.6 96.8 1266.6 96.8 1260.6 \
+90.8 1260.6 84.8 1260.6 84.8 1260.6 44 1260.6 44 1260.6 38 1266.6 32 1272.6 32 1272.6 32 1421.4 32 1421.4 32 1427.4 32 1433.4 38 \
+1433.4 44 1433.4 44 1433.4 84.8 1433.4 84.8 1433.4 90.8 1427.4 96.8 1421.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1347 68.15 0 150.75 19 -Onboard RFID Reader F 15 5 -Arial c 7 -#000000 T 1347 50.15 0 144.75 21 -[onboard_\
+rfid_reader] ",
+				color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=0.9,
+				label="Onboard RFID Reader
+[onboard_rfid_reader]",
+				penwidth=2,
+				pos="1347,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+		}
+	}
+	subgraph cluster_external_security {
+		graph [_draw_="S 15 -setlinewidth(3) S 6 -dashed c 7 -#aa4444 C 7 -#fde9e7 b 25 1648 859.2 1648 859.2 1864 859.2 1864 859.2 1870 859.2 1876 865.2 \
+1876 871.2 1876 871.2 1876 981 1876 981 1876 987 1870 993 1864 993 1864 993 1648 993 1648 993 1642 993 1636 987 1636 981 1636 981 \
+1636 871.2 1636 871.2 1636 865.2 1642 859.2 1648 859.2 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 1756 971.9 0 224.25 26 -External Security Services ",
+			bb="1636,859.2,1876,993",
+			color="#AA4444",
+			fillcolor="#FDE9E7",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="External Security Services",
+			lheight=0.29,
+			lp="1756,978.5",
+			lwidth=3.11,
+			margin=20,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			ext_kms_server	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fff2cc b 25 1834.4 944 1834.4 944 1685.6 944 1685.6 944 1679.6 944 1673.6 938 \
+1673.6 932 1673.6 932 1673.6 891.2 1673.6 891.2 1673.6 885.2 1679.6 879.2 1685.6 879.2 1685.6 879.2 1834.4 879.2 1834.4 879.2 1840.4 \
+879.2 1846.4 885.2 1846.4 891.2 1846.4 891.2 1846.4 932 1846.4 932 1846.4 938 1840.4 944 1834.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1760 915.35 0 140.25 19 -External KMS Server F 15 5 -Arial c 7 -#000000 T 1760 897.35 0 148.5 21 -[\
+external_kms_server] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="External KMS Server
+[external_kms_server]",
+				penwidth=2,
+				pos="1760,911.6",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+		}
+	}
+	subgraph cluster_l5_enterprise {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#dce6f1 C 9 -#dce6f122 b 25 1662 1490.6 1662 1490.6 2393 1490.6 2393 1490.6 2399 1490.6 2405 1496.6 2405 \
+1502.6 2405 1502.6 2405 1620.4 2405 1620.4 2405 1626.4 2399 1632.4 2393 1632.4 2393 1632.4 1662 1632.4 1662 1632.4 1656 1632.4 1650 \
+1626.4 1650 1620.4 1650 1620.4 1650 1502.6 1650 1502.6 1650 1496.6 1656 1490.6 1662 1490.6 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2027.5 1611.3 0 114.75 13 -L5 Enterprise ",
+			bb="1650,1490.6,2405,1632.4",
+			color="#DCE6F1",
+			fillcolor="#DCE6F122",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L5 Enterprise",
+			lheight=0.29,
+			lp="2027.5,1617.9",
+			lwidth=1.59,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			ent_email_server	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 1834.4 1579.4 1834.4 1579.4 1685.6 1579.4 1685.6 1579.4 1679.6 \
+1579.4 1673.6 1573.4 1673.6 1567.4 1673.6 1567.4 1673.6 1526.6 1673.6 1526.6 1673.6 1520.6 1679.6 1514.6 1685.6 1514.6 1685.6 1514.6 \
+1834.4 1514.6 1834.4 1514.6 1840.4 1514.6 1846.4 1520.6 1846.4 1526.6 1846.4 1526.6 1846.4 1567.4 1846.4 1567.4 1846.4 1573.4 1840.4 \
+1579.4 1834.4 1579.4 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1760 1550.75 0 156.75 22 -Corporate Email Server F 15 5 -Arial c 7 -#000000 T 1760 1532.75 0 126 19 \
+-[enterprise_server] ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=0.9,
+				label="Corporate Email Server
+[enterprise_server]",
+				penwidth=2,
+				pos="1760,1547",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			ent_erp_server	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 2079.4 1579.4 2079.4 1579.4 1930.6 1579.4 1930.6 1579.4 1924.6 \
+1579.4 1918.6 1573.4 1918.6 1567.4 1918.6 1567.4 1918.6 1526.6 1918.6 1526.6 1918.6 1520.6 1924.6 1514.6 1930.6 1514.6 1930.6 1514.6 \
+2079.4 1514.6 2079.4 1514.6 2085.4 1514.6 2091.4 1520.6 2091.4 1526.6 2091.4 1526.6 2091.4 1567.4 2091.4 1567.4 2091.4 1573.4 2085.4 \
+1579.4 2079.4 1579.4 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2005 1550.75 0 84.75 10 -ERP System F 15 5 -Arial c 7 -#000000 T 2005 1532.75 0 126 19 -[enterprise_\
+server] ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=0.9,
+				label="ERP System
+[enterprise_server]",
+				penwidth=2,
+				pos="2005,1547",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			ent_email_server -> ent_erp_server	[constraint=false,
+				pos="e,1917.8,1547 1847.1,1547 1847.1,1547 1906.3,1547 1906.3,1547",
+				style=invis,
+				weight=5];
+			ent_eam_server	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#dce6f1 b 25 2368.5 1579.4 2368.5 1579.4 2175.5 1579.4 2175.5 1579.4 2169.5 \
+1579.4 2163.5 1573.4 2163.5 1567.4 2163.5 1567.4 2163.5 1526.6 2163.5 1526.6 2163.5 1520.6 2169.5 1514.6 2175.5 1514.6 2175.5 1514.6 \
+2368.5 1514.6 2368.5 1514.6 2374.5 1514.6 2380.5 1520.6 2380.5 1526.6 2380.5 1526.6 2380.5 1567.4 2380.5 1567.4 2380.5 1573.4 2374.5 \
+1579.4 2368.5 1579.4 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2272 1550.75 0 201 27 -Enterprise Asset Management F 15 5 -Arial c 7 -#000000 T 2272 1532.75 0 126 \
+19 -[enterprise_server] ",
+				color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=0.9,
+				label="Enterprise Asset Management
+[enterprise_server]",
+				penwidth=2,
+				pos="2272,1547",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=3.0139];
+			ent_erp_server -> ent_eam_server	[constraint=false,
+				pos="e,2162.6,1547 2092.1,1547 2092.1,1547 2151.1,1547 2151.1,1547",
+				style=invis,
+				weight=5];
+		}
+	}
+	subgraph cluster_l35_idmz {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#fce5cd C 9 -#fce5cd22 b 25 1662 1067 1662 1067 2593 1067 2593 1067 2599 1067 2605 1073 2605 1079 2605 \
+1079 2605 1196.8 2605 1196.8 2605 1202.8 2599 1208.8 2593 1208.8 2593 1208.8 1662 1208.8 1662 1208.8 1656 1208.8 1650 1202.8 1650 \
+1196.8 1650 1196.8 1650 1079 1650 1079 1650 1073 1656 1067 1662 1067 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2127.5 1187.7 0 85.5 9 -L3.5 IDMZ ",
+			bb="1650,1067,2605,1208.8",
+			color="#FCE5CD",
+			fillcolor="#FCE5CD22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 IDMZ",
+			lheight=0.29,
+			lp="2127.5,1194.3",
+			lwidth=1.19,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			idmz_firewall	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 1834.4 1155.8 1834.4 1155.8 1685.6 1155.8 1685.6 1155.8 1679.6 \
+1155.8 1673.6 1149.8 1673.6 1143.8 1673.6 1143.8 1673.6 1103 1673.6 1103 1673.6 1097 1679.6 1091 1685.6 1091 1685.6 1091 1834.4 \
+1091 1834.4 1091 1840.4 1091 1846.4 1097 1846.4 1103 1846.4 1103 1846.4 1143.8 1846.4 1143.8 1846.4 1149.8 1840.4 1155.8 1834.4 \
+1155.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1760 1127.15 0 91.5 13 -IDMZ Firewall F 15 5 -Arial c 7 -#000000 T 1760 1109.15 0 54.75 10 -[firewall] ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=0.9,
+				label="IDMZ Firewall
+[firewall]",
+				penwidth=2,
+				pos="1760,1123.4",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_vpn_gateway	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 2079.4 1155.8 2079.4 1155.8 1930.6 1155.8 1930.6 1155.8 1924.6 \
+1155.8 1918.6 1149.8 1918.6 1143.8 1918.6 1143.8 1918.6 1103 1918.6 1103 1918.6 1097 1924.6 1091 1930.6 1091 1930.6 1091 2079.4 \
+1091 2079.4 1091 2085.4 1091 2091.4 1097 2091.4 1103 2091.4 1103 2091.4 1143.8 2091.4 1143.8 2091.4 1149.8 2085.4 1155.8 2079.4 \
+1155.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2005 1127.15 0 93.75 11 -VPN Gateway F 15 5 -Arial c 7 -#000000 T 2005 1109.15 0 96.75 13 -[vpn_gateway] ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=0.9,
+				label="VPN Gateway
+[vpn_gateway]",
+				penwidth=2,
+				pos="2005,1123.4",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_firewall -> idmz_vpn_gateway	[constraint=false,
+				pos="e,1917.8,1123 1847.1,1123 1847.1,1123 1906.3,1123 1906.3,1123",
+				style=invis,
+				weight=5];
+			idmz_jump_host	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 2324.4 1155.8 2324.4 1155.8 2175.6 1155.8 2175.6 1155.8 2169.6 \
+1155.8 2163.6 1149.8 2163.6 1143.8 2163.6 1143.8 2163.6 1103 2163.6 1103 2163.6 1097 2169.6 1091 2175.6 1091 2175.6 1091 2324.4 \
+1091 2324.4 1091 2330.4 1091 2336.4 1097 2336.4 1103 2336.4 1103 2336.4 1143.8 2336.4 1143.8 2336.4 1149.8 2330.4 1155.8 2324.4 \
+1155.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2250 1127.15 0 72 9 -Jump Host F 15 5 -Arial c 7 -#000000 T 2250 1109.15 0 78 11 -[jump_host] ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=0.9,
+				label="Jump Host
+[jump_host]",
+				penwidth=2,
+				pos="2250,1123.4",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_vpn_gateway -> idmz_jump_host	[constraint=false,
+				pos="e,2162.8,1123 2092.1,1123 2092.1,1123 2151.3,1123 2151.3,1123",
+				style=invis,
+				weight=5];
+			idmz_data_diode	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#444444 C 7 -#fce5cd b 25 2569.4 1155.8 2569.4 1155.8 2420.6 1155.8 2420.6 1155.8 2414.6 \
+1155.8 2408.6 1149.8 2408.6 1143.8 2408.6 1143.8 2408.6 1103 2408.6 1103 2408.6 1097 2414.6 1091 2420.6 1091 2420.6 1091 2569.4 \
+1091 2569.4 1091 2575.4 1091 2581.4 1097 2581.4 1103 2581.4 1103 2581.4 1143.8 2581.4 1143.8 2581.4 1149.8 2575.4 1155.8 2569.4 \
+1155.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2495 1127.15 0 74.25 10 -Data Diode F 15 5 -Arial c 7 -#000000 T 2495 1109.15 0 82.5 12 -[data_diode] ",
+				color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=0.9,
+				label="Data Diode
+[data_diode]",
+				penwidth=2,
+				pos="2495,1123.4",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_jump_host -> idmz_data_diode	[constraint=false,
+				pos="e,2407.8,1123 2337.1,1123 2337.1,1123 2396.3,1123 2396.3,1123",
+				style=invis,
+				weight=5];
+		}
+	}
+	subgraph cluster_l35_security {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#fff2cc C 9 -#fff2cc22 b 25 1907 855.2 1907 855.2 3083 855.2 3083 855.2 3089 855.2 3095 861.2 3095 867.2 \
+3095 867.2 3095 985 3095 985 3095 991 3089 997 3083 997 3083 997 1907 997 1907 997 1901 997 1895 991 1895 985 1895 985 1895 867.2 \
+1895 867.2 1895 861.2 1901 855.2 1907 855.2 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2495 975.9 0 111.75 13 -L3.5 Security ",
+			bb="1895,855.2,3095,997",
+			color="#FFF2CC",
+			fillcolor="#FFF2CC22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 Security",
+			lheight=0.29,
+			lp="2495,982.5",
+			lwidth=1.55,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			sec_siem	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 2079.4 944 2079.4 944 1930.6 944 1930.6 944 1924.6 944 1918.6 938 1918.6 932 \
+1918.6 932 1918.6 891.2 1918.6 891.2 1918.6 885.2 1924.6 879.2 1930.6 879.2 1930.6 879.2 2079.4 879.2 2079.4 879.2 2085.4 879.2 \
+2091.4 885.2 2091.4 891.2 2091.4 891.2 2091.4 932 2091.4 932 2091.4 938 2085.4 944 2079.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2005 915.35 0 36.75 4 -SIEM F 15 5 -Arial c 7 -#000000 T 2005 897.35 0 40.5 6 -[siem] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="SIEM
+[siem]",
+				penwidth=2,
+				pos="2005,911.6",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_soc_server	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 2324.4 944 2324.4 944 2175.6 944 2175.6 944 2169.6 944 2163.6 938 2163.6 932 \
+2163.6 932 2163.6 891.2 2163.6 891.2 2163.6 885.2 2169.6 879.2 2175.6 879.2 2175.6 879.2 2324.4 879.2 2324.4 879.2 2330.4 879.2 \
+2336.4 885.2 2336.4 891.2 2336.4 891.2 2336.4 932 2336.4 932 2336.4 938 2330.4 944 2324.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2250 915.35 0 81 10 -SOC Server F 15 5 -Arial c 7 -#000000 T 2250 897.35 0 82.5 12 -[soc_server] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="SOC Server
+[soc_server]",
+				penwidth=2,
+				pos="2250,911.6",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_siem -> sec_soc_server	[constraint=false,
+				pos="e,2162.8,912 2092.1,912 2092.1,912 2151.3,912 2151.3,912",
+				style=invis,
+				weight=5];
+			sec_ids_sensor	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 2569.4 944 2569.4 944 2420.6 944 2420.6 944 2414.6 944 2408.6 938 2408.6 932 \
+2408.6 932 2408.6 891.2 2408.6 891.2 2408.6 885.2 2414.6 879.2 2420.6 879.2 2420.6 879.2 2569.4 879.2 2569.4 879.2 2575.4 879.2 \
+2581.4 885.2 2581.4 891.2 2581.4 891.2 2581.4 932 2581.4 932 2581.4 938 2575.4 944 2569.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2495 915.35 0 76.5 10 -IDS Sensor F 15 5 -Arial c 7 -#000000 T 2495 897.35 0 81 12 -[ids_sensor] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="IDS Sensor
+[ids_sensor]",
+				penwidth=2,
+				pos="2495,911.6",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_soc_server -> sec_ids_sensor	[constraint=false,
+				pos="e,2407.8,912 2337.1,912 2337.1,912 2396.3,912 2396.3,912",
+				style=invis,
+				weight=5];
+			sec_ips_sensor	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 2814.4 944 2814.4 944 2665.6 944 2665.6 944 2659.6 944 2653.6 938 2653.6 932 \
+2653.6 932 2653.6 891.2 2653.6 891.2 2653.6 885.2 2659.6 879.2 2665.6 879.2 2665.6 879.2 2814.4 879.2 2814.4 879.2 2820.4 879.2 \
+2826.4 885.2 2826.4 891.2 2826.4 891.2 2826.4 932 2826.4 932 2826.4 938 2820.4 944 2814.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2740 915.35 0 75.75 10 -IPS Sensor F 15 5 -Arial c 7 -#000000 T 2740 897.35 0 81 12 -[ips_sensor] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="IPS Sensor
+[ips_sensor]",
+				penwidth=2,
+				pos="2740,911.6",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ids_sensor -> sec_ips_sensor	[constraint=false,
+				pos="e,2652.8,912 2582.1,912 2582.1,912 2641.3,912 2641.3,912",
+				style=invis,
+				weight=5];
+			sec_vuln_scanner	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#fff2cc b 25 3059.4 944 3059.4 944 2910.6 944 2910.6 944 2904.6 944 2898.6 938 2898.6 932 \
+2898.6 932 2898.6 891.2 2898.6 891.2 2898.6 885.2 2904.6 879.2 2910.6 879.2 2910.6 879.2 3059.4 879.2 3059.4 879.2 3065.4 879.2 \
+3071.4 885.2 3071.4 891.2 3071.4 891.2 3071.4 932 3071.4 932 3071.4 938 3065.4 944 3059.4 944 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2985 915.35 0 140.25 21 -Vulnerability Scanner F 15 5 -Arial c 7 -#000000 T 2985 897.35 0 148.5 23 \
+-[vulnerability_scanner] ",
+				color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=0.9,
+				label="Vulnerability Scanner
+[vulnerability_scanner]",
+				penwidth=2,
+				pos="2985,911.6",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ips_sensor -> sec_vuln_scanner	[constraint=false,
+				pos="e,2897.8,912 2827.1,912 2827.1,912 2886.3,912 2886.3,912",
+				style=invis,
+				weight=5];
+		}
+	}
+	subgraph cluster_l3_operations {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#d9eaf7 C 9 -#d9eaf722 b 25 1661 643.4 1661 643.4 2945 643.4 2945 643.4 2951 643.4 2957 649.4 2957 655.4 \
+2957 655.4 2957 773.2 2957 773.2 2957 779.2 2951 785.2 2945 785.2 2945 785.2 1661 785.2 1661 785.2 1655 785.2 1649 779.2 1649 773.2 \
+1649 773.2 1649 655.4 1649 655.4 1649 649.4 1655 643.4 1661 643.4 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2303 764.1 0 121.5 13 -L3 Operations ",
+			bb="1649,643.4,2957,785.2",
+			color="#D9EAF7",
+			fillcolor="#D9EAF722",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3 Operations",
+			lheight=0.29,
+			lp="2303,770.7",
+			lwidth=1.69,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			ops_tms	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 1864.75 732.2 1864.75 732.2 1685.25 732.2 1685.25 732.2 1679.25 732.2 1673.25 \
+726.2 1673.25 720.2 1673.25 720.2 1673.25 679.4 1673.25 679.4 1673.25 673.4 1679.25 667.4 1685.25 667.4 1685.25 667.4 1864.75 667.4 \
+1864.75 667.4 1870.75 667.4 1876.75 673.4 1876.75 679.4 1876.75 679.4 1876.75 720.2 1876.75 720.2 1876.75 726.2 1870.75 732.2 1864.75 \
+732.2 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1775 703.55 0 187.5 25 -Traffic Management System F 15 5 -Arial c 7 -#000000 T 1775 685.55 0 33.75 \
+5 -[tms] ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=0.9,
+				label="Traffic Management System
+[tms]",
+				penwidth=2,
+				pos="1775,699.8",
+				shape=box,
+				style="rounded,filled",
+				width=2.8264];
+			ops_nms	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 2154.88 732.2 2154.88 732.2 1961.12 732.2 1961.12 732.2 1955.12 732.2 1949.12 \
+726.2 1949.12 720.2 1949.12 720.2 1949.12 679.4 1949.12 679.4 1949.12 673.4 1955.12 667.4 1961.12 667.4 1961.12 667.4 2154.88 667.4 \
+2154.88 667.4 2160.88 667.4 2166.88 673.4 2166.88 679.4 2166.88 679.4 2166.88 720.2 2166.88 720.2 2166.88 726.2 2160.88 732.2 2154.88 \
+732.2 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2058 703.55 0 201.75 25 -Network Management System F 15 5 -Arial c 7 -#000000 T 2058 685.55 0 37.5 \
+5 -[nms] ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=0.9,
+				label="Network Management System
+[nms]",
+				penwidth=2,
+				pos="2058,699.8",
+				shape=box,
+				style="rounded,filled",
+				width=3.0243];
+			ops_tms -> ops_nms	[constraint=false,
+				pos="e,1948.1,700 1877.6,700 1877.6,700 1936.6,700 1936.6,700",
+				style=invis,
+				weight=5];
+			ops_workstation	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 2405.38 732.2 2405.38 732.2 2250.62 732.2 2250.62 732.2 2244.62 732.2 2238.62 \
+726.2 2238.62 720.2 2238.62 720.2 2238.62 679.4 2238.62 679.4 2238.62 673.4 2244.62 667.4 2250.62 667.4 2250.62 667.4 2405.38 667.4 \
+2405.38 667.4 2411.38 667.4 2417.38 673.4 2417.38 679.4 2417.38 679.4 2417.38 720.2 2417.38 720.2 2417.38 726.2 2411.38 732.2 2405.38 \
+732.2 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2328 703.55 0 157.5 22 -Operations Workstation F 15 5 -Arial c 7 -#000000 T 2328 685.55 0 162.75 24 \
+-[operations_workstation] ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=0.9,
+				label="Operations Workstation
+[operations_workstation]",
+				penwidth=2,
+				pos="2328,699.8",
+				shape=box,
+				style="rounded,filled",
+				width=2.4826];
+			ops_nms -> ops_workstation	[constraint=false,
+				pos="e,2237.7,700 2167.8,700 2167.8,700 2226.2,700 2226.2,700",
+				style=invis,
+				weight=5];
+			maint_workstation	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 2662.75 732.2 2662.75 732.2 2501.25 732.2 2501.25 732.2 2495.25 732.2 2489.25 \
+726.2 2489.25 720.2 2489.25 720.2 2489.25 679.4 2489.25 679.4 2489.25 673.4 2495.25 667.4 2501.25 667.4 2501.25 667.4 2662.75 667.4 \
+2662.75 667.4 2668.75 667.4 2674.75 673.4 2674.75 679.4 2674.75 679.4 2674.75 720.2 2674.75 720.2 2674.75 726.2 2668.75 732.2 2662.75 \
+732.2 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2582 703.55 0 169.5 23 -Maintenance Workstation F 15 5 -Arial c 7 -#000000 T 2582 685.55 0 162.75 24 \
+-[operations_workstation] ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=0.9,
+				label="Maintenance Workstation
+[operations_workstation]",
+				penwidth=2,
+				pos="2582,699.8",
+				shape=box,
+				style="rounded,filled",
+				width=2.5764];
+			ops_workstation -> maint_workstation	[constraint=false,
+				pos="e,2488.6,700 2418.3,700 2418.3,700 2477.1,700 2477.1,700",
+				style=invis,
+				weight=5];
+			eng_workstation	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9eaf7 b 25 2921.12 732.2 2921.12 732.2 2758.88 732.2 2758.88 732.2 2752.88 732.2 2746.88 \
+726.2 2746.88 720.2 2746.88 720.2 2746.88 679.4 2746.88 679.4 2746.88 673.4 2752.88 667.4 2758.88 667.4 2758.88 667.4 2921.12 667.4 \
+2921.12 667.4 2927.12 667.4 2933.12 673.4 2933.12 679.4 2933.12 679.4 2933.12 720.2 2933.12 720.2 2933.12 726.2 2927.12 732.2 2921.12 \
+732.2 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2840 703.55 0 162.75 23 -Engineering Workstation F 15 5 -Arial c 7 -#000000 T 2840 685.55 0 170.25 \
+25 -[engineering_workstation] ",
+				color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=0.9,
+				label="Engineering Workstation
+[engineering_workstation]",
+				penwidth=2,
+				pos="2840,699.8",
+				shape=box,
+				style="rounded,filled",
+				width=2.5868];
+			maint_workstation -> eng_workstation	[constraint=false,
+				pos="e,2745.9,700 2675.5,700 2675.5,700 2734.4,700 2734.4,700",
+				style=invis,
+				weight=5];
+		}
+	}
+	subgraph cluster_l2 {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#999999 C 7 -#f8f8f8 b 25 1644 413.6 1644 413.6 2611 413.6 2611 413.6 2617 413.6 2623 419.6 2623 425.6 \
+2623 425.6 2623 605.4 2623 605.4 2623 611.4 2617 617.4 2611 617.4 2611 617.4 1644 617.4 1644 617.4 1638 617.4 1632 611.4 1632 605.4 \
+1632 605.4 1632 425.6 1632 425.6 1632 419.6 1638 413.6 1644 413.6 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2127.5 596.3 0 21 2 -L2 ",
+			bb="1632,413.6,2623,617.4",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L2,
+			lheight=0.29,
+			lp="2127.5,602.9",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l2_telecom {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#d9ead3 C 9 -#d9ead322 b 25 1668 437.6 1668 437.6 2097 437.6 2097 437.6 2103 437.6 2109 443.6 2109 449.6 \
+2109 449.6 2109 552.4 2109 552.4 2109 558.4 2103 564.4 2097 564.4 2097 564.4 1668 564.4 1668 564.4 1662 564.4 1656 558.4 1656 552.4 \
+1656 552.4 1656 449.6 1656 449.6 1656 443.6 1662 437.6 1668 437.6 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 1882.5 546.15 0 81.75 10 -L2 Telecom ",
+					bb="1656,437.6,2109,564.4",
+					color="#D9EAD3",
+					fillcolor="#D9EAD322",
+					fontsize=15,
+					label="L2 Telecom",
+					lheight=0.25,
+					lp="1882.5,551.4",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					telecom_mpls_router	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9ead3 b 25 1834.4 520.4 1834.4 520.4 1685.6 520.4 1685.6 520.4 1679.6 520.4 1673.6 514.4 \
+1673.6 508.4 1673.6 508.4 1673.6 467.6 1673.6 467.6 1673.6 461.6 1679.6 455.6 1685.6 455.6 1685.6 455.6 1834.4 455.6 1834.4 455.6 \
+1840.4 455.6 1846.4 461.6 1846.4 467.6 1846.4 467.6 1846.4 508.4 1846.4 508.4 1846.4 514.4 1840.4 520.4 1834.4 520.4 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 1760 491.75 0 90 11 -MPLS Router F 15 5 -Arial c 7 -#000000 T 1760 473.75 0 88.5 13 -[mpls_router] ",
+						color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=0.9,
+						label="MPLS Router
+[mpls_router]",
+						penwidth=2,
+						pos="1760,488",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+					telecom_gateway	[_draw_="S 15 -setlinewidth(2) c 7 -#444444 C 7 -#d9ead3 b 25 2079.4 520.4 2079.4 520.4 1930.6 520.4 1930.6 520.4 1924.6 520.4 1918.6 514.4 \
+1918.6 508.4 1918.6 508.4 1918.6 467.6 1918.6 467.6 1918.6 461.6 1924.6 455.6 1930.6 455.6 1930.6 455.6 2079.4 455.6 2079.4 455.6 \
+2085.4 455.6 2091.4 461.6 2091.4 467.6 2091.4 467.6 2091.4 508.4 2091.4 508.4 2091.4 514.4 2085.4 520.4 2079.4 520.4 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2005 491.75 0 119.25 15 -Telecom Gateway F 15 5 -Arial c 7 -#000000 T 2005 473.75 0 125.25 17 -[telecom_\
+gateway] ",
+						color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=0.9,
+						label="Telecom Gateway
+[telecom_gateway]",
+						penwidth=2,
+						pos="2005,488",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+					telecom_mpls_router -> telecom_gateway	[constraint=false,
+						pos="e,1917.8,488 1847.1,488 1847.1,488 1906.3,488 1906.3,488",
+						style=invis,
+						weight=5];
+				}
+			}
+			subgraph cluster_l2_interlocking {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#f4cccc C 9 -#f4cccc22 b 25 2158 437.6 2158 437.6 2587 437.6 2587 437.6 2593 437.6 2599 443.6 2599 449.6 \
+2599 449.6 2599 552.4 2599 552.4 2599 558.4 2593 564.4 2587 564.4 2587 564.4 2158 564.4 2158 564.4 2152 564.4 2146 558.4 2146 552.4 \
+2146 552.4 2146 449.6 2146 449.6 2146 443.6 2152 437.6 2158 437.6 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 2372.5 546.15 0 107.25 15 -L2 Interlocking ",
+					bb="2146,437.6,2599,564.4",
+					color="#F4CCCC",
+					fillcolor="#F4CCCC22",
+					fontsize=15,
+					label="L2 Interlocking",
+					lheight=0.25,
+					lp="2372.5,551.4",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					s_kavach	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#7a3db8 C 7 -#f4cccc b 25 2324.4 520.4 2324.4 520.4 2175.6 520.4 2175.6 520.4 2169.6 520.4 \
+2163.6 514.4 2163.6 508.4 2163.6 508.4 2163.6 467.6 2163.6 467.6 2163.6 461.6 2169.6 455.6 2175.6 455.6 2175.6 455.6 2324.4 455.6 \
+2324.4 455.6 2330.4 455.6 2336.4 461.6 2336.4 467.6 2336.4 467.6 2336.4 508.4 2336.4 508.4 2336.4 514.4 2330.4 520.4 2324.4 520.4 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2250 491.75 0 121.5 17 -Stationary Kavach F 15 5 -Arial c 7 -#000000 T 2250 473.75 0 72 10 -[s_kavach] ",
+						color="#7A3DB8",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=0.9,
+						label="Stationary Kavach
+[s_kavach]",
+						penwidth=2,
+						pos="2250,488",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+					electronic_interlocking	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#f4cccc b 25 2569.4 520.4 2569.4 520.4 2420.6 520.4 2420.6 520.4 2414.6 520.4 \
+2408.6 514.4 2408.6 508.4 2408.6 508.4 2408.6 467.6 2408.6 467.6 2408.6 461.6 2414.6 455.6 2420.6 455.6 2420.6 455.6 2569.4 455.6 \
+2569.4 455.6 2575.4 455.6 2581.4 461.6 2581.4 467.6 2581.4 467.6 2581.4 508.4 2581.4 508.4 2581.4 514.4 2575.4 520.4 2569.4 520.4 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2495 491.75 0 146.25 23 -Electronic Interlocking F 15 5 -Arial c 7 -#000000 T 2495 473.75 0 156 25 \
+-[electronic_interlocking] ",
+						color="#444444",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=0.9,
+						label="Electronic Interlocking
+[electronic_interlocking]",
+						penwidth=2,
+						pos="2495,488",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+					s_kavach -> electronic_interlocking	[constraint=false,
+						pos="e,2407.8,488 2337.1,488 2337.1,488 2396.3,488 2396.3,488",
+						style=invis,
+						weight=5];
+				}
+			}
+		}
+	}
+	subgraph cluster_l1 {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#999999 C 7 -#f8f8f8 b 25 1643 201.8 1643 201.8 2651 201.8 2651 201.8 2657 201.8 2663 207.8 2663 213.8 \
+2663 213.8 2663 393.6 2663 393.6 2663 399.6 2657 405.6 2651 405.6 2651 405.6 1643 405.6 1643 405.6 1637 405.6 1631 399.6 1631 393.6 \
+1631 393.6 1631 213.8 1631 213.8 1631 207.8 1637 201.8 1643 201.8 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2147 384.5 0 21 2 -L1 ",
+			bb="1631,201.8,2663,405.6",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L1,
+			lheight=0.29,
+			lp="2147,391.1",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l1_telecom {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#b6d7a8 C 9 -#b6d7a822 b 25 1667 225.8 1667 225.8 2129 225.8 2129 225.8 2135 225.8 2141 231.8 2141 237.8 \
+2141 237.8 2141 340.6 2141 340.6 2141 346.6 2135 352.6 2129 352.6 2129 352.6 1667 352.6 1667 352.6 1661 352.6 1655 346.6 1655 340.6 \
+1655 340.6 1655 237.8 1655 237.8 1655 231.8 1661 225.8 1667 225.8 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 1898 334.35 0 81.75 10 -L1 Telecom ",
+					bb="1655,225.8,2141,352.6",
+					color="#B6D7A8",
+					fillcolor="#B6D7A822",
+					fontsize=15,
+					label="L1 Telecom",
+					lheight=0.25,
+					lp="1898,339.6",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					radio_base_station	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#7a3db8 C 7 -#b6d7a8 b 25 1866.5 308.6 1866.5 308.6 1685.5 308.6 1685.5 308.6 1679.5 308.6 \
+1673.5 302.6 1673.5 296.6 1673.5 296.6 1673.5 255.8 1673.5 255.8 1673.5 249.8 1679.5 243.8 1685.5 243.8 1685.5 243.8 1866.5 243.8 \
+1866.5 243.8 1872.5 243.8 1878.5 249.8 1878.5 255.8 1878.5 255.8 1878.5 296.6 1878.5 296.6 1878.5 302.6 1872.5 308.6 1866.5 308.6 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 1776 279.95 0 183 26 -Railway Radio Base Station F 15 5 -Arial c 7 -#000000 T 1776 261.95 0 189 28 \
+-[railway_radio_base_station] ",
+						color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=0.9,
+						label="Railway Radio Base Station
+[railway_radio_base_station]",
+						penwidth=2,
+						pos="1776,276.2",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.8472];
+					radio_gateway	[_draw_="S 15 -setlinewidth(2) S 6 -dashed c 7 -#7a3db8 C 7 -#b6d7a8 b 25 2111.4 308.6 2111.4 308.6 1962.6 308.6 1962.6 308.6 1956.6 308.6 \
+1950.6 302.6 1950.6 296.6 1950.6 296.6 1950.6 255.8 1950.6 255.8 1950.6 249.8 1956.6 243.8 1962.6 243.8 1962.6 243.8 2111.4 243.8 \
+2111.4 243.8 2117.4 243.8 2123.4 249.8 2123.4 255.8 2123.4 255.8 2123.4 296.6 2123.4 296.6 2123.4 302.6 2117.4 308.6 2111.4 308.6 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2037 279.95 0 102 13 -Radio Gateway F 15 5 -Arial c 7 -#000000 T 2037 261.95 0 105.75 15 -[radio_gateway] ",
+						color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=0.9,
+						label="Radio Gateway
+[radio_gateway]",
+						penwidth=2,
+						pos="2037,276.2",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.4];
+					radio_base_station -> radio_gateway	[constraint=false,
+						pos="e,1949.8,276 1879.2,276 1879.2,276 1938.2,276 1938.2,276",
+						style=invis,
+						weight=5];
+				}
+			}
+			subgraph cluster_l1_interlocking {
+				graph [_draw_="S 15 -setlinewidth(2) c 7 -#ea9999 C 9 -#ea999922 b 25 2190 225.8 2190 225.8 2627 225.8 2627 225.8 2633 225.8 2639 231.8 2639 237.8 \
+2639 237.8 2639 340.6 2639 340.6 2639 346.6 2633 352.6 2627 352.6 2627 352.6 2190 352.6 2190 352.6 2184 352.6 2178 346.6 2178 340.6 \
+2178 340.6 2178 237.8 2178 237.8 2178 231.8 2184 225.8 2190 225.8 ",
+					_ldraw_="F 15 10 -Arial Bold c 7 -#000000 T 2408.5 334.35 0 107.25 15 -L1 Interlocking ",
+					bb="2178,225.8,2639,352.6",
+					color="#EA9999",
+					fillcolor="#EA999922",
+					fontsize=15,
+					label="L1 Interlocking",
+					lheight=0.25,
+					lp="2408.5,339.6",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					axle_counter_evaluator	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#ea9999 b 25 2364.12 308.6 2364.12 308.6 2207.88 308.6 2207.88 308.6 2201.88 \
+308.6 2195.88 302.6 2195.88 296.6 2195.88 296.6 2195.88 255.8 2195.88 255.8 2195.88 249.8 2201.88 243.8 2207.88 243.8 2207.88 243.8 \
+2364.12 243.8 2364.12 243.8 2370.12 243.8 2376.12 249.8 2376.12 255.8 2376.12 255.8 2376.12 296.6 2376.12 296.6 2376.12 302.6 2370.12 \
+308.6 2364.12 308.6 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2286 279.95 0 153.75 22 -Axle Counter Evaluator F 15 5 -Arial c 7 -#000000 T 2286 261.95 0 164.25 24 \
+-[axle_counter_evaluator] ",
+						color="#444444",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=0.9,
+						label="Axle Counter Evaluator
+[axle_counter_evaluator]",
+						penwidth=2,
+						pos="2286,276.2",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.5035];
+					object_controller	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#ea9999 b 25 2609.4 308.6 2609.4 308.6 2460.6 308.6 2460.6 308.6 2454.6 308.6 \
+2448.6 302.6 2448.6 296.6 2448.6 296.6 2448.6 255.8 2448.6 255.8 2448.6 249.8 2454.6 243.8 2460.6 243.8 2460.6 243.8 2609.4 243.8 \
+2609.4 243.8 2615.4 243.8 2621.4 249.8 2621.4 255.8 2621.4 255.8 2621.4 296.6 2621.4 296.6 2621.4 302.6 2615.4 308.6 2609.4 308.6 ",
+						_ldraw_="F 15 5 -Arial c 7 -#000000 T 2535 279.95 0 112.5 17 -Object Controller F 15 5 -Arial c 7 -#000000 T 2535 261.95 0 118.5 19 -[object_\
+controller] ",
+						color="#444444",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=0.9,
+						label="Object Controller
+[object_controller]",
+						penwidth=2,
+						pos="2535,276.2",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+					axle_counter_evaluator -> object_controller	[constraint=false,
+						pos="e,2447.6,276 2377,276 2377,276 2436.1,276 2436.1,276",
+						style=invis,
+						weight=5];
+				}
+			}
+		}
+	}
+	subgraph cluster_l0_field {
+		graph [_draw_="S 15 -setlinewidth(2) c 7 -#e2f0d9 C 9 -#e2f0d922 b 25 1493 8 1493 8 2688 8 2688 8 2694 8 2700 14 2700 20 2700 20 2700 137.8 2700 \
+137.8 2700 143.8 2694 149.8 2688 149.8 2688 149.8 1493 149.8 1493 149.8 1487 149.8 1481 143.8 1481 137.8 1481 137.8 1481 20 1481 \
+20 1481 14 1487 8 1493 8 ",
+			_ldraw_="F 18 10 -Arial Bold c 7 -#000000 T 2090.5 128.7 0 69 8 -L0 Field ",
+			bb="1481,8,2700,149.8",
+			color="#E2F0D9",
+			fillcolor="#E2F0D922",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L0 Field",
+			lheight=0.29,
+			lp="2090.5,135.3",
+			lwidth=0.96,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			point_machine_controller	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#e2f0d9 b 25 1684.75 96.8 1684.75 96.8 1517.25 96.8 1517.25 96.8 1511.25 96.8 \
+1505.25 90.8 1505.25 84.8 1505.25 84.8 1505.25 44 1505.25 44 1505.25 38 1511.25 32 1517.25 32 1517.25 32 1684.75 32 1684.75 32 1690.75 \
+32 1696.75 38 1696.75 44 1696.75 44 1696.75 84.8 1696.75 84.8 1696.75 90.8 1690.75 96.8 1684.75 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1601 68.15 0 163.5 24 -Point Machine Controller F 15 5 -Arial c 7 -#000000 T 1601 50.15 0 175.5 26 \
+-[point_machine_controller] ",
+				color="#444444",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=0.9,
+				label="Point Machine Controller
+[point_machine_controller]",
+				penwidth=2,
+				pos="1601,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6597];
+			signal_controller	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#e2f0d9 b 25 1929.4 96.8 1929.4 96.8 1780.6 96.8 1780.6 96.8 1774.6 96.8 1768.6 \
+90.8 1768.6 84.8 1768.6 84.8 1768.6 44 1768.6 44 1768.6 38 1774.6 32 1780.6 32 1780.6 32 1929.4 32 1929.4 32 1935.4 32 1941.4 38 \
+1941.4 44 1941.4 44 1941.4 84.8 1941.4 84.8 1941.4 90.8 1935.4 96.8 1929.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 1855 68.15 0 109.5 17 -Signal Controller F 15 5 -Arial c 7 -#000000 T 1855 50.15 0 117 19 -[signal_\
+controller] ",
+				color="#444444",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=0.9,
+				label="Signal Controller
+[signal_controller]",
+				penwidth=2,
+				pos="1855,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			point_machine_controller -> signal_controller	[constraint=false,
+				pos="e,1767.9,64 1697.4,64 1697.4,64 1756.3,64 1756.3,64",
+				style=invis,
+				weight=5];
+			track_circuit	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#e2f0d9 b 25 2174.4 96.8 2174.4 96.8 2025.6 96.8 2025.6 96.8 2019.6 96.8 2013.6 \
+90.8 2013.6 84.8 2013.6 84.8 2013.6 44 2013.6 44 2013.6 38 2019.6 32 2025.6 32 2025.6 32 2174.4 32 2174.4 32 2180.4 32 2186.4 38 \
+2186.4 44 2186.4 44 2186.4 84.8 2186.4 84.8 2186.4 90.8 2180.4 96.8 2174.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2100 68.15 0 83.25 13 -Track Circuit F 15 5 -Arial c 7 -#000000 T 2100 50.15 0 89.25 15 -[track_circuit] ",
+				color="#444444",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=0.9,
+				label="Track Circuit
+[track_circuit]",
+				penwidth=2,
+				pos="2100,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			signal_controller -> track_circuit	[constraint=false,
+				pos="e,2012.8,64 1942.1,64 1942.1,64 2001.3,64 2001.3,64",
+				style=invis,
+				weight=5];
+			axle_counter_head	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#e2f0d9 b 25 2419.4 96.8 2419.4 96.8 2270.6 96.8 2270.6 96.8 2264.6 96.8 2258.6 \
+90.8 2258.6 84.8 2258.6 84.8 2258.6 44 2258.6 44 2258.6 38 2264.6 32 2270.6 32 2270.6 32 2419.4 32 2419.4 32 2425.4 32 2431.4 38 \
+2431.4 44 2431.4 44 2431.4 84.8 2431.4 84.8 2431.4 90.8 2425.4 96.8 2419.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2345 68.15 0 126 17 -Axle Counter Head F 15 5 -Arial c 7 -#000000 T 2345 50.15 0 135.75 19 -[axle_counter_\
+head] ",
+				color="#444444",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=0.9,
+				label="Axle Counter Head
+[axle_counter_head]",
+				penwidth=2,
+				pos="2345,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			track_circuit -> axle_counter_head	[constraint=false,
+				pos="e,2257.8,64 2187.1,64 2187.1,64 2246.3,64 2246.3,64",
+				style=invis,
+				weight=5];
+			trackside_rfid_tag	[_draw_="S 15 -setlinewidth(2) S 5 -solid c 7 -#444444 C 7 -#e2f0d9 b 25 2664.4 96.8 2664.4 96.8 2515.6 96.8 2515.6 96.8 2509.6 96.8 2503.6 \
+90.8 2503.6 84.8 2503.6 84.8 2503.6 44 2503.6 44 2503.6 38 2509.6 32 2515.6 32 2515.6 32 2664.4 32 2664.4 32 2670.4 32 2676.4 38 \
+2676.4 44 2676.4 44 2676.4 84.8 2676.4 84.8 2676.4 90.8 2670.4 96.8 2664.4 96.8 ",
+				_ldraw_="F 15 5 -Arial c 7 -#000000 T 2590 68.15 0 130.5 18 -Trackside RFID Tag F 15 5 -Arial c 7 -#000000 T 2590 50.15 0 127.5 20 -[trackside_\
+rfid_tag] ",
+				color="#444444",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=0.9,
+				label="Trackside RFID Tag
+[trackside_rfid_tag]",
+				penwidth=2,
+				pos="2590,64.4",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			axle_counter_head -> trackside_rfid_tag	[constraint=false,
+				pos="e,2502.8,64 2432.1,64 2432.1,64 2491.3,64 2491.3,64",
+				style=invis,
+				weight=5];
+		}
+	}
+	l5_enterprise_anchor	[height=0.01,
+		label="",
+		pos="1601,1758.8",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l4_business_anchor	[height=0.01,
+		label="",
+		pos="1601,1547",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l5_enterprise_anchor -> l4_business_anchor	[pos="e,1601,1547.6 1601,1758.2 1601,1758.2 1601,1559.1 1601,1559.1",
+		style=invis,
+		weight=100];
+	l5_enterprise_anchor -> ent_email_server	[pos="e,1760,1580.1 1601.7,1759 1613.2,1759 1760,1759 1760,1759 1760,1759 1760,1591.6 1760,1591.6",
+		style=invis,
+		weight=20];
+	l35_idmz_anchor	[height=0.01,
+		label="",
+		pos="1601,1335.2",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l4_business_anchor -> l35_idmz_anchor	[pos="e,1601,1335.8 1601,1546.4 1601,1546.4 1601,1347.3 1601,1347.3",
+		style=invis,
+		weight=100];
+	l35_security_anchor	[height=0.01,
+		label="",
+		pos="1601,1123.4",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l35_idmz_anchor -> l35_security_anchor	[pos="e,1601,1124 1601,1334.6 1601,1334.6 1601,1135.5 1601,1135.5",
+		style=invis,
+		weight=100];
+	l35_idmz_anchor -> idmz_firewall	[pos="e,1760,1156.5 1601.7,1335 1613.2,1335 1760,1335 1760,1335 1760,1335 1760,1168 1760,1168",
+		style=invis,
+		weight=20];
+	l3_operations_anchor	[height=0.01,
+		label="",
+		pos="1601,911.6",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l35_security_anchor -> l3_operations_anchor	[pos="e,1601,912.17 1601,1122.8 1601,1122.8 1601,923.68 1601,923.68",
+		style=invis,
+		weight=100];
+	l35_security_anchor -> ext_kms_server	[constraint=true,
+		pos="e,1672.6,928 1601.8,1123 1607.6,1123 1644.8,1123 1644.8,1123 1644.8,1123 1644.8,928 1644.8,928 1644.8,928 1661.1,928 1661.1,928",
+		style=invis,
+		weight=5];
+	l35_security_anchor -> sec_siem	[pos="e,2005,944.95 1600.5,1123 1595.1,1123 1552.6,1123 1552.6,1123 1552.6,1123 1552.6,1017 1552.6,1017 1552.6,1017 2005,1017 2005,1017 \
+2005,1017 2005,956.46 2005,956.46",
+		style=invis,
+		weight=20];
+	l2_anchor	[height=0.01,
+		label="",
+		pos="1601,699.8",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l3_operations_anchor -> l2_anchor	[pos="e,1601,700.37 1601,910.99 1601,910.99 1601,711.88 1601,711.88",
+		style=invis,
+		weight=100];
+	l3_operations_anchor -> ops_tms	[pos="e,1672.3,717 1601.7,912 1606.3,912 1630.5,912 1630.5,912 1630.5,912 1630.5,717 1630.5,717 1630.5,717 1660.8,717 1660.8,717",
+		style=invis,
+		weight=20];
+	l1_anchor	[height=0.01,
+		label="",
+		pos="1601,488",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l2_anchor -> l1_anchor	[pos="e,1601,488.57 1601,699.19 1601,699.19 1601,500.08 1601,500.08",
+		style=invis,
+		weight=100];
+	l2_anchor -> telecom_mpls_router	[pos="e,1672.6,505 1601.7,700 1608,700 1659,700 1659,700 1659,700 1659,505 1659,505 1659,505 1661.1,505 1661.1,505",
+		style=invis,
+		weight=20];
+	l0_field_anchor	[height=0.01,
+		label="",
+		pos="1601,276.2",
+		shape=point,
+		style=invis,
+		width=0.01];
+	l1_anchor -> l0_field_anchor	[pos="e,1601,276.77 1601,487.39 1601,487.39 1601,288.28 1601,288.28",
+		style=invis,
+		weight=100];
+	l1_anchor -> radio_base_station	[pos="e,1672.6,293 1601.7,488 1604.6,488 1616.2,488 1616.2,488 1616.2,488 1616.2,293 1616.2,293 1616.2,293 1661.1,293 1661.1,293",
+		style=invis,
+		weight=20];
+	l0_field_anchor -> l_kavach	[constraint=true,
+		pos="e,102,97.463 1600.4,276 1566.1,276 102,276 102,276 102,276 102,108.98 102,108.98",
+		style=invis,
+		weight=5];
+	l0_field_anchor -> point_machine_controller	[pos="e,1601,97.436 1601,275.59 1601,275.59 1601,108.95 1601,108.95",
+		style=invis,
+		weight=20];
+	sec_vuln_scanner -> ext_kms_server	[constraint=false,
+		pos="e,1760,878.48 2915.9,878.48 2915.9,847.51 2915.9,806 2915.9,806 2915.9,806 1760,806 1760,806 1760,806 1760,866.96 1760,866.96",
+		style=invis,
+		weight=5];
+}

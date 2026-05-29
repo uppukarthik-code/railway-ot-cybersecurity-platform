@@ -1,0 +1,257 @@
+<mxfile type="device" compressed="false">
+    <diagram id="Railway Purdue Architecture" name="Railway Purdue Architecture">
+      <mxGraphModel dx="1360" dy="864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
+        <root>
+          <mxCell id="0" />   
+          <mxCell id="1" parent="0" />
+        <object id="zone_enterprise_it" label="Enterprise It">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#d9e2f3;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="ent-email-server" label="Corporate Email Server\n[enterprise_server]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="ent-erp-server" label="ERP System\n[enterprise_server]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="ent-eam-server" label="Enterprise Asset Management\n[enterprise_server]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_idmz" label="Idmz">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#f4b183;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="idmz-firewall" label="IDMZ Firewall\n[firewall]">
+      <mxCell style="shape=mxgraph.cisco.security.firewall;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="idmz-vpn-gateway" label="VPN Gateway\n[vpn_gateway]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="idmz-jump-host" label="Jump Host\n[jump_host]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="idmz-data-diode" label="Data Diode\n[data_diode]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_security_management" label="Security Management">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#ffe599;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="sec-siem" label="SIEM\n[siem]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="sec-soc-server" label="SOC Server\n[soc_server]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="sec-ids-sensor" label="IDS Sensor\n[ids_sensor]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="sec-ips-sensor" label="IPS Sensor\n[ips_sensor]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="sec-vuln-scanner" label="Vulnerability Scanner\n[vulnerability_scanner]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_external_security" label="External Security">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#ead1dc;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="ext-kms-server" label="External KMS Server\n[external_kms_server]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#7a3db8;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_operations" label="Operations">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#bdd7ee;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="ops-tms" label="Traffic Management System\n[tms]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="ops-nms" label="Network Management System\n[nms]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="ops-workstation" label="Operations Workstation\n[operations_workstation]">
+      <mxCell style="shape=mxgraph.cisco.computers.workstation;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="maint-workstation" label="Maintenance Workstation\n[operations_workstation]">
+      <mxCell style="shape=mxgraph.cisco.computers.workstation;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="eng-workstation" label="Engineering Workstation\n[engineering_workstation]">
+      <mxCell style="shape=mxgraph.cisco.computers.workstation;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_telecom_core" label="Telecom Core">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#ffffff;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="telecom-mpls-router" label="MPLS Router\n[mpls_router]">
+      <mxCell style="shape=mxgraph.cisco.routers.router;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="telecom-gateway" label="Telecom Gateway\n[telecom_gateway]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_radio_access" label="Radio Access">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#ffffff;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="radio-base-station" label="Railway Radio Base Station\n[railway_radio_base_station]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="radio-gateway" label="Radio Gateway\n[radio_gateway]">
+      <mxCell style="shape=mxgraph.cisco.wireless.access_point;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_interlocking" label="Interlocking">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#f4cccc;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="s-kavach" label="Stationary Kavach\n[s_kavach]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="electronic-interlocking" label="Electronic Interlocking\n[electronic_interlocking]">
+      <mxCell style="shape=mxgraph.cisco.servers.server;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="object-controller" label="Object Controller\n[object_controller]">
+      <mxCell style="shape=mxgraph.cisco.modules.switch;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="axle-counter-evaluator" label="Axle Counter Evaluator\n[axle_counter_evaluator]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_field" label="Field">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#b6d7a8;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="point-machine-controller" label="Point Machine Controller\n[point_machine_controller]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="signal-controller" label="Signal Controller\n[signal_controller]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="axle-counter-head" label="Axle Counter Head\n[axle_counter_head]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="track-circuit" label="Track Circuit\n[track_circuit]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="trackside-rfid-tag" label="Trackside RFID Tag\n[trackside_rfid_tag]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="zone_onboard" label="Onboard">
+      <mxCell style="rounded=1;strokeWidth=2;dashed=0;fillColor=#d9b3ff;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="400" height="300" as="geometry" />
+      </mxCell>
+    </object><object id="l-kavach" label="Locomotive Kavach\n[l_kavach]">
+      <mxCell style="shape=mxgraph.cisco.computers.workstation;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="train-radio" label="Train Radio\n[train_radio]">
+      <mxCell style="shape=mxgraph.cisco.wireless.access_point;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="driver-machine-interface" label="Driver Machine Interface\n[driver_machine_interface]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="brake-interface-unit" label="Brake Interface Unit\n[brake_interface_unit]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="speed-sensor" label="Speed Sensor\n[speed_sensor]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#cc0000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="onboard-rfid-reader" label="Onboard RFID Reader\n[onboard_rfid_reader]">
+      <mxCell style="rounded=1;whiteSpace=wrap;;html=1;;strokeWidth=2;;strokeColor=#000000;;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="170" height="70" as="geometry" />
+      </mxCell>
+    </object><object id="c0121155ef713227765c3537e6d39d9c" label="HTTPS [UNENC]" source="zone_enterprise_it" target="zone_idmz">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_enterprise_it" target="zone_idmz">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="c1bb97632c8049852f55528117fbdfd3" label="SSH [UNENC]" source="zone_idmz" target="zone_operations">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_idmz" target="zone_operations">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7881c871f72a60774527f4c859000464" label="SYSLOG_TLS [UNENC]" source="zone_idmz" target="zone_security_management">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_idmz" target="zone_security_management">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7e3f94a6e5c861ec1f574702de842009" label="HTTPS, SNMPV3 [UNENC]" source="zone_operations" target="zone_telecom_core">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_operations" target="zone_telecom_core">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="5e6137d71fda9f91e9e9dca2d64c074b" label="IP [UNENC]" source="zone_radio_access" target="zone_telecom_core">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_radio_access" target="zone_telecom_core">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="Safety_Segmentation_Firewall" label="Safety Segmentation Firewall">
+      <mxCell style="shape=mxgraph.cisco.security.firewall;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="130" height="64" as="geometry" />
+      </mxCell>
+    </object><object id="f8413c6fb5944002e081437a44687093" label="" source="zone_interlocking" target="Safety_Segmentation_Firewall">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;" edge="1" parent="1" source="zone_interlocking" target="Safety_Segmentation_Firewall">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="51c84ac48c43b7e26e62fabb3860bb0a" label="OPC_UA, SSH [UNENC]" source="Safety_Segmentation_Firewall" target="zone_operations">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;endArrow=classic;" edge="1" parent="1" source="Safety_Segmentation_Firewall" target="zone_operations">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="bcf1b4e3b35aa11cbb547bffcae0aea5" label="CAN [UNENC]" source="zone_field" target="zone_interlocking">
+      <mxCell style="strokeWidth=5;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_field" target="zone_interlocking">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="c52df825229c7c7d95b928636ed020e0" label="MCOMM [UNENC]" source="zone_interlocking" target="zone_radio_access">
+      <mxCell style="strokeWidth=5;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_interlocking" target="zone_radio_access">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="474a18accb087109195968fef23f4456" label="MCOMM [UNENC]" source="zone_onboard" target="zone_radio_access">
+      <mxCell style="strokeWidth=5;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_onboard" target="zone_radio_access">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="2174a6604ceef1b1d89902ae231d2957" label="MCOMM [UNENC]" source="zone_interlocking" target="zone_onboard">
+      <mxCell style="strokeWidth=5;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_interlocking" target="zone_onboard">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="fb832298ad0d211059532d6f67b2e5e7" label="UNKNOWN [UNENC]" source="zone_field" target="zone_onboard">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_field" target="zone_onboard">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="e52f1ab08b383f1833421dc943903934" label="HTTPS [UNENC]" source="zone_external_security" target="zone_interlocking">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_external_security" target="zone_interlocking">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="6594857038dc0e234f02665b9753562b" label="HTTPS [UNENC]" source="zone_external_security" target="zone_onboard">
+      <mxCell style="strokeWidth=3;strokeColor=#cc0000;rounded=1;endArrow=classic;" edge="1" parent="1" source="zone_external_security" target="zone_onboard">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object></root>
+      </mxGraphModel>
+    </diagram></mxfile>

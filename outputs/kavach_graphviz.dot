@@ -1,0 +1,241 @@
+digraph Railway_OT {
+	bgcolor=white compound=true concentrate=false newrank=true nodesep=0.8 overlap=false pad=0.5 rankdir=TB ranksep=1.2 splines=ortho
+	node [fontname=Arial fontsize=10 shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=8]
+	subgraph cluster_onboard {
+		color="#8e7cc3" fillcolor="#8e7cc322" label="Onboard Domain" margin=8 penwidth=3 style="rounded,dashed,filled"
+		brake_interface_unit [label="Brake Interface Unit
+[brake_interface_unit]" color="#CC0000" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+		driver_machine_interface [label="Driver Machine Interface
+[driver_machine_interface]" color="#CC0000" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+		l_kavach [label="Locomotive Kavach
+[l_kavach]" color="#CC0000" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+		onboard_rfid_reader [label="Onboard RFID Reader
+[onboard_rfid_reader]" color="#222222" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+		speed_sensor [label="Speed Sensor
+[speed_sensor]" color="#CC0000" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+		train_radio [label="Train Radio
+[train_radio]" color="#222222" fillcolor="#8e7cc3" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+	}
+	subgraph cluster_0 {
+		color="#1f4e79" fillcolor="#1f4e7922" fontname="Arial Bold" fontsize=18 label="L5 Enterprise" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_0_0 {
+			color="#d9e2f3" fontsize=12 label=enterprise_it margin=16 style="rounded,dashed"
+			subgraph cluster_000 {
+				color=lightgray fillcolor="#d9e2f3" fontsize=10 label="Enterprise Services" margin=10 style="rounded,filled"
+				ent_email_server [label="Corporate Email Server
+[enterprise_server]" color="#222222" fillcolor="#1f4e79" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ent_eam_server [label="Enterprise Asset Management
+[enterprise_server]" color="#222222" fillcolor="#1f4e79" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ent_email_server -> ent_eam_server [style=invis weight=10]
+				ent_erp_server [label="ERP System
+[enterprise_server]" color="#222222" fillcolor="#1f4e79" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ent_eam_server -> ent_erp_server [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_2 {
+		color="#c00000" fillcolor="#c0000022" fontname="Arial Bold" fontsize=18 label="L3.5 IDMZ" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_2_0 {
+			color="#f4cccc" fontsize=12 label=idmz margin=16 style="rounded,dashed"
+			subgraph cluster_200 {
+				color=lightgray fillcolor="#EEEEEE" fontsize=10 label="External Security Services" margin=10 style="rounded,filled"
+				idmz_data_diode [label="Data Diode
+[data_diode]" color="#222222" fillcolor="#c00000" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				idmz_firewall [label="IDMZ Firewall
+[firewall]" color="#222222" fillcolor="#c00000" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				idmz_data_diode -> idmz_firewall [style=invis weight=10]
+				idmz_jump_host [label="Jump Host
+[jump_host]" color="#222222" fillcolor="#c00000" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				idmz_firewall -> idmz_jump_host [style=invis weight=10]
+				idmz_vpn_gateway [label="VPN Gateway
+[vpn_gateway]" color="#222222" fillcolor="#c00000" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				idmz_jump_host -> idmz_vpn_gateway [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_3 {
+		color="#e06666" fillcolor="#e0666622" fontname="Arial Bold" fontsize=18 label="L3.5 Security" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_3_0 {
+			color="#e6b8af" fontsize=12 label=external_security margin=16 style="rounded,dashed"
+			subgraph cluster_300 {
+				color=lightgray fillcolor="#EEEEEE" fontsize=10 label="External Security Services" margin=10 style="rounded,filled"
+				ext_kms_server [label="External KMS Server
+[external_kms_server]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+			}
+		}
+		subgraph cluster_3_1 {
+			color="#ea9999" fontsize=12 label=security_management margin=16 style="rounded,dashed"
+			subgraph cluster_310 {
+				color=lightgray fillcolor="#EEEEEE" fontsize=10 label="Security Management" margin=10 style="rounded,filled"
+				sec_ids_sensor [label="IDS Sensor
+[ids_sensor]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				sec_ips_sensor [label="IPS Sensor
+[ips_sensor]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				sec_ids_sensor -> sec_ips_sensor [style=invis weight=10]
+				sec_siem [label="SIEM
+[siem]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				sec_ips_sensor -> sec_siem [style=invis weight=10]
+				sec_soc_server [label="SOC Server
+[soc_server]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				sec_siem -> sec_soc_server [style=invis weight=10]
+				sec_vuln_scanner [label="Vulnerability Scanner
+[vulnerability_scanner]" color="#222222" fillcolor="#e06666" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				sec_soc_server -> sec_vuln_scanner [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_4 {
+		color="#6aa84f" fillcolor="#6aa84f22" fontname="Arial Bold" fontsize=18 label="L3 Operations" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_4_0 {
+			color="#d9ead3" fontsize=12 label=operations margin=16 style="rounded,dashed"
+			subgraph cluster_400 {
+				color=lightgray fillcolor="#bdd7ee" fontsize=10 label="Operations Management" margin=10 style="rounded,filled"
+				eng_workstation [label="Engineering Workstation
+[engineering_workstation]" color="#222222" fillcolor="#6aa84f" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ops_nms [label="Network Management System
+[nms]" color="#222222" fillcolor="#6aa84f" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				eng_workstation -> ops_nms [style=invis weight=10]
+				maint_workstation [label="Maintenance Workstation
+[operations_workstation]" color="#222222" fillcolor="#6aa84f" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ops_nms -> maint_workstation [style=invis weight=10]
+				ops_workstation [label="Operations Workstation
+[operations_workstation]" color="#222222" fillcolor="#6aa84f" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				maint_workstation -> ops_workstation [style=invis weight=10]
+				ops_tms [label="Traffic Management System
+[tms]" color="#222222" fillcolor="#6aa84f" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				ops_workstation -> ops_tms [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_5 {
+		color="#3d85c6" fillcolor="#3d85c622" fontname="Arial Bold" fontsize=18 label="L2 Telecom" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_5_0 {
+			color="#cfe2f3" fontsize=12 label=telecom_core margin=16 style="rounded,dashed"
+			subgraph cluster_500 {
+				color=lightgray fillcolor="#EEEEEE" fontsize=10 label="Telecom Network" margin=10 style="rounded,filled"
+				telecom_mpls_router [label="MPLS Router
+[mpls_router]" color="#222222" fillcolor="#3d85c6" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				telecom_gateway [label="Telecom Gateway
+[telecom_gateway]" color="#222222" fillcolor="#3d85c6" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				telecom_mpls_router -> telecom_gateway [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_6 {
+		color="#6fa8dc" fillcolor="#6fa8dc22" fontname="Arial Bold" fontsize=18 label="L1 Telecom" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_6_0 {
+			color="#9fc5e8" fontsize=12 label=radio_access margin=16 style="rounded,dashed"
+			subgraph cluster_600 {
+				color=lightgray fillcolor="#d9b3ff" fontsize=10 label="Radio Communication" margin=10 style="rounded,filled"
+				radio_gateway [label="Radio Gateway
+[radio_gateway]" color="#222222" fillcolor="#6fa8dc" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				radio_base_station [label="Railway Radio Base Station
+[railway_radio_base_station]" color="#222222" fillcolor="#6fa8dc" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				radio_gateway -> radio_base_station [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_7 {
+		color="#f1c232" fillcolor="#f1c23222" fontname="Arial Bold" fontsize=18 label="L2 Interlocking" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_7_0 {
+			color="#ffe599" fontsize=12 label=interlocking margin=16 style="rounded,dashed"
+			subgraph cluster_700 {
+				color=lightgray fillcolor="#ea9999" fontsize=10 label="Interlocking Core" margin=10 style="rounded,filled"
+				electronic_interlocking [label="Electronic Interlocking
+[electronic_interlocking]" color="#CC0000" fillcolor="#f1c232" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				s_kavach [label="Stationary Kavach
+[s_kavach]" color="#CC0000" fillcolor="#f1c232" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				electronic_interlocking -> s_kavach [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_8 {
+		color="#ffd966" fillcolor="#ffd96622" fontname="Arial Bold" fontsize=18 label="L1 Interlocking" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_8_0 {
+			color="#ffe599" fontsize=12 label=interlocking margin=16 style="rounded,dashed"
+			subgraph cluster_800 {
+				color=lightgray fillcolor="#ea9999" fontsize=10 label="Interlocking Core" margin=10 style="rounded,filled"
+				axle_counter_evaluator [label="Axle Counter Evaluator
+[axle_counter_evaluator]" color="#CC0000" fillcolor="#ffd966" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				object_controller [label="Object Controller
+[object_controller]" color="#CC0000" fillcolor="#ffd966" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				axle_counter_evaluator -> object_controller [style=invis weight=10]
+			}
+		}
+	}
+	subgraph cluster_9 {
+		color="#f6b26b" fillcolor="#f6b26b22" fontname="Arial Bold" fontsize=18 label="L0 Field" margin=24 style="rounded,filled"
+		rank=same
+		subgraph cluster_9_0 {
+			color="#f9cb9c" fontsize=12 label=field margin=16 style="rounded,dashed"
+			subgraph cluster_900 {
+				color=lightgray fillcolor="#EEEEEE" fontsize=10 label="Field Equipment" margin=10 style="rounded,filled"
+				axle_counter_head [label="Axle Counter Head
+[axle_counter_head]" color="#CC0000" fillcolor="#f6b26b" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				point_machine_controller [label="Point Machine Controller
+[point_machine_controller]" color="#CC0000" fillcolor="#f6b26b" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				axle_counter_head -> point_machine_controller [style=invis weight=10]
+				signal_controller [label="Signal Controller
+[signal_controller]" color="#CC0000" fillcolor="#f6b26b" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				point_machine_controller -> signal_controller [style=invis weight=10]
+				track_circuit [label="Track Circuit
+[track_circuit]" color="#CC0000" fillcolor="#f6b26b" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				signal_controller -> track_circuit [style=invis weight=10]
+				trackside_rfid_tag [label="Trackside RFID Tag
+[trackside_rfid_tag]" color="#222222" fillcolor="#f6b26b" fontname=Arial fontsize=10 height=0.9 penwidth=2 shape=box style="rounded,filled" width=2.4]
+				track_circuit -> trackside_rfid_tag [style=invis weight=10]
+			}
+		}
+	}
+	idmz_data_diode -> ext_kms_server [style=invis weight=25]
+	ext_kms_server -> eng_workstation [style=invis weight=25]
+	eng_workstation -> telecom_mpls_router [style=invis weight=25]
+	telecom_mpls_router -> radio_gateway [style=invis weight=25]
+	radio_gateway -> electronic_interlocking [style=invis weight=25]
+	electronic_interlocking -> axle_counter_evaluator [style=invis weight=25]
+	axle_counter_evaluator -> axle_counter_head [style=invis weight=25]
+	ent_erp_server -> idmz_firewall [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	ent_eam_server -> idmz_firewall [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	idmz_firewall -> idmz_vpn_gateway [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	idmz_vpn_gateway -> idmz_jump_host [label="SSH | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	idmz_jump_host -> ops_workstation [label="SSH | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	idmz_jump_host -> eng_workstation [label="SSH | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=dotted]
+	sec_siem -> sec_soc_server [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	sec_vuln_scanner -> sec_soc_server [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	ops_workstation -> ops_tms [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	maint_workstation -> ops_tms [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	ops_tms -> telecom_mpls_router [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	telecom_mpls_router -> telecom_gateway [label="MPLS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	telecom_gateway -> radio_gateway [label="IP | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	radio_gateway -> radio_base_station [label="IP | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	ops_tms -> electronic_interlocking [label="OPC_UA | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	electronic_interlocking -> s_kavach [label="UNKNOWN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	electronic_interlocking -> object_controller [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	electronic_interlocking -> axle_counter_evaluator [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	electronic_interlocking -> track_circuit [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	object_controller -> point_machine_controller [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	object_controller -> signal_controller [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	axle_counter_evaluator -> axle_counter_head [label="CAN | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	s_kavach -> radio_base_station [label="MCOMM | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	train_radio -> radio_base_station [label="MCOMM | UNENC | SAFE" arrowsize=0.8 color="#7A3DB8" penwidth=2.5 style=dashed]
+	l_kavach -> s_kavach [label="MCOMM | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	l_kavach -> train_radio [label="MVB | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	l_kavach -> driver_machine_interface [label="MVB | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	l_kavach -> brake_interface_unit [label="MVB | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	speed_sensor -> l_kavach [label="MVB | UNENC | SAFE" arrowsize=0.8 color="#CC0000" penwidth=2.5 style=bold]
+	onboard_rfid_reader -> l_kavach [label="MVB | UNENC | SAFE" arrowsize=0.8 color="#7A3DB8" penwidth=2.5 style=dashed]
+	trackside_rfid_tag -> onboard_rfid_reader [label="UNKNOWN | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	eng_workstation -> s_kavach [label="SSH | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=dotted]
+	eng_workstation -> electronic_interlocking [label="SSH | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=dotted]
+	ext_kms_server -> s_kavach [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+	ext_kms_server -> l_kavach [label="HTTPS | UNENC" arrowsize=0.8 color="#E69138" penwidth=1.4 style=solid]
+}

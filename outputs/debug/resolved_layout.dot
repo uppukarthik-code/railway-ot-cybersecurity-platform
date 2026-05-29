@@ -1,0 +1,954 @@
+digraph RailwayPurdue {
+	graph [bb="0,0,9316,299",
+		bgcolor=white,
+		clusterrank=local,
+		compound=true,
+		concentrate=false,
+		newrank=true,
+		nodesep=1.0,
+		ordering=out,
+		overlap=false,
+		pad=0.4,
+		rankdir=TB,
+		ranksep="2.0 equally",
+		splines=polyline
+	];
+	node [fontname=Arial,
+		label="\N"
+	];
+	edge [fontname=Arial];
+	subgraph cluster_onboard {
+		graph [bb="8,42,1441,162.5",
+			color="#7A3DB8",
+			fillcolor="#F3E8FF",
+			label="Mobile Onboard Domain",
+			lheight=0.23,
+			lp="724.5,150.25",
+			lwidth=1.93,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			onboard_lkavach	[color="#7A3DB8",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Locomotive Kavach
+[l_kavach]
+SIL4
+SL3",
+				penwidth=2,
+				pos="102,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_dmi	[color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Driver Machine Interface
+[driver_machine_interface]
+SIL4
+SL3",
+				penwidth=2,
+				pos="357,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6806];
+			onboard_biu	[color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Brake Interface Unit
+[brake_interface_unit]
+SIL4
+SL3",
+				penwidth=2,
+				pos="612,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_speed	[color="#8B0000",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="Speed Sensor
+[speed_sensor]
+SIL4
+SL3",
+				penwidth=2,
+				pos="857,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_rfid_tag	[color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="RFID Tag
+[rfid_reader]
+NONE
+SL2",
+				penwidth=2,
+				pos="1102,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			onboard_rfid	[color="#444444",
+				fillcolor="#D9C2E9",
+				fontsize=15,
+				height=1.1111,
+				label="RFID Reader
+[rfid_reader]
+NONE
+SL3",
+				penwidth=2,
+				pos="1347,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+		}
+		onboard_lkavach -> onboard_dmi	[arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,259.59,90 189.1,90 197.32,90 227.93,90 249.56,90",
+			weight=2];
+		onboard_lkavach -> onboard_biu	[arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,581.16,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 454,299 454,299 454,299 528.35,200.65 575.05,138.88",
+			weight=2];
+		onboard_speed -> onboard_lkavach	[arrowsize=0.8,
+			color="#CC0000",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,133.03,130.79 825.97,130.79 779.69,191.62 698,299 698,299 698,299 261,299 261,299 261,299 186.18,200.65 139.19,138.88",
+			weight=2];
+		field_rfid_tag -> onboard_rfid	[arrowsize=0.8,
+			color="#E69138",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,1259.9,90 1189.3,90 1201.6,90 1231.3,90 1249.7,90",
+			weight=2];
+		onboard_rfid -> onboard_lkavach	[arrowsize=0.8,
+			color="#7A3DB8",
+			constraint=false,
+			fontsize=8,
+			penwidth=2.2,
+			pos="e,133.03,130.79 1316,130.79 1269.7,191.62 1188,299 1188,299 1188,299 261,299 261,299 261,299 186.79,201.45 139.76,139.64",
+			style=dashed,
+			weight=2];
+	}
+	subgraph cluster_external_security {
+		graph [bb="1486,30,1943,179",
+			color="#AA4444",
+			fillcolor="#FDE9E7",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="External Security Services",
+			lheight=0.29,
+			lp="1714.5,164.5",
+			lwidth=3.11,
+			margin=20,
+			penwidth=3,
+			style="rounded,dashed,filled"
+		];
+		{
+			graph [rank=same];
+			ext_ca	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="Certificate Authority
+[certificate_authority]
+NONE
+SL3",
+				penwidth=2,
+				pos="1592,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			ext_kms	[color="#444444",
+				fillcolor="#F4E1E1",
+				fontsize=15,
+				height=1.1111,
+				label="External KMS
+[external_kms]
+NONE
+SL3",
+				penwidth=2,
+				pos="1837,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+		}
+		ext_kms -> ext_ca	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,1679.3,90 1749.9,90 1737.7,90 1707.8,90 1689.3,90",
+			weight=2];
+	}
+	subgraph cluster_l5_enterprise {
+		graph [bb="1972,26,2727,183",
+			color="#DCE6F1",
+			fillcolor="#DCE6F122",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L5 Enterprise",
+			lheight=0.29,
+			lp="2349.5,168.5",
+			lwidth=1.59,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			enterprise_email	[color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="Corporate Email Server
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2082,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			enterprise_erp	[color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="ERP System
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2327,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			enterprise_eam	[color="#444444",
+				fillcolor="#DCE6F1",
+				fontsize=15,
+				height=1.1111,
+				label="Enterprise Asset Management
+[enterprise_server]
+NONE
+SL1",
+				penwidth=2,
+				pos="2594,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=3.0139];
+		}
+	}
+	subgraph cluster_l35_idmz {
+		graph [bb="2751,26,3461,183",
+			color="#FCE5CD",
+			fillcolor="#FCE5CD22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 IDMZ",
+			lheight=0.29,
+			lp="3106,168.5",
+			lwidth=1.19,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			idmz_firewall	[color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="IDMZ Firewall
+[firewall]
+NONE
+SL2",
+				penwidth=2,
+				pos="2861,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_jumphost	[color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="Jump Host
+[jump_host]
+NONE
+SL2",
+				penwidth=2,
+				pos="3106,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+			idmz_diode	[color="#444444",
+				fillcolor="#FCE5CD",
+				fontsize=15,
+				height=1.1111,
+				label="Data Diode
+[data_diode]
+NONE
+SL2",
+				penwidth=2,
+				pos="3351,90",
+				shape=box,
+				style="rounded,dashed,filled",
+				width=2.4];
+		}
+	}
+	subgraph cluster_l35_security {
+		graph [bb="3486,26,4686,183",
+			color="#FFF2CC",
+			fillcolor="#FFF2CC22",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3.5 Security",
+			lheight=0.29,
+			lp="4086,168.5",
+			lwidth=1.55,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			sec_siem	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="SIEM
+[siem]
+NONE
+SL3",
+				penwidth=2,
+				pos="3596,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_soc	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="SOC Server
+[soc_server]
+NONE
+SL3",
+				penwidth=2,
+				pos="3841,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ids	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="IDS Sensor
+[ids_sensor]
+NONE
+SL3",
+				penwidth=2,
+				pos="4086,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_ips	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="IPS Sensor
+[ips_sensor]
+NONE
+SL3",
+				penwidth=2,
+				pos="4331,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+			sec_vuln	[color="#444444",
+				fillcolor="#FFF2CC",
+				fontsize=15,
+				height=1.1111,
+				label="Vulnerability Scanner
+[vulnerability_scanner]
+NONE
+SL3",
+				penwidth=2,
+				pos="4576,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4];
+		}
+		sec_siem -> sec_soc	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,3753.9,90 3683.3,90 3695.6,90 3725.3,90 3743.7,90",
+			weight=2];
+		sec_vuln -> sec_soc	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,3872,130.79 4545,130.79 4498.7,191.62 4417,299 4417,299 4417,299 4000,299 4000,299 4000,299 3925.2,200.65 3878.2,138.88",
+			weight=2];
+	}
+	subgraph cluster_l3_operations {
+		graph [bb="4710,26,6010,183",
+			color="#D9EAF7",
+			fillcolor="#D9EAF722",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L3 Operations",
+			lheight=0.29,
+			lp="5360,168.5",
+			lwidth=1.69,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			ops_tms	[color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Train Management System
+[tms]
+NONE
+SL2",
+				penwidth=2,
+				pos="4832,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.7222];
+			ops_nms	[color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Network Management System
+[nms]
+NONE
+SL2",
+				penwidth=2,
+				pos="5111,90",
+				shape=box,
+				style="rounded,filled",
+				width=3.0243];
+			ops_workstation	[color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Operations Workstation
+[operations_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5381,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.4826];
+			ops_maintenance	[color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Maintenance Workstation
+[operations_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5635,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.5764];
+			ops_engineering	[color="#444444",
+				fillcolor="#D9EAF7",
+				fontsize=15,
+				height=1.1111,
+				label="Engineering Workstation
+[engineering_workstation]
+NONE
+SL2",
+				penwidth=2,
+				pos="5893,90",
+				shape=box,
+				style="rounded,filled",
+				width=2.5868];
+		}
+		ops_tms -> ops_nms	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,5001.2,90 4930.8,90 4942.6,90 4970,90 4990.9,90",
+			weight=2];
+		ops_workstation -> ops_tms	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,4865.2,130.79 5349.6,130.79 5302.7,191.62 5220,299 5220,299 5220,299 5002,299 5002,299 5002,299 4921.7,200.24 4871.5,138.5",
+			weight=2];
+	}
+	subgraph cluster_l2 {
+		graph [bb="6018,8,7009,227",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L2,
+			lheight=0.29,
+			lp="6513.5,212.5",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l2_telecom {
+				graph [bb="6042,32,6495,174",
+					color="#D9EAD3",
+					fillcolor="#D9EAD322",
+					fontsize=15,
+					label="L2 Telecom",
+					lheight=0.25,
+					lp="6268.5,161",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					telecom_mpls	[color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=1.1111,
+						label="MPLS Router
+[mpls_router]
+NONE
+SL2",
+						penwidth=2,
+						pos="6146,90",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+					telecom_gateway	[color="#444444",
+						fillcolor="#D9EAD3",
+						fontsize=15,
+						height=1.1111,
+						label="Telecom Gateway
+[telecom_gateway]
+NONE
+SL2",
+						penwidth=2,
+						pos="6391,90",
+						shape=box,
+						style="rounded,filled",
+						width=2.4];
+				}
+				telecom_mpls -> telecom_gateway	[arrowsize=0.8,
+					color="#E69138",
+					constraint=false,
+					fontsize=8,
+					penwidth=1.5,
+					pos="e,6303.9,90 6233.3,90 6245.6,90 6275.3,90 6293.7,90",
+					weight=2];
+			}
+			subgraph cluster_l2_interlocking {
+				graph [bb="6532,32,6985,174",
+					color="#F4CCCC",
+					fillcolor="#F4CCCC22",
+					fontsize=15,
+					label="L2 Interlocking",
+					lheight=0.25,
+					lp="6758.5,161",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					il_skavach	[color="#7A3DB8",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=1.1111,
+						label="Stationary Kavach
+[s_kavach]
+SIL4
+SL3",
+						penwidth=2,
+						pos="6636,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+					il_ei	[color="#8B0000",
+						fillcolor="#F4CCCC",
+						fontsize=15,
+						height=1.1111,
+						label="Electronic Interlocking
+[electronic_interlocking]
+SIL4
+SL3",
+						penwidth=2,
+						pos="6881,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+				}
+				il_ei -> il_skavach	[arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,6723.3,90 6793.9,90 6781.9,90 6752.9,90 6734.4,90",
+					style=dashed,
+					weight=2];
+			}
+		}
+		telecom_mpls -> il_skavach	[arrowsize=0.8,
+			color="#38761D",
+			constraint=false,
+			fontsize=8,
+			penwidth=1.5,
+			pos="e,6605,130.79 6177,130.79 6223.3,191.62 6305,299 6305,299 6305,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+			weight=2];
+	}
+	subgraph cluster_l1 {
+		graph [bb="7017,8,8326,227",
+			color="#999999",
+			fillcolor="#F8F8F8",
+			fontname="Arial Bold",
+			fontsize=18,
+			label=L1,
+			lheight=0.29,
+			lp="7671.5,212.5",
+			lwidth=0.29,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			subgraph cluster_l1_telecom {
+				graph [bb="7041,32,7804,174",
+					color="#B6D7A8",
+					fillcolor="#B6D7A822",
+					fontsize=15,
+					label="L1 Telecom",
+					lheight=0.25,
+					lp="7422.5,161",
+					lwidth=1.14,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					radio_bts	[color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Railway Radio Base Station
+[railway_radio_base_station]
+NONE
+SL2",
+						penwidth=2,
+						pos="7162,90",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.8472];
+					onboard_radio	[color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Train Radio
+[railway_radio_base_station]
+NONE
+SL3",
+						penwidth=2,
+						pos="7439,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.8472];
+					radio_gateway	[color="#7A3DB8",
+						fillcolor="#B6D7A8",
+						fontsize=15,
+						height=1.1111,
+						label="Radio Gateway
+[radio_gateway]
+NONE
+SL2",
+						penwidth=2,
+						pos="7700,90",
+						shape=box,
+						style="rounded,dashed,filled",
+						width=2.4];
+				}
+				radio_bts -> radio_gateway	[arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,7669.2,130.79 7196.2,130.79 7247.1,191.62 7337,299 7337,299 7337,299 7542,299 7542,299 7542,299 7615.7,201.45 7662.5,139.64",
+					style=dashed,
+					weight=2];
+				onboard_radio -> radio_bts	[arrowsize=0.8,
+					color="#7A3DB8",
+					constraint=false,
+					fontsize=8,
+					penwidth=2.2,
+					pos="e,7265.3,90 7335.7,90 7321.2,90 7295.3,90 7276.6,90",
+					style=dashed,
+					weight=2];
+			}
+			subgraph cluster_l1_interlocking {
+				graph [bb="7841,32,8302,174",
+					color="#EA9999",
+					fillcolor="#EA999922",
+					fontsize=15,
+					label="L1 Interlocking",
+					lheight=0.25,
+					lp="8071.5,161",
+					lwidth=1.49,
+					margin=18,
+					penwidth=2,
+					style="rounded,filled"
+				];
+				{
+					graph [rank=same];
+					il_ace	[color="#8B0000",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=1.1111,
+						label="Axle Counter Evaluator
+[axle_counter_evaluator]
+SIL4
+SL3",
+						penwidth=2,
+						pos="7949,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.5035];
+					il_oc	[color="#8B0000",
+						fillcolor="#EA9999",
+						fontsize=15,
+						height=1.1111,
+						label="Object Controller
+[object_controller]
+SIL4
+SL3",
+						penwidth=2,
+						pos="8198,90",
+						shape=box,
+						style="rounded,solid,filled",
+						width=2.4];
+				}
+			}
+		}
+	}
+	subgraph cluster_l0_field {
+		graph [bb="8334,26,9308,183",
+			color="#E2F0D9",
+			fillcolor="#E2F0D922",
+			fontname="Arial Bold",
+			fontsize=18,
+			label="L0 Field",
+			lheight=0.29,
+			lp="8821,168.5",
+			lwidth=0.96,
+			margin=24,
+			penwidth=2,
+			style="rounded,filled"
+		];
+		{
+			graph [rank=same];
+			field_point	[color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Point Machine Controller
+[point_machine_controller]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8454,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.6597];
+			field_signal	[color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Signal Controller
+[signal_controller]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8708,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_tc	[color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Track Circuit
+[track_circuit]
+SIL4
+SL2",
+				penwidth=2,
+				pos="8953,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+			field_axle	[color="#8B0000",
+				fillcolor="#E2F0D9",
+				fontsize=15,
+				height=1.1111,
+				label="Axle Counter
+[axle_counter]
+SIL4
+SL2",
+				penwidth=2,
+				pos="9198,90",
+				shape=box,
+				style="rounded,solid,filled",
+				width=2.4];
+		}
+	}
+	onboard_lkavach -> il_skavach	[arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,6605,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 6477,299 6477,299 6477,299 6551.2,201.45 6598.2,139.64",
+		style=dashed,
+		weight=2];
+	onboard_lkavach -> onboard_radio	[arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,7405,130.79 133.03,130.79 179.31,191.62 261,299 261,299 261,299 7265,299 7265,299 7265,299 7346.5,201.05 7398,139.26",
+		style=dashed,
+		weight=2];
+	ext_ca -> onboard_lkavach	[arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,133.03,130.79 1559,130.79 1509.8,191.62 1423,299 1423,299 1423,299 261,299 261,299 261,299 186.18,200.65 139.19,138.88",
+		weight=2];
+	ext_ca -> il_skavach	[arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6605,130.79 1623,130.79 1669.3,191.62 1751,299 1751,299 1751,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+		weight=2];
+	enterprise_erp -> idmz_firewall	[arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,2831.3,130.79 2358,130.79 2404.3,191.62 2486,299 2486,299 2486,299 2709,299 2709,299 2709,299 2780.5,200.65 2825.5,138.88",
+		weight=2];
+	idmz_jumphost -> ops_workstation	[arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,5349.6,130.79 3137,130.79 3183.3,191.62 3265,299 3265,299 3265,299 5220,299 5220,299 5220,299 5295.8,200.65 5343.3,138.88",
+		weight=2];
+	ops_tms -> il_ei	[arrowsize=0.8,
+		color="#38761D",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6850,130.79 4865.2,130.79 4914.7,191.62 5002,299 5002,299 5002,299 6722,299 6722,299 6722,299 6796.8,200.65 6843.8,138.88",
+		weight=2];
+	ops_engineering -> il_skavach	[arrowsize=0.8,
+		color="#3C78D8",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6605,130.79 5925.6,130.79 5974.2,191.62 6060,299 6060,299 6060,299 6477,299 6477,299 6477,299 6551.8,200.65 6598.8,138.88",
+		style=dotted,
+		weight=2];
+	ops_engineering -> il_ei	[arrowsize=0.8,
+		color="#3C78D8",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,6850,130.79 5925.6,130.79 5974.2,191.62 6060,299 6060,299 6060,299 6722,299 6722,299 6722,299 6796.8,200.65 6843.8,138.88",
+		style=dotted,
+		weight=2];
+	telecom_gateway -> radio_bts	[arrowsize=0.8,
+		color="#7A3DB8",
+		constraint=false,
+		fontsize=8,
+		penwidth=2.2,
+		pos="e,7123.9,130.79 6422,130.79 6468.3,191.62 6550,299 6550,299 6550,299 6967,299 6967,299 6967,299 7058.8,200.65 7116.4,138.88",
+		style=dashed,
+		weight=2];
+	il_ei -> il_ace	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,7917.2,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 7786,299 7786,299 7786,299 7862.7,200.65 7910.9,138.88",
+		weight=2];
+	il_ei -> il_oc	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8167,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 8039,299 8039,299 8039,299 8113.8,200.65 8160.8,138.88",
+		weight=2];
+	il_ei -> field_tc	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8922,130.79 6915.7,130.79 6967.5,191.62 7059,299 7059,299 7059,299 8794,299 8794,299 8794,299 8868.8,200.65 8915.8,138.88",
+		weight=2];
+	il_ace -> field_axle	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,9167,130.79 7980.8,130.79 8028.3,191.62 8112,299 8112,299 8112,299 9039,299 9039,299 9039,299 9113.8,200.65 9160.8,138.88",
+		weight=2];
+	il_oc -> field_point	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8357.3,90 8285.1,90 8293,90 8325.1,90 8347.2,90",
+		weight=2];
+	il_oc -> field_signal	[arrowsize=0.8,
+		color="#CC0000",
+		constraint=false,
+		fontsize=8,
+		penwidth=1.5,
+		pos="e,8677.2,130.79 8228.1,130.79 8272.9,191.62 8352,299 8352,299 8352,299 8550,299 8550,299 8550,299 8624.4,200.65 8671,138.88",
+		weight=2];
+}

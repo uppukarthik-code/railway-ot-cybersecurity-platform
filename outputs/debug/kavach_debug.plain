@@ -1,0 +1,181 @@
+graph 1 129.39 4.1528
+node onboard_lkavach 1.4167 1.25 2.4 1.1111 "Locomotive Kavach
+[l_kavach]
+SIL4
+SL3" rounded,solid,filled box #7A3DB8 #D9C2E9
+node onboard_dmi 4.9583 1.25 2.6806 1.1111 "Driver Machine Interface
+[driver_machine_interface]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #D9C2E9
+node onboard_biu 8.5 1.25 2.4 1.1111 "Brake Interface Unit
+[brake_interface_unit]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #D9C2E9
+node onboard_speed 11.903 1.25 2.4 1.1111 "Speed Sensor
+[speed_sensor]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #D9C2E9
+node field_rfid_tag 15.306 1.25 2.4 1.1111 "RFID Tag
+[rfid_reader]
+NONE
+SL2" rounded,solid,filled box #444444 #D9C2E9
+node onboard_rfid 18.708 1.25 2.4 1.1111 "RFID Reader
+[rfid_reader]
+NONE
+SL3" rounded,solid,filled box #444444 #D9C2E9
+node ext_ca 22.111 1.25 2.4 1.1111 "Certificate Authority
+[certificate_authority]
+NONE
+SL3" rounded,dashed,filled box #444444 #FFF2CC
+node ext_kms 25.514 1.25 2.4 1.1111 "External KMS
+[external_kms]
+NONE
+SL3" rounded,dashed,filled box #444444 #F4E1E1
+node enterprise_email 28.917 1.25 2.4 1.1111 "Corporate Email Server
+[enterprise_server]
+NONE
+SL1" rounded,dashed,filled box #444444 #DCE6F1
+node enterprise_erp 32.319 1.25 2.4 1.1111 "ERP System
+[enterprise_server]
+NONE
+SL1" rounded,dashed,filled box #444444 #DCE6F1
+node enterprise_eam 36.028 1.25 3.0139 1.1111 "Enterprise Asset Management
+[enterprise_server]
+NONE
+SL1" rounded,dashed,filled box #444444 #DCE6F1
+node idmz_firewall 39.736 1.25 2.4 1.1111 "IDMZ Firewall
+[firewall]
+NONE
+SL2" rounded,dashed,filled box #444444 #FCE5CD
+node idmz_jumphost 43.139 1.25 2.4 1.1111 "Jump Host
+[jump_host]
+NONE
+SL2" rounded,dashed,filled box #444444 #FCE5CD
+node idmz_diode 46.542 1.25 2.4 1.1111 "Data Diode
+[data_diode]
+NONE
+SL2" rounded,dashed,filled box #444444 #FCE5CD
+node sec_siem 49.944 1.25 2.4 1.1111 "SIEM
+[siem]
+NONE
+SL3" rounded,filled box #444444 #FFF2CC
+node sec_soc 53.347 1.25 2.4 1.1111 "SOC Server
+[soc_server]
+NONE
+SL3" rounded,filled box #444444 #FFF2CC
+node sec_ids 56.75 1.25 2.4 1.1111 "IDS Sensor
+[ids_sensor]
+NONE
+SL3" rounded,filled box #444444 #FFF2CC
+node sec_ips 60.153 1.25 2.4 1.1111 "IPS Sensor
+[ips_sensor]
+NONE
+SL3" rounded,filled box #444444 #FFF2CC
+node sec_vuln 63.556 1.25 2.4 1.1111 "Vulnerability Scanner
+[vulnerability_scanner]
+NONE
+SL3" rounded,filled box #444444 #FFF2CC
+node ops_tms 67.111 1.25 2.7222 1.1111 "Train Management System
+[tms]
+NONE
+SL2" rounded,filled box #444444 #D9EAF7
+node ops_nms 70.986 1.25 3.0243 1.1111 "Network Management System
+[nms]
+NONE
+SL2" rounded,filled box #444444 #D9EAF7
+node ops_workstation 74.736 1.25 2.4826 1.1111 "Operations Workstation
+[operations_workstation]
+NONE
+SL2" rounded,filled box #444444 #D9EAF7
+node ops_maintenance 78.264 1.25 2.5764 1.1111 "Maintenance Workstation
+[operations_workstation]
+NONE
+SL2" rounded,filled box #444444 #D9EAF7
+node ops_engineering 81.847 1.25 2.5868 1.1111 "Engineering Workstation
+[engineering_workstation]
+NONE
+SL2" rounded,filled box #444444 #D9EAF7
+node telecom_mpls 85.361 1.25 2.4 1.1111 "MPLS Router
+[mpls_router]
+NONE
+SL2" rounded,filled box #444444 #D9EAD3
+node telecom_gateway 88.764 1.25 2.4 1.1111 "Telecom Gateway
+[telecom_gateway]
+NONE
+SL2" rounded,filled box #444444 #D9EAD3
+node il_skavach 92.167 1.25 2.4 1.1111 "Stationary Kavach
+[s_kavach]
+SIL4
+SL3" rounded,solid,filled box #7A3DB8 #F4CCCC
+node il_ei 95.569 1.25 2.4 1.1111 "Electronic Interlocking
+[electronic_interlocking]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #F4CCCC
+node radio_bts 99.472 1.25 2.8472 1.1111 "Railway Radio Base Station
+[railway_radio_base_station]
+NONE
+SL2" rounded,dashed,filled box #7A3DB8 #B6D7A8
+node onboard_radio 103.32 1.25 2.8472 1.1111 "Train Radio
+[railway_radio_base_station]
+NONE
+SL3" rounded,solid,filled box #7A3DB8 #B6D7A8
+node radio_gateway 106.94 1.25 2.4 1.1111 "Radio Gateway
+[radio_gateway]
+NONE
+SL2" rounded,dashed,filled box #7A3DB8 #B6D7A8
+node il_ace 110.4 1.25 2.5035 1.1111 "Axle Counter Evaluator
+[axle_counter_evaluator]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #EA9999
+node il_oc 113.86 1.25 2.4 1.1111 "Object Controller
+[object_controller]
+SIL4
+SL3" rounded,solid,filled box #8B0000 #EA9999
+node field_point 117.42 1.25 2.6597 1.1111 "Point Machine Controller
+[point_machine_controller]
+SIL4
+SL2" rounded,solid,filled box #8B0000 #E2F0D9
+node field_signal 120.94 1.25 2.4 1.1111 "Signal Controller
+[signal_controller]
+SIL4
+SL2" rounded,solid,filled box #8B0000 #E2F0D9
+node field_tc 124.35 1.25 2.4 1.1111 "Track Circuit
+[track_circuit]
+SIL4
+SL2" rounded,solid,filled box #8B0000 #E2F0D9
+node field_axle 127.75 1.25 2.4 1.1111 "Axle Counter
+[axle_counter]
+SIL4
+SL2" rounded,solid,filled box #8B0000 #E2F0D9
+edge onboard_lkavach onboard_dmi 4 2.6264 1.25 2.7406 1.25 3.1657 1.25 3.4661 1.25 solid #CC0000
+edge onboard_lkavach onboard_biu 10 1.8477 1.8166 2.4904 2.6613 3.625 4.1528 3.625 4.1528 3.625 4.1528 6.3056 4.1528 6.3056 4.1528 6.3056 4.1528 7.3382 2.7868 7.9868 1.9289 solid #CC0000
+edge onboard_lkavach il_skavach 10 1.8477 1.8166 2.4904 2.6613 3.625 4.1528 3.625 4.1528 3.625 4.1528 89.958 4.1528 89.958 4.1528 89.958 4.1528 90.989 2.7979 91.642 1.9394 dashed #7A3DB8
+edge onboard_lkavach onboard_radio 10 1.8477 1.8166 2.4904 2.6613 3.625 4.1528 3.625 4.1528 3.625 4.1528 100.9 4.1528 100.9 4.1528 100.9 4.1528 102.04 2.7923 102.75 1.9341 dashed #7A3DB8
+edge onboard_speed onboard_lkavach 10 11.472 1.8166 10.829 2.6613 9.6944 4.1528 9.6944 4.1528 9.6944 4.1528 3.625 4.1528 3.625 4.1528 3.625 4.1528 2.5858 2.7868 1.9331 1.9289 solid #CC0000
+edge field_rfid_tag onboard_rfid 4 16.518 1.25 16.689 1.25 17.101 1.25 17.357 1.25 solid #E69138
+edge onboard_rfid onboard_lkavach 10 18.277 1.8166 17.635 2.6613 16.5 4.1528 16.5 4.1528 16.5 4.1528 3.625 4.1528 3.625 4.1528 3.625 4.1528 2.5942 2.7979 1.9411 1.9394 dashed #7A3DB8
+edge ext_ca onboard_lkavach 10 21.653 1.8166 20.97 2.6613 19.764 4.1528 19.764 4.1528 19.764 4.1528 3.625 4.1528 3.625 4.1528 3.625 4.1528 2.5858 2.7868 1.9331 1.9289 solid #38761D
+edge ext_ca il_skavach 10 22.542 1.8166 23.185 2.6613 24.319 4.1528 24.319 4.1528 24.319 4.1528 89.958 4.1528 89.958 4.1528 89.958 4.1528 90.998 2.7868 91.65 1.9289 solid #38761D
+edge ext_kms ext_ca 4 24.304 1.25 24.135 1.25 23.72 1.25 23.462 1.25 solid #38761D
+edge enterprise_erp idmz_firewall 10 32.75 1.8166 33.393 2.6613 34.528 4.1528 34.528 4.1528 34.528 4.1528 37.625 4.1528 37.625 4.1528 37.625 4.1528 38.618 2.7868 39.242 1.9289 solid #38761D
+edge idmz_jumphost ops_workstation 10 43.57 1.8166 44.213 2.6613 45.347 4.1528 45.347 4.1528 45.347 4.1528 72.5 4.1528 72.5 4.1528 72.5 4.1528 73.552 2.7868 74.213 1.9289 solid #38761D
+edge sec_siem sec_soc 4 51.157 1.25 51.327 1.25 51.74 1.25 51.996 1.25 solid #38761D
+edge sec_vuln sec_soc 10 63.125 1.8166 62.482 2.6613 61.347 4.1528 61.347 4.1528 61.347 4.1528 55.556 4.1528 55.556 4.1528 55.556 4.1528 54.516 2.7868 53.864 1.9289 solid #38761D
+edge ops_tms ops_nms 4 68.484 1.25 68.647 1.25 69.027 1.25 69.318 1.25 solid #38761D
+edge ops_tms il_ei 10 67.572 1.8166 68.259 2.6613 69.472 4.1528 69.472 4.1528 69.472 4.1528 93.361 4.1528 93.361 4.1528 93.361 4.1528 94.4 2.7868 95.053 1.9289 solid #38761D
+edge ops_workstation ops_tms 10 74.3 1.8166 73.649 2.6613 72.5 4.1528 72.5 4.1528 72.5 4.1528 69.472 4.1528 69.472 4.1528 69.472 4.1528 68.357 2.7812 67.659 1.9236 solid #38761D
+edge ops_engineering il_skavach 10 82.3 1.8166 82.975 2.6613 84.167 4.1528 84.167 4.1528 84.167 4.1528 89.958 4.1528 89.958 4.1528 89.958 4.1528 90.998 2.7868 91.65 1.9289 dotted #3C78D8
+edge ops_engineering il_ei 10 82.3 1.8166 82.975 2.6613 84.167 4.1528 84.167 4.1528 84.167 4.1528 93.361 4.1528 93.361 4.1528 93.361 4.1528 94.4 2.7868 95.053 1.9289 dotted #3C78D8
+edge telecom_mpls telecom_gateway 4 86.573 1.25 86.744 1.25 87.156 1.25 87.413 1.25 solid #E69138
+edge telecom_mpls il_skavach 10 85.792 1.8166 86.435 2.6613 87.569 4.1528 87.569 4.1528 87.569 4.1528 89.958 4.1528 89.958 4.1528 89.958 4.1528 90.998 2.7868 91.65 1.9289 solid #38761D
+edge telecom_gateway radio_bts 10 89.195 1.8166 89.838 2.6613 90.972 4.1528 90.972 4.1528 90.972 4.1528 96.764 4.1528 96.764 4.1528 96.764 4.1528 98.038 2.7868 98.839 1.9289 dashed #7A3DB8
+edge il_ei il_skavach 4 94.36 1.25 94.194 1.25 93.791 1.25 93.533 1.25 dashed #7A3DB8
+edge il_ei il_ace 10 96.052 1.8166 96.771 2.6613 98.042 4.1528 98.042 4.1528 98.042 4.1528 108.14 4.1528 108.14 4.1528 108.14 4.1528 109.2 2.7868 109.87 1.9289 solid #CC0000
+edge il_ei il_oc 10 96.052 1.8166 96.771 2.6613 98.042 4.1528 98.042 4.1528 98.042 4.1528 111.65 4.1528 111.65 4.1528 111.65 4.1528 112.69 2.7868 113.34 1.9289 solid #CC0000
+edge il_ei field_tc 10 96.052 1.8166 96.771 2.6613 98.042 4.1528 98.042 4.1528 98.042 4.1528 122.14 4.1528 122.14 4.1528 122.14 4.1528 123.18 2.7868 123.83 1.9289 solid #CC0000
+edge radio_bts radio_gateway 10 99.947 1.8166 100.65 2.6613 101.9 4.1528 101.9 4.1528 101.9 4.1528 104.75 4.1528 104.75 4.1528 104.75 4.1528 105.77 2.7979 106.42 1.9394 dashed #7A3DB8
+edge onboard_radio radio_bts 4 101.89 1.25 101.68 1.25 101.32 1.25 101.06 1.25 dashed #7A3DB8
+edge il_ace field_axle 10 110.84 1.8166 111.5 2.6613 112.67 4.1528 112.67 4.1528 112.67 4.1528 125.54 4.1528 125.54 4.1528 125.54 4.1528 126.58 2.7868 127.23 1.9289 solid #CC0000
+edge il_oc field_point 4 115.07 1.25 115.18 1.25 115.63 1.25 115.93 1.25 solid #CC0000
+edge il_oc field_signal 10 114.28 1.8166 114.9 2.6613 116 4.1528 116 4.1528 116 4.1528 118.75 4.1528 118.75 4.1528 118.75 4.1528 119.78 2.7868 120.43 1.9289 solid #CC0000
+stop
