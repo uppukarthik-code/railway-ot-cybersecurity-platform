@@ -1,0 +1,402 @@
+KAVACH SINGLE STATION IEC62443 REFERENCE ARCHITECTURE
+
+PURPOSE:
+Generate a canonical single-station railway cybersecurity reference architecture for:
+
+- IEC 62443 zoning
+- Purdue layering
+- Railway OT segmentation
+- EN50159 trust analysis
+- Kavach cybersecurity architecture
+- Railway OT digital twin visualization
+
+IMPORTANT CONSTRAINTS:
+
+- Generate ONLY ONE station
+- Generate ONLY ONE onboard locomotive
+- Do NOT duplicate stations
+- Do NOT create Station B or Station C
+- Do NOT create multiple locomotives
+- Do NOT generate inventory-scale topology
+- This is a REFERENCE ARCHITECTURE
+- Use canonical representative assets only
+- Use ONLY ontology-supported assets
+- Use ONLY ontology-supported zones
+- Use ONLY ontology-supported Purdue levels
+- Use ontology-native asset types exactly as specified
+- Preserve deterministic topology generation
+
+============================================================
+L5 ENTERPRISE
+============================================================
+
+Zone:
+enterprise_it
+
+Security Level:
+SL1
+
+Assets:
+- enterprise_server [label="Corporate Active Directory"]
+- enterprise_server [label="Corporate Email Server"]
+- enterprise_server [label="ERP System"]
+- enterprise_server [label="Enterprise Asset Management"]
+- firewall [label="Internet Gateway Firewall"]
+
+============================================================
+L3.5 IDMZ
+============================================================
+
+Zone:
+idmz
+
+Security Level:
+SL2
+
+Assets:
+- firewall
+- vpn_gateway
+- jump_host
+- data_diode
+
+============================================================
+L3.5 SECURITY
+============================================================
+
+Zone:
+security_management
+
+Security Level:
+SL2
+
+Assets:
+- siem
+- soc_server
+- ids_sensor
+- ips_sensor
+- vulnerability_scanner
+
+============================================================
+EXTERNAL SECURITY TRUST DOMAIN
+============================================================
+
+Zone:
+external_security
+
+Security Level:
+SL2
+
+Assets:
+- kms
+- certificate_authority
+
+============================================================
+L3 OPERATIONS
+============================================================
+
+Zone:
+operations
+
+Security Level:
+SL2
+
+Assets:
+- tms
+- nms
+- operations_workstation [label="Operations Workstation"]
+- operations_workstation [label="Maintenance Workstation"]
+- engineering_workstation[label="Engineering Workstation"]
+
+============================================================
+L2 TELECOM
+============================================================
+
+Zone:
+telecom_core
+
+Security Level:
+SL2
+
+Assets:
+- mpls_router
+- telecom_gateway
+
+============================================================
+L1 TELECOM
+============================================================
+
+Zone:
+radio_access
+
+Security Level:
+SL2
+
+Assets:
+- gsm_r_base_station
+- radio_gateway
+
+============================================================
+L2 INTERLOCKING
+============================================================
+
+Zone:
+interlocking
+
+Security Level:
+SL3
+
+Safety Integrity:
+SIL4
+
+Assets:
+- s_kavach
+
+
+============================================================
+L1 INTERLOCKING
+============================================================
+
+Zone:
+interlocking
+
+Security Level:
+SL3
+
+Safety Integrity:
+SIL4
+
+Assets:
+- electronic_interlocking
+- object_controller
+- axle_counter_evaluator
+
+============================================================
+L0 FIELD
+============================================================
+
+Zone:
+field
+
+Security Level:
+SL1
+
+Safety Integrity:
+SIL2
+
+Assets:
+- point_machine_controller
+- signal_controller
+- axle_counter
+- track_circuit
+- rfid_tag
+
+============================================================
+L0 TRACKSIDE
+============================================================
+
+Zone:
+trackside
+
+Security Level:
+
+
+Safety Integrity:
+
+
+Assets:
+- 
+- 
+
+============================================================
+ONBOARD
+============================================================
+
+Zone:
+onboard
+
+Security Level:
+SL2
+
+Safety Integrity:
+SIL4
+
+Assets:
+- l_kavach
+- train_radio
+- driver_machine_interface
+- brake_interface_unit
+- speed_sensor
+- rfid_reader
+
+============================================================
+CANONICAL CONNECTIONS
+============================================================
+
+Enterprise / IDMZ:
+- enterprise_server -> firewall
+- firewall -> vpn_gateway
+- vpn_gateway -> jump_host
+- jump_host -> operations_workstation
+
+Security Monitoring:
+- ids_sensor -> siem
+- ips_sensor -> siem
+- siem -> soc_server
+- vulnerability_scanner -> soc_server
+
+Operations:
+- tms -> nms
+- operations_workstation -> tms
+
+Telecom:
+- mpls_router -> telecom_gateway
+- telecom_gateway -> gsm_r_base_station
+- gsm_r_base_station -> radio_gateway
+
+Vital Systems:
+- electronic_interlocking ->  s_kavach
+- electronic_interlocking -> object_controller
+- object_controller -> point_machine_controller
+- object_controller -> signal_controller
+- electronic_interlocking -> axle_counter_evaluator
+- axle_counter_evaluator -> axle_counter
+- electronic_interlocking -> track_circuit
+
+Onboard:
+- l_kavach -> train_radio
+- l_kavach -> driver_machine_interface
+- l_kavach -> brake_interface_unit
+- l_kavach -> speed_sensor
+- l_kavach -> rfid_reader
+
+Kavach Radio Safety:
+- train_radio -> gsm_r_base_station
+- l_kavach -> s_kavach
+
+RFID:
+- rfid_reader -> rfid_tag
+
+Engineering Access:
+- engineering_workstation -> s_kavach
+- engineering_workstation -> electronic_interlocking
+
+PKI / Trust Infrastructure:
+- kms -> certificate_authority
+- certificate_authority -> s_kavach
+- certificate_authority -> l_kavach
+
+============================================================
+PROTOCOL REQUIREMENTS
+============================================================
+
+Use ONLY ontology-supported protocols.
+
+Required protocol mappings:
+
+- l_kavach <-> s_kavach:
+    protocol: MCOMM
+    transport: rf
+    bearer: gsm_r
+    media: RF_PUBLIC
+
+- train_radio <-> gsm_r_base_station:
+    protocol: MCOMM
+    transport: rf
+    bearer: gsm_r
+    media: RF_PUBLIC
+
+- s_kavach <- electronic_interlocking:
+    protocol: RASTA
+    transport: ip_backbone
+    media: PRIVATE_IP_NETWORK
+
+- electronic_interlocking <-> object_controller:
+    protocol: CAN
+    transport: can_bus
+    media: BURIED_COPPER
+
+- operations_workstation <-> tms:
+    protocol: HTTPS
+    transport: ip_backbone
+    media: PRIVATE_IP_NETWORK
+
+- nms <-> telecom_gateway:
+    protocol: SNMPV3
+    transport: ip_backbone
+    media: PRIVATE_IP_NETWORK
+
+- siem <- ids_sensor:
+    protocol: SYSLOG_TLS
+    transport: ip_backbone
+    media: PRIVATE_IP_NETWORK
+
+- rfid_reader <-> rfid_tag:
+    protocol: RFID_AIR
+    transport: rf
+    media: RF_PUBLIC
+
+============================================================
+IEC62443 TRUST BOUNDARIES
+============================================================
+
+- enterprise_it -> idmz is cross-zone
+- idmz -> operations is cross-zone
+- operations -> telecom_core is cross-zone
+- telecom_core -> radio_access is cross-zone
+- operations -> interlocking is safety-critical
+- telecom_core -> interlocking is safety-critical
+- onboard -> radio_access uses open transmission
+- onboard -> interlocking uses EN50159 open transmission
+- engineering access must terminate through idmz
+- all cross-zone conduits require monitoring
+- all wireless safety links require replay protection
+- all wireless safety links require integrity protection
+
+============================================================
+EN50159 REQUIREMENTS
+============================================================
+
+- RF links are OPEN TRANSMISSION SYSTEMS
+- Wireless channels are untrusted
+- Replay protection required on safety traffic
+- Integrity protection required on safety traffic
+- Authentication required on wireless safety traffic
+- Kavach wireless ATP communication uses MCOMM
+- Safety-related wireless traffic must use MCOMM
+- RF links must be visually distinguished in rendering
+- Safety-critical conduits must be visually distinguished
+- Engineering access paths must be visually distinguished
+
+============================================================
+RENDERING REQUIREMENTS
+============================================================
+
+Generate:
+
+- Single station architecture only
+- Single onboard locomotive only
+- Purdue layered topology
+- IEC62443 zones
+- Functional grouping
+- Security segmentation
+- SIL-aware coloring
+- EN50159-aware conduit styling
+- Wireless trust boundary highlighting
+- Minimal clutter
+- Deterministic layout
+- Stable node ordering
+- Clean architecture diagram
+
+DO NOT:
+
+- Duplicate equivalent assets
+- Generate multiple stations
+- Generate multiple locomotives
+- Generate enterprise-scale deployment topology
+- Generate inventory-scale diagrams
+- Generate unsupported ontology assets
+- Generate unsupported zones
+- Generate unsupported protocols
+- Generate unsupported transports
+- Create duplicate conduits
+- Create duplicate nodes

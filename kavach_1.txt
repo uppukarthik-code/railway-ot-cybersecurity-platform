@@ -1,0 +1,345 @@
+# ============================================================
+# KAVACH ATP SYSTEM — CYBERSECURITY DIGITAL TWIN DESCRIPTION
+# ============================================================
+
+SYSTEM_NAME: Kavach Automatic Train Protection System
+DOMAIN: Railway Signalling and Train Protection
+STANDARD_REFERENCES:
+  - IEC 62443
+  - EN 50126
+  - EN 50128
+  - EN 50129
+  - TS 50701
+  - IRS Specifications
+  - RDSO Kavach Specifications
+
+DESCRIPTION:
+Kavach is an indigenous Indian railway Automatic Train Protection (ATP)
+system designed to prevent train collisions, overspeeding, signal passing
+at danger (SPAD), and unsafe train movements.
+
+Kavach continuously supervises train movement by exchanging information
+between onboard equipment, trackside systems, radio infrastructure,
+and signalling systems.
+
+The system enforces safe train operation through automatic braking,
+movement authority supervision, speed monitoring, and route protection.
+
+# ============================================================
+# SYSTEM ARCHITECTURE
+# ============================================================
+
+ARCHITECTURE_TYPE:
+  - Distributed Safety Critical System
+  - Cyber-Physical Railway System
+  - Real-Time Deterministic System
+  - SIL-4 Safety Integrity Architecture
+
+PRIMARY_SUBSYSTEMS:
+
+  ONBOARD_SUBSYSTEM:
+    DESCRIPTION:
+      Installed on locomotives to supervise train movement and enforce safety.
+    COMPONENTS:
+      - Loco Kavach Computer
+      - Driver Machine Interface (DMI)
+      - Brake Interface Unit
+      - RFID Reader
+      - LTE/Radio Modem
+      - GNSS Receiver
+      - Speed Sensors
+      - Event Logger
+
+  TRACKSIDE_SUBSYSTEM:
+    DESCRIPTION:
+      Trackside safety infrastructure interfacing with signalling systems.
+    COMPONENTS:
+      - Station Kavach
+      - Signal Interface Units
+      - Point Interface Units
+      - RFID Tags
+      - Data Loggers
+      - Wayside Communication Equipment
+
+  COMMUNICATION_SUBSYSTEM:
+    DESCRIPTION:
+      Provides continuous communication between onboard and trackside equipment.
+    MEDIA:
+      - LTE
+      - OFC
+      - IP/MPLS
+      - Ethernet
+      - Radio Communication
+
+  SIGNALLING_INTEGRATION:
+    DESCRIPTION:
+      Interfaces with signalling assets to obtain movement authority
+      and route information.
+    INTEGRATED_SYSTEMS:
+      - Electronic Interlocking
+      - Relay Interlocking
+      - Block Systems
+      - Axle Counters
+      - Track Circuits
+      - Centralized Traffic Control
+
+# ============================================================
+# SAFETY FUNCTIONS
+# ============================================================
+
+SAFETY_FUNCTIONS:
+
+  MOVEMENT_AUTHORITY_SUPERVISION:
+    DESCRIPTION:
+      Prevents trains from exceeding authorized movement limits.
+    SIL: 4
+    SAFE_STATE: Emergency Brake
+
+  OVERSPEED_PROTECTION:
+    DESCRIPTION:
+      Monitors train speed against permissible limits.
+    SIL: 4
+    SAFE_STATE: Emergency Brake
+
+  COLLISION_AVOIDANCE:
+    DESCRIPTION:
+      Prevents head-on and rear-end collisions.
+    SIL: 4
+    SAFE_STATE: Emergency Brake
+
+  SIGNAL_PASSING_AT_DANGER_PROTECTION:
+    DESCRIPTION:
+      Prevents unauthorized passage beyond stop signals.
+    SIL: 4
+    SAFE_STATE: Emergency Brake
+
+  TEMPORARY_SPEED_RESTRICTION_ENFORCEMENT:
+    DESCRIPTION:
+      Enforces speed restrictions during maintenance or abnormal conditions.
+    SIL: 2
+    SAFE_STATE: Controlled Braking
+
+  ROUTE_PROTECTION:
+    DESCRIPTION:
+      Ensures route locking and safe movement permissions.
+    SIL: 4
+    SAFE_STATE: Movement Denied
+
+# ============================================================
+# OPERATIONAL MODES
+# ============================================================
+
+OPERATIONAL_MODES:
+
+  NORMAL_OPERATION:
+    DESCRIPTION:
+      Full ATP supervision enabled.
+
+  DEGRADED_MODE:
+    DESCRIPTION:
+      Limited operation under subsystem failure conditions.
+
+  MAINTENANCE_MODE:
+    DESCRIPTION:
+      Maintenance access enabled with restricted supervision.
+
+  ISOLATION_MODE:
+    DESCRIPTION:
+      ATP temporarily isolated under authorization.
+
+  SHUNTING_MODE:
+    DESCRIPTION:
+      Restricted low-speed movement inside yards.
+
+  STARTUP_MODE:
+    DESCRIPTION:
+      Initialization and communication establishment phase.
+
+  FALLBACK_MODE:
+    DESCRIPTION:
+      Safe degraded operation during communication or subsystem failures.
+
+# ============================================================
+# CYBERSECURITY MODEL
+# ============================================================
+
+SECURITY_ZONES:
+
+  VITAL_ZONE:
+    DESCRIPTION:
+      Safety critical Kavach processing systems.
+    TARGET_SL: 3
+
+  TRACKSIDE_ZONE:
+    DESCRIPTION:
+      Station and field equipment zone.
+    TARGET_SL: 2
+
+  COMMUNICATION_ZONE:
+    DESCRIPTION:
+      Telecom and IP communication infrastructure.
+    TARGET_SL: 2
+
+  MAINTENANCE_ZONE:
+    DESCRIPTION:
+      Engineering and maintenance access systems.
+    TARGET_SL: 2
+
+  ENTERPRISE_ZONE:
+    DESCRIPTION:
+      Non-operational IT systems connected indirectly.
+    TARGET_SL: 1
+
+SECURITY_CONDUITS:
+  - LTE Communication Links
+  - OFC Backbone
+  - Ethernet Interfaces
+  - Maintenance Laptop Connections
+  - Remote Diagnostic Links
+
+# ============================================================
+# CRITICAL ASSETS
+# ============================================================
+
+CRITICAL_ASSETS:
+
+  - Loco Kavach Computer
+  - Station Kavach
+  - Electronic Interlocking
+  - Radio Communication Servers
+  - LTE Infrastructure
+  - Brake Interface Unit
+  - Driver Machine Interface
+  - Event Logger
+  - Central Monitoring Servers
+  - Axle Counters
+  - Trackside RFID Infrastructure
+
+# ============================================================
+# THREAT SURFACES
+# ============================================================
+
+THREAT_SURFACES:
+
+  - Remote Maintenance Access
+  - LTE Communication Network
+  - USB Maintenance Interfaces
+  - Misconfigured Firewall Rules
+  - Unauthenticated Engineering Access
+  - Compromised Maintenance Laptop
+  - Malware Propagation Through Enterprise Network
+  - Insider Threat
+  - Unauthorized Configuration Changes
+  - Denial of Service Against Communication Links
+  - Spoofed Trackside Messages
+  - GPS/GNSS Manipulation
+
+# ============================================================
+# SAFETY HAZARDS
+# ============================================================
+
+HAZARDS:
+
+  TRAIN_COLLISION:
+    CONSEQUENCE: Catastrophic
+
+  OVERSPEED_DERAILMENT:
+    CONSEQUENCE: Catastrophic
+
+  WRONG_ROUTE_MOVEMENT:
+    CONSEQUENCE: Hazardous
+
+  LOSS_OF_MOVEMENT_AUTHORITY:
+    CONSEQUENCE: Major
+
+  UNAUTHORIZED_BRAKE_RELEASE:
+    CONSEQUENCE: Catastrophic
+
+  LOSS_OF_COMMUNICATION:
+    CONSEQUENCE: Major
+
+# ============================================================
+# SECURITY CONTROLS
+# ============================================================
+
+SECURITY_CONTROLS:
+
+  - Network Segmentation
+  - IEC 62443 Zone and Conduit Architecture
+  - Firewall Protection
+  - Role-Based Access Control
+  - Multi-Factor Authentication
+  - Secure Remote Access
+  - Application Whitelisting
+  - Event Logging
+  - Security Monitoring
+  - Secure Configuration Management
+  - Patch and Vulnerability Management
+  - Antivirus / Endpoint Protection
+  - Backup and Recovery
+  - Change Management
+  - Incident Response Procedures
+
+# ============================================================
+# SYSTEM STATES
+# ============================================================
+
+SYSTEM_STATES:
+
+  SAFE_STATE:
+    DESCRIPTION:
+      Train automatically brought to safe stop.
+
+  UNSAFE_STATE:
+    DESCRIPTION:
+      Unauthorized or unsafe movement possible.
+
+  DEGRADED_STATE:
+    DESCRIPTION:
+      Partial functionality available with operational restrictions.
+
+  FAIL_SAFE_STATE:
+    DESCRIPTION:
+      Safety maintained despite subsystem failure.
+
+# ============================================================
+# DIGITAL TWIN RELATIONSHIPS
+# ============================================================
+
+RELATIONSHIPS:
+
+  ASSET_TO_FUNCTION:
+    - Station Kavach -> Movement Authority Supervision
+    - Loco Kavach -> Overspeed Protection
+    - Electronic Interlocking -> Route Protection
+
+  FUNCTION_TO_HAZARD:
+    - Movement Authority Supervision -> Train Collision
+    - Overspeed Protection -> Overspeed Derailment
+
+  ATTACK_TO_IMPACT:
+    - LTE Spoofing -> False Movement Authority
+    - Malware Infection -> Loss of Supervision
+    - Unauthorized Access -> Unsafe Configuration
+
+# ============================================================
+# MODELING OBJECTIVE
+# ============================================================
+
+OBJECTIVES:
+
+  - Cybersecurity Risk Assessment
+  - IEC 62443 Zone and Conduit Modeling
+  - Threat Modeling
+  - Attack Path Analysis
+  - Hazard Propagation Analysis
+  - Cyber-to-Safety Mapping
+  - Digital Twin Visualization
+  - Compliance Traceability
+  - Security Case Development
+  - Incident Impact Simulation
+  - Railway Operational Resilience Analysis
+
+# ============================================================
+# END OF MODEL
+# ============================================================
