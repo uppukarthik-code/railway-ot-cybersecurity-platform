@@ -38,6 +38,11 @@ from ontology import (
 )
 from aliases import (
     normalize_protocol,
+    normalize_node_type,
+)
+
+from railway_rules import (
+    get_preferred_protocol,
 )
 
 
@@ -79,6 +84,13 @@ def append_inference_source(
 def infer_communication_stack(
     topology: dict,
 ) -> dict:
+    node_lookup = {
+        node["id"]: node
+        for node in topology.get(
+            "nodes",
+            [],
+        )
+    }
     for conn in topology.get(
         "connections",
         [],
@@ -91,6 +103,30 @@ def infer_communication_stack(
             "stack_inference_sources",
             [],
         )
+        # ====================================================
+        # GOVERNANCE-MANDATED PROTOCOL (topology-generation fix)
+        #
+        # For curated vital asset pairs, railway_rules mandates the
+        # representative protocol. This prevents UNKNOWN placeholders
+        # on vital interfaces (e.g. EI<->S-Kavach) and models transport
+        # security (IPsec) on backhaul segments. It overrides only the
+        # explicitly-listed pairs.
+        # ====================================================
+        src_node = node_lookup.get(conn.get("source"))
+        tgt_node = node_lookup.get(conn.get("target"))
+        if src_node and tgt_node:
+            preferred = get_preferred_protocol(
+                normalize_node_type(src_node.get("type", "")),
+                normalize_node_type(tgt_node.get("type", "")),
+            )
+            if preferred and conn.get("protocol") != preferred:
+                conn["protocol"] = preferred
+                conn["protocol_source"] = "railway_rules_preferred"
+                conn["stack_inferred"] = True
+                append_inference_source(
+                    conn,
+                    "railway_rules_preferred",
+                )
         # ====================================================
         # PROTOCOL
         # ====================================================

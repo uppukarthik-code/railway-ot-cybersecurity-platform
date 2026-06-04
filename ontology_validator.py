@@ -31,7 +31,8 @@ from ontology import (
     PROTOCOL_ONTOLOGY,
     TRANSPORT_ONTOLOGY,
     CONDUIT_ONTOLOGY,
-    ZONE_RENDER_ATTRIBUTES,
+    ZONE_COLORS,
+    ZONE_BOUNDS,
     VALID_ZONES,
     VALID_NODE_TYPES,
     VALID_PROTOCOLS,
@@ -41,7 +42,6 @@ from railway_rules import (
     REQUIRED_LOGICAL_LINKS,
     FORBIDDEN_CONNECTIONS,
     HIGH_RISK_CONNECTIONS,
-    CONDITIONALLY_ALLOWED_CONNECTIONS,
 )
 
 from aliases import (
@@ -80,63 +80,9 @@ VALID_TRUST_LEVELS = {
     "low",
 }
 
-VALID_ZONE_PURDUE_MAPPING = {
-    "enterprise_it": {
-        "L5 Enterprise",
-        "L4 Business",
-    },
-    "business_systems": {
-        "L4 Business",
-    },
-    "idmz": {
-        "L3.5 IDMZ",
-    },
-    "security_management": {
-        "L3.5 Security",
-    },
-    "external_security": {
-        "L3.5 Security",
-    },
-    "operations": {
-        "L3 Operations",
-    },
-    "maintenance": {
-        "L3 Operations",
-        "L2 Interlocking",
-    },
-    "telecom_core": {
-        "L2 Telecom",
-    },
-    "radio_access": {
-        "L1 Telecom",
-    },
-    "station_control": {
-        "L2 Station Control",
-    },
-    "interlocking": {
-        "L1 Interlocking",
-        "L2 Interlocking",
-    },
-    "train_detection": {
-        "L1 Interlocking",
-        "L0 Field",
-    },
-    "point_control": {
-        "L0 Field",
-    },
-    "signal_control": {
-        "L0 Field",
-    },
-    "field": {
-        "L0 Field",
-    },
-    "trackside": {
-        "L0 Field",
-    },
-    "onboard": {
-        "Onboard",
-    },
-}
+# VALID_ZONE_PURDUE_MAPPING removed (zone-RC-03): it duplicated and
+# drifted from the ontology authority ZONE_ONTOLOGY[zone]["allowed_purdue"],
+# which is now consulted directly. No second zone/purdue authority remains.
 
 # ============================================================
 # CANONICALIZATION VALIDATION
@@ -263,9 +209,21 @@ def validate_asset_ontology():
         # ZONE ↔️ PURDUE ALIGNMENT
         # ====================================================
 
-        allowed = VALID_ZONE_PURDUE_MAPPING.get(
-            zone,
-            set(),
+        # Zone↔Purdue alignment is owned by the ontology authority
+        # (ZONE_ONTOLOGY[zone]["allowed_purdue"]). The prior code used a
+        # hardcoded VALID_ZONE_PURDUE_MAPPING that DUPLICATED and drifted
+        # from that authority (e.g. omitted the "Unknown" purdue that
+        # external_security/unknown_zone legitimately allow), producing
+        # false ZONE/PURDUE MISMATCH findings (assessment finding
+        # zone-RC-03). Consume the single ontology authority instead.
+        allowed = set(
+            ZONE_ONTOLOGY.get(
+                zone,
+                {},
+            ).get(
+                "allowed_purdue",
+                [],
+            )
         )
 
         if purdue not in allowed:
@@ -292,10 +250,19 @@ def validate_zone_ontology():
     print("\nZONE ONTOLOGY VALIDATION")
     print("-" * 60)
 
+    # The zone ontology models criticality on two authoritative axes
+    # (cyber_criticality + operational_criticality); there is no single
+    # plain "criticality" field on zones and no consumer of one. The
+    # prior required-field set demanded plain "criticality" (a copy of
+    # the asset contract) which the authoritative zone model never
+    # provided (assessment finding C/zone-RC-02). Require the actual
+    # authoritative fields instead — this strengthens, not weakens, the
+    # check.
     required_fields = {
         "trust",
         "security_level",
-        "criticality",
+        "cyber_criticality",
+        "operational_criticality",
     }
 
     for zone_name, zone in ZONE_ONTOLOGY.items():
@@ -484,32 +451,26 @@ def validate_render_metadata():
 
     valid_zones = set(ZONE_ONTOLOGY.keys())
 
+    # Render metadata authority migrated from the obsolete
+    # ZONE_RENDER_ATTRIBUTES dict (which no longer exists in ontology.py)
+    # to the current ZONE_COLORS / ZONE_BOUNDS tables (assessment finding
+    # E-02). Every zone must resolve both a render color and render
+    # bounds; the validation intent ("every zone has render metadata") is
+    # preserved against the current authority.
     for zone in valid_zones:
 
-        if zone not in ZONE_RENDER_ATTRIBUTES:
+        if zone not in ZONE_COLORS:
 
             err(
                 errors,
-                f"[MISSING RENDER METADATA] " f"{zone}",
+                f"[MISSING RENDER COLOR] " f"{zone}",
             )
 
-            continue
-
-        meta = ZONE_RENDER_ATTRIBUTES[zone]
-
-        required = {
-            "color",
-            "external",
-            "detached",
-        }
-
-        missing = required - set(meta.keys())
-
-        if missing:
+        if zone not in ZONE_BOUNDS:
 
             err(
                 errors,
-                f"[INCOMPLETE RENDER METADATA] " f"{zone} -> {sorted(missing)}",
+                f"[MISSING RENDER BOUNDS] " f"{zone}",
             )
 
     print(f"\nRENDER ERRORS : {len(errors)}")
@@ -615,10 +576,12 @@ def validate_rules_consistency():
     # ========================================================
     # ASSET RULES
     # ========================================================
+    # CONDITIONALLY_ALLOWED_CONNECTIONS was removed from railway_rules
+    # and no longer exists (assessment finding E-02). No asset-pair rule
+    # sets remain to cross-check; the zone-pair rules above
+    # (FORBIDDEN/HIGH_RISK) remain the active governance authority.
 
-    asset_pair_rules = [
-        CONDITIONALLY_ALLOWED_CONNECTIONS,
-    ]
+    asset_pair_rules = []
 
     for rules in asset_pair_rules:
 

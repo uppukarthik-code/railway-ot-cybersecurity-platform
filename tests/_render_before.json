@@ -1,0 +1,27 @@
+{
+  "validator_counts": {
+    "assets": 0,
+    "links": 41,
+    "zones": 0,
+    "purdue": 0,
+    "protocols": 10,
+    "rendering": 7
+  },
+  "validate_fail_count": 4,
+  "validate_fail_rules": [
+    "CONDUIT-PROFILE-VALIDATION",
+    "STACK-COMPATIBILITY",
+    "TRUST-BOUNDARY-PROTECTION",
+    "UNAUTHORIZED-FLOWS"
+  ],
+  "risk_findings_count": 13,
+  "render_errors": [
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: brake-interface-unit",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: driver-machine-interface",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: external-kms",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: l-kavach",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: onboard-rfid-reader",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: speed-sensor",
+    "[RENDER ERROR] Detached Purdue node missing detached_cluster: train-radio"
+  ]
+}

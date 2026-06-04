@@ -152,6 +152,7 @@ PROTOCOL_ALIASES = {
     "ssh": "SSH",
     "snmpv3": "SNMPV3",
     "syslog tls": "SYSLOG_TLS",
+    "l2 transport": "L2_TRANSPORT",
     "opc ua": "OPC_UA",
     "opcua": "OPC_UA",
     "mqtt tls": "MQTT_TLS",
@@ -166,6 +167,12 @@ PROTOCOL_ALIASES = {
     "can": "CAN",
     "mcomm": "MCOMM",
     "kavach_ei_interface": "KAVACH_EI_INTERFACE",
+    # canonicalize_token() collapses "_"/"-" to spaces, so the
+    # space-form keys below are the ones actually matched at runtime.
+    "kavach ei interface": "KAVACH_EI_INTERFACE",
+    "rfid air": "RFID_AIR",
+    "ipsec": "IPSEC",
+    "macsec": "MACSEC",
 }
 TRANSPORT_ALIASES = {
     "mpls": "mpls",

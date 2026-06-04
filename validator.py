@@ -26,13 +26,14 @@ from ontology import (
     STACK_COMPATIBILITY,
     RADIO_ATTACK_SURFACE_TYPES,
     get_asset_ontology,
-    get_zone_trust_domain,
 )
 from railway_rules import (
     get_flow_rule,
     get_trust_boundary,
     is_forbidden_zone_pair,
+    is_forbidden_flow,
 )
+from aliases import normalize_node_type
 
 
 # ============================================================
@@ -215,6 +216,9 @@ def validate(
         if is_forbidden_zone_pair(
             src.get("zone"),
             dst.get("zone"),
+        ) or is_forbidden_flow(
+            normalize_node_type(src.get("type")),
+            normalize_node_type(dst.get("type")),
         ):
             forbidden_violations.append(f"{conn['source']} -> " f"{conn['target']}")
     findings.append(
@@ -376,17 +380,28 @@ def validate(
     # ========================================================
     sil_violations = []
     for node in nodes:
-        sil = str(
-            node.get(
-                "functional_safety_level",
-                "",
-            )
-        ).upper()
-        zone = node.get(
-            "zone",
-            "",
-        )
-        if sil == "SIL4" and get_zone_trust_domain(zone) != "railway_trusted":
+        # Safety placement is gated on the asset-level safety_critical
+        # flag (classifier-enriched from ASSET_ONTOLOGY) — the same
+        # authority the risk engine uses (Rule 12). The prior gate read
+        # node["functional_safety_level"], a field never populated
+        # anywhere in the pipeline (assessment finding E-01), so the
+        # gate never fired and the rule was a vacuous PASS. SIL is only
+        # modelled at zone granularity in the ontology, and every SIL4
+        # zone (interlocking, onboard) is itself trusted — so a literal
+        # zone-SIL4 gate would be structurally unsatisfiable; the asset
+        # safety_critical flag travels with the asset and keeps the rule
+        # live (it fires for a safety asset relocated into a low-trust
+        # zone). Trust uses the ontology trust authority via the
+        # enriched is_trusted_zone flag; the prior
+        # get_zone_trust_domain(zone) != "railway_trusted" predicate was
+        # degenerate / always true — see assessment finding D-01.
+        if node.get(
+            "safety_critical",
+            False,
+        ) and not node.get(
+            "is_trusted_zone",
+            False,
+        ):
             sil_violations.append(node["id"])
     findings.append(
         build_result(
@@ -422,7 +437,21 @@ def validate(
             False,
         ):
             continue
-        if not conn.get(
+        # Passive safety-coded telegrams (e.g. the balise air-gap) are
+        # exempt from cryptographic encryption and replay protection per
+        # EN 50159 — protection is the passive safety-coded telegram, and
+        # freshness derives from location coding / odometry, not a crypto
+        # replay control. Integrity (the safety code) is still required.
+        # This mirrors the passive_telegram exemption already honoured by
+        # validators/validate_links.py and defined in railway_rules,
+        # resolving the cross-validator enforcement inconsistency
+        # (assessment finding E-01). No requirement is removed for any
+        # non-passive open-RF flow.
+        passive_telegram = conn.get(
+            "passive_telegram",
+            False,
+        )
+        if not passive_telegram and not conn.get(
             "encrypted",
             False,
         ):
@@ -438,7 +467,7 @@ def validate(
                 f"{conn['target']} "
                 f"(missing integrity protection)"
             )
-        if not conn.get(
+        if not passive_telegram and not conn.get(
             "replay_protection",
             False,
         ):

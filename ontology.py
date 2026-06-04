@@ -242,8 +242,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL1",
         "cyber_criticality": "LOW",
         "operational_criticality": "LOW",
-        "safety_criticality": "NONE",
-        "trust_domain": "enterprise",
         "deployment_domain": "enterprise",
         "allowed_purdue": ["L5 Enterprise"],
     },
@@ -252,8 +250,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL1",
         "cyber_criticality": "LOW",
         "operational_criticality": "LOW",
-        "safety_criticality": "NONE",
-        "trust_domain": "enterprise",
         "deployment_domain": "enterprise",
         "allowed_purdue": ["L4 Business"],
     },
@@ -265,8 +261,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "MEDIUM",
-        "safety_criticality": "NONE",
-        "trust_domain": "idmz",
         "deployment_domain": "enterprise",
         "allowed_purdue": ["L3.5 IDMZ"],
     },
@@ -275,8 +269,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "security_management",
         "deployment_domain": "security",
         "allowed_purdue": ["L3.5 Security"],
     },
@@ -285,8 +277,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "MEDIUM",
-        "safety_criticality": "NONE",
-        "trust_domain": "external",
         "deployment_domain": "security",
         "allowed_purdue": ["Unknown"],
     },
@@ -298,8 +288,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "MEDIUM",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "operations",
         "deployment_domain": "operations_center",
         "allowed_purdue": ["L3 Operations"],
     },
@@ -308,8 +296,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "maintenance",
         "deployment_domain": "operations_center",
         "allowed_purdue": ["L3 Operations"],
     },
@@ -318,8 +304,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL3",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "maintenance",
         "deployment_domain": "wayside",
         "allowed_purdue": ["L2 Interlocking"],
     },
@@ -331,8 +315,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "telecom",
         "deployment_domain": "telecom",
         "allowed_purdue": ["L2 Telecom"],
     },
@@ -341,8 +323,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "NONE",
-        "trust_domain": "radio",
         "deployment_domain": "telecom",
         "allowed_purdue": ["L1 Telecom"],
     },
@@ -354,8 +334,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL3",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "SIL4",
-        "trust_domain": "safety",
         "deployment_domain": "wayside",
         "allowed_purdue": [
             "L2 Interlocking",
@@ -370,8 +348,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL1",
         "cyber_criticality": "MEDIUM",
         "operational_criticality": "HIGH",
-        "safety_criticality": "SIL2",
-        "trust_domain": "field",
         "deployment_domain": "wayside",
         "allowed_purdue": ["L0 Field"],
     },
@@ -383,8 +359,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL2",
         "cyber_criticality": "HIGH",
         "operational_criticality": "HIGH",
-        "safety_criticality": "SIL4",
-        "trust_domain": "onboard",
         "deployment_domain": "onboard",
         "allowed_purdue": ["Onboard"],
     },
@@ -396,8 +370,6 @@ ZONE_ONTOLOGY = {
         "security_level": "SL0",
         "cyber_criticality": "UNKNOWN",
         "operational_criticality": "UNKNOWN",
-        "safety_criticality": "UNKNOWN",
-        "trust_domain": "unknown",
         "deployment_domain": "unknown",
         "allowed_purdue": ["Unknown"],
     },
@@ -475,6 +447,16 @@ ASSET_ONTOLOGY = {
     "external_kms_server": {
         "zone": "external_security",
         "purdue": "Unknown",
+        # The KMS is an external crypto trust anchor; when modeled as an
+        # externally-hosted dependency it sits in the detached "Unknown"
+        # domain, but when placed inside the security-management band it
+        # validly occupies L3.5 Security alongside the SIEM/SOC/IDS/IPS.
+        # Both placements are accepted (the external dependency is not
+        # weakened — it remains an explicit cross-trust PKI flow).
+        "allowed_purdue": [
+            "Unknown",
+            "L3.5 Security",
+        ],
         "criticality": "HIGH",
         "safety_critical": False,
         "safety_domain": "non_vital",
@@ -536,6 +518,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "safety_adjacent",
     },
     "railway_radio_base_station": {
+        "safety_critical": False,
         "zone": "radio_access",
         "purdue": "L1 Telecom",
         "role": "trackside_bts",
@@ -544,6 +527,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "safety_adjacent",
     },
     "radio_gateway": {
+        "safety_critical": False,
         "zone": "radio_access",
         "purdue": "L1 Telecom",
         "criticality": "HIGH",
@@ -645,6 +629,7 @@ ASSET_ONTOLOGY = {
         "mobile_asset": True,
     },
     "train_radio": {
+        "safety_critical": False,
         "zone": "onboard",
         "purdue": "Onboard",
         "role": "onboard_radio",
@@ -696,6 +681,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "field_vital",
     },
     "firewall": {
+        "safety_critical": False,
         "zone": "idmz",
         "purdue": "L3.5 IDMZ",
         "criticality": "HIGH",
@@ -703,6 +689,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "vpn_gateway": {
+        "safety_critical": False,
         "zone": "idmz",
         "purdue": "L3.5 IDMZ",
         "criticality": "HIGH",
@@ -710,6 +697,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "jump_host": {
+        "safety_critical": False,
         "zone": "idmz",
         "purdue": "L3.5 IDMZ",
         "criticality": "HIGH",
@@ -717,6 +705,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "data_diode": {
+        "safety_critical": False,
         "zone": "idmz",
         "purdue": "L3.5 IDMZ",
         "criticality": "HIGH",
@@ -725,6 +714,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "ids_sensor": {
+        "safety_critical": False,
         "zone": "security_management",
         "purdue": "L3.5 Security",
         "criticality": "HIGH",
@@ -732,6 +722,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "ips_sensor": {
+        "safety_critical": False,
         "zone": "security_management",
         "purdue": "L3.5 Security",
         "criticality": "HIGH",
@@ -739,6 +730,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "certificate_authority": {
+        "safety_critical": False,
         "zone": "security_management",
         "purdue": "L3.5 Security",
         "criticality": "HIGH",
@@ -746,6 +738,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "vulnerability_scanner": {
+        "safety_critical": False,
         "zone": "security_management",
         "purdue": "L3.5 Security",
         "criticality": "MEDIUM",
@@ -753,6 +746,7 @@ ASSET_ONTOLOGY = {
         "safety_domain": "non_vital",
     },
     "log_collector": {
+        "safety_critical": False,
         "zone": "security_management",
         "purdue": "L3.5 Security",
         "criticality": "MEDIUM",
@@ -1084,9 +1078,20 @@ BEARER_ONTOLOGY = {
 
 PROTOCOL_ONTOLOGY = {
     "RASTA": {
+        # RaSTA (SUBSET-098 RBC-RBC SCI; DIN VDE V 0831-200) is an
+        # EN 50159 safety layer: it provides INTEGRITY (safety code) and
+        # REPLAY/timeliness (sequence numbers + heartbeat) and
+        # safety-procedural authenticity (sender/receiver identifiers).
+        # It does NOT provide cryptographic authentication or
+        # confidentiality; for open networks (EN 50159 Category 3) an
+        # external crypto layer (e.g. RaSTA-over-TLS per DIN VDE V
+        # 0831-104) is required. Hence cryptographic `authenticated` is
+        # False, while `safety_authenticated` records the EN 50159
+        # procedural masquerade defence.
         "encrypted": False,
         "supports_encryption": True,
-        "authenticated": True,
+        "authenticated": False,
+        "safety_authenticated": True,
         "integrity_protected": True,
         "replay_protected": True,
         "wireless_capable": True,
@@ -1109,7 +1114,11 @@ PROTOCOL_ONTOLOGY = {
         "safety_flow": True,
     },
     "EURORADIO": {
-        "encrypted": True,
+        # SUBSET-037 (EuroRadio FIS) provides cryptographic message
+        # authentication and integrity (MAC), and replay protection
+        # (sequence numbers), but NOT confidentiality. Classic
+        # EuroRadio does not encrypt the payload.
+        "encrypted": False,
         "authenticated": True,
         "integrity_protected": True,
         "replay_protected": True,
@@ -1237,6 +1246,12 @@ PROTOCOL_ONTOLOGY = {
         "authenticated": False,
         "integrity_protected": False,
         "replay_protected": False,
+        # The trackside RFID balise telegram is a passive, statically
+        # safety-coded message (EN 50159 safety code / SUBSET-036-style
+        # telegram structure). Like EUROBALISE, it carries functional
+        # safety integrity even though it provides no cryptographic
+        # transport integrity.
+        "functional_integrity": True,
         "wireless_capable": True,
         "open_transmission": True,
         "protocol_class": "field_transport",
@@ -1289,6 +1304,33 @@ PROTOCOL_ONTOLOGY = {
         "safety_domain": "vital",
         "stack_layer": "safety_protocol",
     },
+    "IPSEC": {
+        # IETF IPsec transport-security overlay (IEC 62443 SR3/SR4):
+        # provides confidentiality, cryptographic authentication,
+        # integrity and anti-replay for IP backhaul segments.
+        "encrypted": True,
+        "authenticated": True,
+        "integrity_protected": True,
+        "replay_protected": True,
+        "wireless_capable": False,
+        "safety_related": False,
+        "protocol_class": "transport_security",
+        "safety_domain": "non_vital",
+        "stack_layer": "transport_protocol",
+    },
+    "MACSEC": {
+        # IEEE 802.1AE link-layer security: confidentiality,
+        # authentication, integrity and anti-replay for Ethernet links.
+        "encrypted": True,
+        "authenticated": True,
+        "integrity_protected": True,
+        "replay_protected": True,
+        "wireless_capable": False,
+        "safety_related": False,
+        "protocol_class": "transport_security",
+        "safety_domain": "non_vital",
+        "stack_layer": "transport_protocol",
+    },
     "UNKNOWN": {
         "encrypted": False,
         "authenticated": False,
@@ -1321,6 +1363,8 @@ PROTOCOL_TRANSPORT_MAP = {
     "MQTT_TLS": ["ip_backbone", "ethernet"],
     "RFID_AIR": ["rf"],
     "KAVACH_EI_INTERFACE": ["ethernet"],
+    "IPSEC": ["ip_backbone", "ethernet"],
+    "MACSEC": ["ethernet"],
 }
 
 # ============================================================
@@ -1384,6 +1428,14 @@ STACK_COMPATIBILITY = {
         "transport": ["can_bus"],
         "media": ["BURIED_COPPER"],
     },
+    "IPSEC": {
+        "transport": ["ip_backbone", "ethernet"],
+        "media": ["PRIVATE_IP_NETWORK"],
+    },
+    "MACSEC": {
+        "transport": ["ethernet"],
+        "media": ["PRIVATE_IP_NETWORK"],
+    },
 }
 
 # ============================================================
@@ -1434,6 +1486,14 @@ DEFAULT_CONNECTION_STACK = {
         "media": "RF_PUBLIC",
     },
     "L2 TRANSPORT": {
+        "transport": "ethernet",
+        "media": "PRIVATE_IP_NETWORK",
+    },
+    "IPSEC": {
+        "transport": "ip_backbone",
+        "media": "PRIVATE_IP_NETWORK",
+    },
+    "MACSEC": {
         "transport": "ethernet",
         "media": "PRIVATE_IP_NETWORK",
     },
@@ -1840,22 +1900,14 @@ def asset_has_engineering_access(asset_type: str) -> bool:
     )
 
 
-def get_zone_trust_domain(
-    zone: str,
-) -> str:
-
-    return get_zone_ontology(zone).get(
-        "trust_domain",
-        "unknown",
-    )
-
-
-def zones_cross_trust_domain(
-    src_zone: str,
-    dst_zone: str,
-) -> bool:
-
-    return get_zone_trust_domain(src_zone) != get_zone_trust_domain(dst_zone)
+# NOTE: get_zone_trust_domain()/zones_cross_trust_domain() were removed
+# (assessment finding C-02). They projected the ZONE_ONTOLOGY.trust_domain
+# GROUPING vocabulary, which had no live consumers after the validator and
+# risk-engine were migrated onto the single trust authority chain:
+#   ZONE_ONTOLOGY.trust -> TRUSTED_ZONES/LOW_TRUST_ZONES -> node.is_trusted_zone.
+# Cross-trust-domain detection for safety flows is owned by the classifier
+# (node.trust_domain -> connection.cross_trust_domain), consumed by
+# risk_engine Rule 4. No trust authority is duplicated here.
 
 
 def is_transit_zone(zone: str) -> bool:

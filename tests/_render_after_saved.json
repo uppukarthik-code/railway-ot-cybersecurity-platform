@@ -1,0 +1,19 @@
+{
+  "validator_counts": {
+    "assets": 0,
+    "links": 41,
+    "zones": 0,
+    "purdue": 0,
+    "protocols": 10,
+    "rendering": 0
+  },
+  "validate_fail_count": 4,
+  "validate_fail_rules": [
+    "CONDUIT-PROFILE-VALIDATION",
+    "STACK-COMPATIBILITY",
+    "TRUST-BOUNDARY-PROTECTION",
+    "UNAUTHORIZED-FLOWS"
+  ],
+  "risk_findings_count": 13,
+  "render_errors": []
+}

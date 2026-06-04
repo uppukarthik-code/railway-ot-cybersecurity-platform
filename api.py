@@ -165,7 +165,7 @@ def build_graph():
         a.cluster AS source_cluster,
         a.purdue_level AS source_purdue,
         a.criticality AS source_criticality,
-        a.trusted_zone AS source_trusted,
+        a.is_trusted_zone AS source_trusted,
         a.risk_score AS source_risk,
 
         b.id AS target_id,
@@ -174,7 +174,7 @@ def build_graph():
         b.cluster AS target_cluster,
         b.purdue_level AS target_purdue,
         b.criticality AS target_criticality,
-        b.trusted_zone AS target_trusted,
+        b.is_trusted_zone AS target_trusted,
         b.risk_score AS target_risk,
 
         r.protocol AS protocol,
@@ -474,7 +474,7 @@ def cytoscape():
         a.cluster AS cluster,
         a.purdue_level AS purdue,
         a.criticality AS criticality,
-        a.trusted_zone AS trusted,
+        a.is_trusted_zone AS trusted,
         a.risk_score AS risk_score,
         a.zone_color AS color,
         a.x AS x,

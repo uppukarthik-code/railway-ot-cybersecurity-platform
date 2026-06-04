@@ -42,6 +42,7 @@ from railway_rules import (
     get_flow_rule,
     get_trust_boundary,
     is_forbidden_zone_pair,
+    is_forbidden_flow,
     is_monitoring_exempt,
     is_firewall_exempt,
     is_inspection_exempt,
@@ -263,6 +264,31 @@ def validate_links(
             continue
 
         # ====================================================
+        # FORBIDDEN TYPE FLOWS
+        #
+        # Architecturally invalid asset-type pairs (investigated and
+        # rejected) that a zone-pair rule cannot express without
+        # over-blocking legitimate same-zone traffic.
+        # ====================================================
+
+        if is_forbidden_flow(
+            src_type,
+            tgt_type,
+        ):
+
+            msg = (
+                f"[FORBIDDEN FLOW] "
+                f"{src_id}({src_type}) -> "
+                f"{tgt_id}({tgt_type})"
+            )
+
+            print(msg)
+
+            errors.add(msg)
+
+            continue
+
+        # ====================================================
         # FLOW RULE LOOKUP
         # ====================================================
 
@@ -294,10 +320,20 @@ def validate_links(
 
         if boundary:
 
-            if boundary.get(
-                "firewall_required",
-                False,
-            ) and not conn.get(
+            # railway_rules.TRUST_BOUNDARIES declares boundary controls
+            # in a `required_controls` set (e.g. {"firewall",
+            # "inspection", ...}). The previous code read non-existent
+            # keys ("firewall_required"/"inspection_required"), so this
+            # enforcement never fired (dead code). Read the governance
+            # schema directly so the link validator enforces the same
+            # boundary controls the governance authority defines
+            # (assessment finding E-02). No requirement is changed.
+            required_controls = boundary.get(
+                "required_controls",
+                set(),
+            )
+
+            if "firewall" in required_controls and not conn.get(
                 "firewall",
                 False,
             ):
@@ -317,10 +353,7 @@ def validate_links(
 
                     errors.add(msg)
 
-            if boundary.get(
-                "inspection_required",
-                False,
-            ) and not conn.get(
+            if "inspection" in required_controls and not conn.get(
                 "inspection",
                 False,
             ):
@@ -503,11 +536,11 @@ def validate_links(
             ),
             (
                 "requires_integrity",
-                "integrity_protected",
+                "integrity_protection",
             ),
             (
                 "requires_authentication",
-                "authenticated",
+                "authentication",
             ),
             (
                 "requires_inspection",
@@ -519,13 +552,22 @@ def validate_links(
             ),
             (
                 "requires_replay_protection",
-                "replay_protected",
+                "replay_protection",
             ),
             (
                 "requires_latency_monitoring",
                 "latency_monitoring",
             ),
         ]
+
+        # Governance parity with security_enrichment.apply_conduit_policy:
+        # SIEM/SOC-class endpoints are exempt from the monitoring
+        # requirement (POLICY_EXEMPTIONS["monitoring"]). This is not a
+        # new exemption — it mirrors the existing governance rule so the
+        # validator does not over-report monitoring on exempt conduits.
+        monitoring_exempt = is_monitoring_exempt(src_type) or is_monitoring_exempt(
+            tgt_type
+        )
 
         for (
             policy_key,
@@ -536,6 +578,9 @@ def validate_links(
                 policy_key,
                 False,
             ):
+                continue
+
+            if policy_key == "requires_monitoring" and monitoring_exempt:
                 continue
 
             if conn.get(
@@ -587,11 +632,11 @@ def validate_links(
 
             open_checks = [
                 (
-                    "integrity_protected",
+                    "integrity_protection",
                     "requires integrity protection",
                 ),
                 (
-                    "replay_protected",
+                    "replay_protection",
                     "requires replay protection",
                 ),
             ]

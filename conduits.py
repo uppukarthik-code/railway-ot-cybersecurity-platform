@@ -37,6 +37,7 @@ from ontology import (
 
 from railway_rules import (
     get_trust_boundary,
+    get_flow_rule,
 )
 
 from aliases import (
@@ -48,6 +49,17 @@ from aliases import (
 # ============================================================
 
 DEFAULT_CONDUIT_CLASS = "generic"
+
+# Conduit-class values that carry no real classification. They are
+# treated as "unset" so that railway_rules (FLOW_RULES) remains the
+# authoritative classification source.
+PLACEHOLDER_CONDUIT_CLASSES = {
+    "generic",
+    "unclassified",
+    "unknown_conduit",
+    "",
+    None,
+}
 
 # ============================================================
 # BUILD CONDUITS
@@ -241,12 +253,38 @@ def build_conduits(
         )
 
         # ====================================================
-        # CONDUIT CLASS
+        # FLOW RULE (railway_rules = classification authority)
         # ====================================================
 
-        conduit_class = conn.get(
-            "conduit_class",
-            DEFAULT_CONDUIT_CLASS,
+        flow_rule = get_flow_rule(
+            source_type,
+            target_type,
+        )
+
+        # ====================================================
+        # CONDUIT CLASS
+        #
+        # Priority:
+        #   1. explicit (valid) connection conduit_class
+        #   2. FLOW_RULES conduit_class
+        #   3. DEFAULT_CONDUIT_CLASS
+        #
+        # Placeholder values ("generic", "unclassified",
+        # "unknown_conduit", "", None) carry no real
+        # classification and are treated as "unset" so that
+        # railway_rules stays authoritative.
+        # ====================================================
+
+        explicit_class = conn.get("conduit_class")
+
+        if explicit_class in PLACEHOLDER_CONDUIT_CLASSES:
+
+            explicit_class = None
+
+        conduit_class = (
+            explicit_class
+            or (flow_rule or {}).get("conduit_class")
+            or DEFAULT_CONDUIT_CLASS
         )
 
         # ====================================================
@@ -261,6 +299,69 @@ def build_conduits(
             conduit_class,
             {},
         )
+
+        # ====================================================
+        # WRITE-BACK
+        #
+        # validate_links.py reads conduit_class from the
+        # connection object (not the synthesized conduit), so
+        # the resolved class must be propagated back.
+        # ====================================================
+
+        conn["conduit_class"] = conduit_class
+
+        # ====================================================
+        # RAILWAY SEMANTICS PROPAGATION (FLOW_RULES)
+        # ====================================================
+
+        if flow_rule:
+
+            safety_related = flow_rule.get(
+                "safety_related",
+                safety_related,
+            )
+
+            radio_related = (
+                flow_rule.get("conduit_class") == "radio_safety"
+                or radio_related
+            )
+
+            engineering_access = (
+                flow_rule.get("category") == "engineering_access"
+                or engineering_access
+            )
+
+            # Propagate semantics onto the connection when not
+            # already set, so downstream validators agree with
+            # the synthesized conduit.
+
+            if safety_related:
+
+                conn.setdefault(
+                    "safety_related",
+                    True,
+                )
+
+            if flow_rule.get("safety_flow") or flow_rule.get("safety_related"):
+
+                conn.setdefault(
+                    "safety_flow",
+                    True,
+                )
+
+            if engineering_access:
+
+                conn.setdefault(
+                    "engineering_access",
+                    True,
+                )
+
+            if radio_related:
+
+                conn.setdefault(
+                    "radio_related",
+                    True,
+                )
 
         # ====================================================
         # STABLE CONDUIT ID
