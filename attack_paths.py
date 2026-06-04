@@ -92,7 +92,8 @@ def build_graph():
         a.cluster AS source_cluster,
         a.purdue_level AS source_purdue,
         a.criticality AS source_criticality,
-        a.trusted_zone AS source_trusted,
+        a.functional_safety_level AS source_sil,
+        a.is_trusted_zone AS source_trusted,
         a.risk_score AS source_risk,
         a.internet_exposed AS source_internet,
         a.remote_accessible AS source_remote,
@@ -103,7 +104,8 @@ def build_graph():
         b.cluster AS target_cluster,
         b.purdue_level AS target_purdue,
         b.criticality AS target_criticality,
-        b.trusted_zone AS target_trusted,
+        b.functional_safety_level AS target_sil,
+        b.is_trusted_zone AS target_trusted,
         b.risk_score AS target_risk,
         b.internet_exposed AS target_internet,
         b.remote_accessible AS target_remote,
@@ -148,6 +150,9 @@ def build_graph():
                 criticality=
                     r["source_criticality"],
 
+                functional_safety_level=
+                    r["source_sil"],
+
                 trusted=
                     r["source_trusted"],
 
@@ -183,6 +188,9 @@ def build_graph():
 
                 criticality=
                     r["target_criticality"],
+
+                functional_safety_level=
+                    r["target_sil"],
 
                 trusted=
                     r["target_trusted"],
@@ -286,9 +294,13 @@ def calculate_path_risk(
             node.get("purdue")
         )
 
-        criticality = str(
+        # SIL is read from the functional_safety_level authority, NOT
+        # criticality (which is severity HIGH/MEDIUM). The prior code
+        # matched "SIL4" against criticality and could never fire
+        # (assessment finding C-04).
+        sil = str(
             node.get(
-                "criticality",
+                "functional_safety_level",
                 ""
             )
         ).upper()
@@ -297,7 +309,7 @@ def calculate_path_risk(
         # SIL4
         # ----------------------------------------------------
 
-        if "SIL4" in criticality:
+        if "SIL4" in sil:
 
             score += 50
 
@@ -309,7 +321,7 @@ def calculate_path_risk(
         # SIL3
         # ----------------------------------------------------
 
-        elif "SIL3" in criticality:
+        elif "SIL3" in sil:
 
             score += 30
 
@@ -704,9 +716,9 @@ def enterprise_to_safety_paths(G):
             )
         )
 
-        criticality = str(
+        sil = str(
             data.get(
-                "criticality",
+                "functional_safety_level",
                 ""
             )
         ).upper()
@@ -715,7 +727,7 @@ def enterprise_to_safety_paths(G):
 
             enterprise.append(node_id)
 
-        if "SIL4" in criticality:
+        if "SIL4" in sil:
 
             sil4.append(node_id)
 
@@ -773,9 +785,9 @@ def lateral_movement_analysis(G):
         source = G.nodes[u]
         target = G.nodes[v]
 
-        target_criticality = str(
+        target_sil = str(
             target.get(
-                "criticality",
+                "functional_safety_level",
                 ""
             )
         ).upper()
@@ -790,9 +802,9 @@ def lateral_movement_analysis(G):
             and
 
             (
-                "SIL4" in target_criticality
+                "SIL4" in target_sil
                 or
-                "SIL3" in target_criticality
+                "SIL3" in target_sil
             )
         ):
 

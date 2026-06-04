@@ -97,6 +97,22 @@ def cluster_topology(
 
         node["cluster"] = cluster_name
 
+        # ----------------------------------------------------
+        # DETACHED RENDER ISOLATION
+        #
+        # Detached Purdue domains render inside an isolated
+        # visual cluster, distinct from their primary cluster.
+        # This is presentation grouping only (rendering safety
+        # contract enforced by validate_rendering), NOT Purdue
+        # or zone semantic assignment.
+        # ----------------------------------------------------
+
+        detached_cluster = infer_detached_cluster(node)
+
+        if detached_cluster:
+
+            node["detached_cluster"] = detached_cluster
+
         if cluster_name not in clusters:
 
             clusters[cluster_name] = {
@@ -298,3 +314,47 @@ def infer_cluster(
     # ========================================================
 
     return "General Systems"
+
+
+# ============================================================
+# DETACHED CLUSTER INFERENCE
+# ============================================================
+
+
+def infer_detached_cluster(
+    node: dict,
+) -> str:
+    """
+    Deterministic isolated cluster for detached render nodes.
+
+    A node renders detached when its Purdue level is a detached
+    domain, or when it lives in the external_security zone (the
+    rendering safety contract enforced by validate_rendering).
+
+    Returns an isolated cluster name derived from the detachment
+    reason, guaranteed distinct from the node's primary cluster.
+    Returns "" for nodes that are not detached.
+
+    Uses ONLY canonical classified metadata. No semantic
+    inference, no Purdue/zone reassignment.
+    """
+
+    purdue = node.get(
+        "purdue_level",
+        "",
+    )
+
+    zone = node.get(
+        "zone",
+        "",
+    )
+
+    if purdue in DETACHED_PURDUE_DOMAINS:
+
+        return f"{purdue} Domain"
+
+    if zone in DETACHED_PURDUE_DOMAINS:
+
+        return f"{zone} Domain"
+
+    return ""

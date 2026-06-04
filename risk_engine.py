@@ -36,7 +36,6 @@ from ontology import (
     UNKNOWN_PROTOCOL,
     UNKNOWN_NODE,
     UNKNOWN_ZONE,
-    get_zone_trust_domain,
 )
 
 # ============================================================
@@ -733,21 +732,25 @@ def analyze_risk(
             False,
         )
 
-        src_trust = get_zone_trust_domain(
-            src.get(
-                "zone",
-                "",
-            )
+        # Trust is sourced from the ontology trust authority via the
+        # classifier-enriched ``is_trusted_zone`` flag (see Rule 12).
+        # A safety asset is "exposed to low trust" when the PEER is not
+        # in a trusted zone. The prior get_zone_trust_domain(zone) !=
+        # "railway_trusted" predicate was always true (assessment
+        # finding D-01) and additionally double-emitted when both
+        # endpoints were safety-critical (finding D-02).
+
+        src_trusted = src.get(
+            "is_trusted_zone",
+            False,
         )
 
-        tgt_trust = get_zone_trust_domain(
-            tgt.get(
-                "zone",
-                "",
-            )
+        tgt_trusted = tgt.get(
+            "is_trusted_zone",
+            False,
         )
 
-        if src_safety and tgt_trust != "railway_trusted":
+        if src_safety and not tgt_trusted:
 
             risk_key = (
                 "SAFETY_TO_LOW_TRUST",
@@ -777,7 +780,7 @@ def analyze_risk(
                     ],
                 )
 
-        if tgt_safety and src_trust != "railway_trusted":
+        if tgt_safety and not src_trusted:
 
             risk_key = (
                 "SAFETY_TO_LOW_TRUST",
@@ -801,9 +804,13 @@ def analyze_risk(
                     "SAFETY_TO_LOW_TRUST",
                     (f"{tgt['label']} " f"is reachable from " f"low-trust domain."),
                     ("Enforce IDMZ segmentation " "and monitored conduits."),
+                    # victim-first ordering: tgt is the exposed safety
+                    # asset here (matches branch A's [src, tgt]); prior
+                    # code stored [src, tgt] mislabelling the subject
+                    # (assessment finding D-02).
                     [
-                        src["id"],
                         tgt["id"],
+                        src["id"],
                     ],
                 )
 
@@ -820,14 +827,21 @@ def analyze_risk(
 
             continue
 
-        trust_domain = get_zone_trust_domain(
-            node.get(
-                "zone",
-                "",
-            )
-        )
+        # Trust placement is decided by the ontology trust authority,
+        # surfaced as the classifier-enriched ``is_trusted_zone`` flag
+        # (zone in ontology.TRUSTED_ZONES, i.e. trust == "trusted").
+        # The prior comparison used get_zone_trust_domain(zone) which
+        # returns the fine-grained zone GROUPING ("safety"/"field"/
+        # "onboard"/...) and can never equal the classifier sentinel
+        # "railway_trusted" — so the predicate was unconditionally true
+        # and flagged every safety-critical asset regardless of trust
+        # (assessment finding D-01). Consuming is_trusted_zone mirrors
+        # Rule 4's use of the precomputed cross_trust_domain flag.
 
-        if trust_domain != "railway_trusted":
+        if not node.get(
+            "is_trusted_zone",
+            False,
+        ):
 
             risk_key = (
                 "SIL_LOW_TRUST_PLACEMENT",

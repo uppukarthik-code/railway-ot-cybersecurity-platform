@@ -174,7 +174,7 @@ def get_sil4_assets():
     MATCH (a:Asset)
 
     WHERE
-        a.criticality CONTAINS 'SIL4'
+        a.functional_safety_level CONTAINS 'SIL4'
 
     RETURN
 
@@ -204,7 +204,7 @@ def get_low_trust_assets():
     MATCH (a:Asset)
 
     WHERE
-        a.trusted_zone = false
+        a.is_trusted_zone = false
 
     RETURN
 
@@ -338,9 +338,9 @@ def get_low_trust_safety_paths():
         AND
 
         (
-            a.trusted_zone = false
+            a.is_trusted_zone = false
             OR
-            b.trusted_zone = false
+            b.is_trusted_zone = false
         )
 
     RETURN
@@ -480,9 +480,9 @@ def get_iec62443_violations():
         AND
 
         (
-            a.trusted_zone = false
+            a.is_trusted_zone = false
             OR
-            b.trusted_zone = false
+            b.is_trusted_zone = false
         )
 
     RETURN

@@ -178,21 +178,21 @@ def validate_protocols(
 
         authenticated = as_bool(
             conn.get(
-                "authenticated",
+                "authentication",
                 False,
             )
         )
 
         integrity_protected = as_bool(
             conn.get(
-                "integrity_protected",
+                "integrity_protection",
                 False,
             )
         )
 
         replay_protected = as_bool(
             conn.get(
-                "replay_protected",
+                "replay_protection",
                 False,
             )
         )
@@ -224,21 +224,21 @@ def validate_protocols(
 
         authenticated_source = str(
             conn.get(
-                "authenticated_source",
+                "authentication_source",
                 "",
             )
         )
 
         integrity_source = str(
             conn.get(
-                "integrity_protected_source",
+                "integrity_protection_source",
                 "",
             )
         )
 
         replay_source = str(
             conn.get(
-                "replay_protected_source",
+                "replay_protection_source",
                 "",
             )
         )

@@ -23,6 +23,13 @@ pip install networkx
 import json
 import networkx as nx
 
+# Single trust-domain derivation authority (assessment finding C-02).
+# layout_engine no longer defines its own infer_trust_domain; it consumes
+# the classifier projection of the ZONE_ONTOLOGY.trust authority. The
+# trust_domain values here are used ONLY for rendering grouping/ordering
+# ("Rendering Grouping: layout_engine only"), never for trust decisions.
+from classifier import infer_trust_domain as _infer_trust_domain
+
 
 # ============================================================
 # PURDUE HIERARCHY
@@ -62,15 +69,15 @@ PURDUE_Y = {
 # TRUST DOMAIN ORDER
 # ============================================================
 
+# Rendering order, expressed in the authoritative classifier trust-domain
+# vocabulary (railway_trusted / mobile / external) — see C-02.
 TRUST_DOMAIN_ORDER = [
 
-    "railway",
+    "railway_trusted",
 
-    "external_security",
+    "mobile",
 
-    "external_telecom",
-
-    "onboard"
+    "external"
 ]
 
 
@@ -166,39 +173,13 @@ def build_graph(
 
 
 # ============================================================
-# INFER TRUST DOMAIN
+# TRUST DOMAIN (rendering grouping)
 # ============================================================
-
-def infer_trust_domain(
-    data
-):
-
-    zone = data.get(
-        "zone",
-        ""
-    )
-
-    if zone == "onboard":
-
-        return "onboard"
-
-    if zone in {
-
-        "external_security"
-
-    }:
-
-        return "external_security"
-
-    if zone in {
-
-        "radio_network"
-
-    }:
-
-        return "external_telecom"
-
-    return "railway"
+# The duplicate derivation was removed (assessment finding C-02). Trust
+# domain is derived once, by the single authority classifier.
+# infer_trust_domain (ZONE_ONTOLOGY.trust -> LOW_TRUST_ZONES/onboard ->
+# railway_trusted/mobile/external), imported above as _infer_trust_domain
+# and called directly at the rendering-grouping site below.
 
 
 # ============================================================
@@ -229,9 +210,10 @@ def build_semantic_groups(
 
         if not trust_domain:
 
-            trust_domain = (
-                infer_trust_domain(
-                    data
+            trust_domain = _infer_trust_domain(
+                data.get(
+                    "zone",
+                    "",
                 )
             )
 
@@ -273,6 +255,17 @@ def sort_nodes_semantically(
 
         _, data = item
 
+        # SIL (functional_safety_level) and severity (criticality) are
+        # distinct authorities and must not be conflated (assessment
+        # finding C-04). SIL weights read the SIL authority; the HIGH
+        # severity weight continues to read criticality.
+        sil = str(
+            data.get(
+                "functional_safety_level",
+                ""
+            )
+        ).upper()
+
         criticality = str(
             data.get(
                 "criticality",
@@ -294,10 +287,10 @@ def sort_nodes_semantically(
 
         score = 0
 
-        if "SIL4" in criticality:
+        if "SIL4" in sil:
             score += 100
 
-        elif "SIL3" in criticality:
+        elif "SIL3" in sil:
             score += 70
 
         elif "HIGH" in criticality:

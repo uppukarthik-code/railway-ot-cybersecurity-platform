@@ -413,14 +413,14 @@ def create_assets(
         security_level_target:
             $security_level_target,
 
-        trusted_zone:
-            $trusted_zone,
+        is_trusted_zone:
+            $is_trusted_zone,
 
         safety_critical:
             $safety_critical,
 
-        safety_integrity_level:
-            $safety_integrity_level,
+        functional_safety_level:
+            $functional_safety_level,
 
         security_safety_coupled:
             $security_safety_coupled,
@@ -558,9 +558,9 @@ def create_assets(
                             "security_level_target"
                         ),
 
-                    "trusted_zone":
+                    "is_trusted_zone":
                         node.get(
-                            "trusted_zone"
+                            "is_trusted_zone"
                         ),
 
                     "safety_critical":
@@ -568,9 +568,9 @@ def create_assets(
                             "safety_critical"
                         ),
 
-                    "safety_integrity_level":
+                    "functional_safety_level":
                         node.get(
-                            "safety_integrity_level"
+                            "functional_safety_level"
                         ),
 
                     "security_safety_coupled":

@@ -37,6 +37,7 @@ from prompts import SYSTEM_PROMPT, build_user_prompt
 from railway_rules import (
     FORBIDDEN_NODE_TYPES,
     FORBIDDEN_LABEL_PATTERNS,
+    is_forbidden_flow,
 )
 
 from ontology import (
@@ -697,9 +698,13 @@ def filter_topology(topology: dict) -> dict:
 
     valid_ids = {n["id"] for n in filtered_nodes}
 
+    node_type_by_id = {n["id"]: n.get("type", "") for n in filtered_nodes}
+
     filtered_connections = []
 
     malformed = 0
+
+    forbidden = 0
 
     for conn in topology.get("connections", []):
 
@@ -712,6 +717,16 @@ def filter_topology(topology: dict) -> dict:
             malformed += 1
             continue
 
+        # Architecturally forbidden asset-type flows are dropped at
+        # generation time so they never reach the rendered topology.
+        if is_forbidden_flow(
+            normalize_node_type(node_type_by_id.get(source, "")),
+            normalize_node_type(node_type_by_id.get(target, "")),
+        ):
+
+            forbidden += 1
+            continue
+
         filtered_connections.append(conn)
 
     topology["connections"] = filtered_connections
@@ -719,6 +734,10 @@ def filter_topology(topology: dict) -> dict:
     if malformed:
 
         print(f"[WARN] Removed {malformed} malformed connections.")
+
+    if forbidden:
+
+        print(f"[WARN] Removed {forbidden} forbidden flow connections.")
 
     topology = set_pipeline_stage(
         topology,
@@ -1204,7 +1223,26 @@ def main():
 
         print_report(findings)
 
-        analyze_risk(pipeline_topology)
+        risk_findings = analyze_risk(pipeline_topology)
+
+        # ====================================================
+        # PERSISTENT EVIDENCE (reporting layer only)
+        # ====================================================
+        # Serialize the findings already computed above into durable
+        # assessment artifacts under outputs/. This is reporting-only:
+        # it creates no findings, mutates nothing, and is silent so the
+        # console output above is unchanged. It never raises.
+        try:
+            from reporting import generate_reports
+
+            generate_reports(
+                pipeline_topology,
+                findings,
+                risk_findings,
+                OUTPUTS_DIR,
+            )
+        except Exception:
+            pass
 
     # ========================================================
     # SAVE OUTPUTS

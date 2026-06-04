@@ -280,6 +280,27 @@ def classify_node(
     node["safety_domain"] = safety_domain
 
     # --------------------------------------------------------
+    # Safety integrity level (SIL)
+    # --------------------------------------------------------
+    # ASSET_ONTOLOGY.functional_safety_level is the single SIL
+    # authority. Propagate it onto the runtime node so node-level
+    # consumers (exporters, Neo4j, attack-path/layout scoring) read the
+    # authoritative value instead of an empty field (assessment finding
+    # C-01). ``criticality`` is the orthogonal SEVERITY authority
+    # (HIGH/MEDIUM) and is propagated alongside so the two are no longer
+    # conflated (assessment finding C-04: criticality != SIL).
+
+    node["functional_safety_level"] = ontology.get(
+        "functional_safety_level",
+        "",
+    )
+
+    node["criticality"] = ontology.get(
+        "criticality",
+        "",
+    )
+
+    # --------------------------------------------------------
     # Zone semantics
     # --------------------------------------------------------
 

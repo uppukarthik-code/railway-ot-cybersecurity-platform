@@ -44,9 +44,12 @@ from aliases import (
 from railway_rules import (
     get_flow_rule,
     get_trust_boundary,
+    get_transmission_category,
     is_monitoring_exempt,
     is_inspection_exempt,
     is_firewall_exempt,
+    has_monitoring_infrastructure,
+    is_monitored_zone,
 )
 
 # ============================================================
@@ -271,7 +274,7 @@ def apply_conduit_policy(
     # MONITORING
     # ========================================================
 
-    if policy.get("monitoring", False) and not detached_conduit:
+    if policy.get("requires_monitoring", False) and not detached_conduit:
 
         monitoring_exempt = is_monitoring_exempt(source_type) or is_monitoring_exempt(
             target_type
@@ -289,7 +292,7 @@ def apply_conduit_policy(
     # MFA
     # ========================================================
 
-    if policy.get("mfa", False):
+    if policy.get("requires_mfa", False):
 
         set_required_control(
             conn,
@@ -301,7 +304,7 @@ def apply_conduit_policy(
     # ENCRYPTION
     # ========================================================
 
-    if policy.get("encryption", False):
+    if policy.get("requires_encryption", False):
 
         set_required_control(
             conn,
@@ -313,7 +316,7 @@ def apply_conduit_policy(
     # AUTHENTICATION
     # ========================================================
 
-    if policy.get("authentication", False):
+    if policy.get("requires_authentication", False):
 
         set_required_control(
             conn,
@@ -325,7 +328,7 @@ def apply_conduit_policy(
     # INTEGRITY
     # ========================================================
 
-    if policy.get("integrity", False):
+    if policy.get("requires_integrity", False):
 
         set_required_control(
             conn,
@@ -337,7 +340,7 @@ def apply_conduit_policy(
     # REPLAY PROTECTION
     # ========================================================
 
-    if policy.get("replay_protection", False) and not conn.get(
+    if policy.get("requires_replay_protection", False) and not conn.get(
         "passive_telegram",
         False,
     ):
@@ -352,7 +355,7 @@ def apply_conduit_policy(
     # FIREWALL
     # ========================================================
 
-    if policy.get("firewall", False) and not detached_conduit:
+    if policy.get("requires_firewall", False) and not detached_conduit:
 
         set_required_control(
             conn,
@@ -364,7 +367,7 @@ def apply_conduit_policy(
     # INSPECTION
     # ========================================================
 
-    if policy.get("inspection", False) and not detached_conduit:
+    if policy.get("requires_inspection", False) and not detached_conduit:
 
         set_required_control(
             conn,
@@ -377,7 +380,7 @@ def apply_conduit_policy(
     # ========================================================
 
     if policy.get(
-        "latency_monitoring",
+        "requires_latency_monitoring",
         False,
     ):
 
@@ -404,6 +407,14 @@ def apply_security_controls(
             [],
         )
     }
+
+    # Security-monitoring instrumentation present in this topology?
+    # Monitoring coverage is only credited when real instrumentation
+    # (SIEM / IDS / IPS / SOC) exists — never as a blanket waiver.
+    monitoring_infra_present = has_monitoring_infrastructure(
+        normalize_node_type(node.get("type", ""))
+        for node in topology.get("nodes", [])
+    )
 
     for conn in topology.get(
         "connections",
@@ -462,10 +473,12 @@ def apply_security_controls(
                 value,
             )
 
-        conn.setdefault(
-            "conduit_class",
-            DEFAULT_CONDUIT_CLASS,
-        )
+        # NOTE: conduit_class is intentionally NOT seeded here.
+        # Seeding "unclassified" before the FLOW_RULES lookup
+        # (below) blocked apply_flow_rule_semantics() from ever
+        # applying the railway_rules classification. The class is
+        # now resolved from FLOW_RULES first and only falls back
+        # to the placeholder default in apply_conduit_policy().
 
         # ====================================================
         # NODE LOOKUP
@@ -661,6 +674,71 @@ def apply_security_controls(
             conn["safety_flow"] = True
 
         # ====================================================
+        # EN 50159 CATEGORY-1 SAFETY-LAYER CREDIT
+        #
+        # For a closed trusted transmission (Category 1) over a protocol
+        # whose safety layer provides functional integrity (safety code
+        # + sequence numbers), EN 50159 is satisfied for INTEGRITY and
+        # REPLAY by the safety layer. Cryptographic AUTHENTICATION and
+        # ENCRYPTION are deliberately NOT credited and remain required
+        # wherever the conduit profile demands them.
+        # ====================================================
+
+        if (
+            protocol_known
+            and get_transmission_category(rule) == 1
+            and protocol_meta.get("functional_integrity", False)
+        ):
+
+            set_default_control(
+                conn,
+                "integrity_protection",
+                True,
+                "en50159_cat1_safety_layer",
+            )
+
+            set_default_control(
+                conn,
+                "replay_protection",
+                True,
+                "en50159_cat1_safety_layer",
+            )
+
+            conn.setdefault(
+                "en50159_safety_layer_credited",
+                True,
+            )
+
+        # ====================================================
+        # EN 50159 PASSIVE SAFETY-TELEGRAM INTEGRITY CREDIT
+        #
+        # A passive safety telegram (e.g. EUROBALISE / RFID_AIR balise)
+        # is statically safety-coded; its functional integrity is
+        # provided by the telegram safety code regardless of the open
+        # air-gap. This credits INTEGRITY only — NOT authentication,
+        # encryption or replay (a passive one-way telegram has no
+        # session to authenticate or replay-protect).
+        # ====================================================
+
+        if (
+            protocol_known
+            and protocol_meta.get("passive_telegram_system", False)
+            and protocol_meta.get("functional_integrity", False)
+        ):
+
+            set_default_control(
+                conn,
+                "integrity_protection",
+                True,
+                "en50159_passive_telegram",
+            )
+
+            conn.setdefault(
+                "en50159_safety_layer_credited",
+                True,
+            )
+
+        # ====================================================
         # TRUST BOUNDARY
         # ====================================================
 
@@ -673,6 +751,29 @@ def apply_security_controls(
             "zone",
             "unknown",
         )
+
+        # ====================================================
+        # SECURITY-MONITORING COVERAGE (topology fidelity)
+        #
+        # Where deployed monitoring instrumentation (SIEM/IDS/IPS/SOC)
+        # exists and a conduit endpoint sits in a SOC-instrumented zone,
+        # the conduit IS monitored by that instrumentation. This models
+        # real coverage so the deployed `monitoring` control is asserted
+        # truthfully; it is gated on instrumentation presence and is not
+        # an exemption (remove the instrumentation and the credit is
+        # withdrawn).
+        # ====================================================
+
+        if monitoring_infra_present and (
+            is_monitored_zone(source_zone) or is_monitored_zone(target_zone)
+        ):
+
+            set_default_control(
+                conn,
+                "monitoring",
+                True,
+                "soc_monitoring_coverage",
+            )
 
         boundary = get_trust_boundary(
             source_zone,
